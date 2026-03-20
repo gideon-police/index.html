@@ -3,502 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GIDEON 🌌 - Космічний помічник НПУ</title>
+    <title>GIDEON 🌌 | Кадровий розділ</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Змінні для неонових кольорів */
         :root {
-            --space-bg: #050a14;
+            --space-bg: #02060c;
             --neon-blue: #00f2fe;
             --neon-purple: #bd00ff;
-            --accent-yellow: #ffd700;
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --text-main: #fff;
-            --text-dark: #b0b0b0;
+            --glass: rgba(255, 255, 255, 0.04);
+            --border: rgba(255, 255, 255, 0.1);
         }
 
         body {
             font-family: 'Roboto', sans-serif;
             background-color: var(--space-bg);
-            margin: 0;
-            padding: 0;
-            color: var(--text-main);
-            display: flex;
-            flex-direction: column;
+            color: #fff;
+            margin: 0; padding: 0;
             min-height: 100vh;
-            overflow-x: hidden;
-            /* Ефект зірок */
-            background-image: 
-                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
-                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
-                radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 3px);
-            background-size: 550px 550px, 350px 350px, 250px 250px;
-            background-position: 0 0, 40px 60px, 130px 270px;
-            animation: starsTransition 60s linear infinite;
+            background-image: radial-gradient(white, rgba(255,255,255,.1) 1px, transparent 1px);
+            background-size: 40px 40px;
         }
 
-        @keyframes starsTransition {
-            from { background-position: 0 0, 40px 60px, 130px 270px; }
-            to { background-position: 550px 550px, 40px 550px, 130px 550px; }
-        }
+        header { padding: 40px 20px; text-align: center; }
+        header h1 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; text-shadow: 0 0 15px var(--neon-blue); margin: 0; }
 
-        h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
 
-        /* Шапка Галактики */
-        header {
-            padding: 40px 20px 20px;
-            text-align: center;
-            position: relative;
-        }
+        /* СЕКЦІЇ МЕНЮ */
+        .section { display: none; animation: fadeIn 0.4s ease; }
+        .section.active { display: block; }
 
-        .logo-area {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        .gideon-icon {
-            font-size: 3rem;
-            color: var(--neon-blue);
-            text-shadow: 0 0 15px var(--neon-blue);
-        }
-
-        header h1 {
-            font-size: 3rem;
-            margin: 0;
-            color: #fff;
-            letter-spacing: 4px;
-            text-shadow: 
-                0 0 10px #fff,
-                0 0 20px var(--neon-blue),
-                0 0 30px var(--neon-purple);
-        }
-
-        header p {
-            margin: 5px 0 0 0;
-            font-weight: 300;
-            opacity: 0.8;
-            color: #b0b0b0;
-            font-size: 1.1rem;
-        }
-
-        /* Основний контент */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto 40px;
-            padding: 20px;
-            flex: 1;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Пошук у стилі Star Wars */
-        .search-container {
-            margin-bottom: 30px;
-            position: relative;
-        }
-
-        .search-box {
-            width: 100%;
-            padding: 18px 20px 18px 55px;
-            border: 2px solid var(--neon-blue);
-            border-radius: 50px;
-            font-size: 18px;
-            background-color: var(--glass-bg);
-            color: #fff;
-            transition: all 0.3s;
-            box-sizing: border-box;
-            backdrop-filter: blur(5px);
-            box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
-        }
-
-        .search-box:focus {
-            outline: none;
-            box-shadow: 0 0 30px rgba(0, 242, 254, 0.6), inset 0 0 10px rgba(0, 242, 254, 0.2);
-            border-color: #fff;
-        }
-
-        .search-icon {
-            position: absolute;
-            top: 50%;
-            left: 20px;
-            transform: translateY(-50%);
-            color: var(--neon-blue);
-            font-size: 1.3rem;
-        }
-
-        /* Космічна Сітка карток (як у прикладі НПУ, але "Галактика") */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
+        /* КАРТКИ-КНОПКИ */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .card {
-            background-color: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-left: 5px solid var(--neon-purple);
+            background: var(--glass);
+            border: 1px solid var(--border);
             padding: 25px;
             border-radius: 15px;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            backdrop-filter: blur(8px);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            transition: 0.3s;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        .card:hover { border-color: var(--neon-blue); box-shadow: 0 0 20px rgba(0, 242, 254, 0.2); transform: translateY(-5px); }
+        .card i { font-size: 2rem; margin-bottom: 15px; display: block; color: var(--neon-blue); }
+
+        /* ПОВІДОМЛЕННЯ (як у SendPulse) */
+        .message-box {
+            background: var(--glass);
+            border-left: 4px solid var(--neon-blue);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            line-height: 1.6;
         }
 
-        .card:hover {
-            transform: translateY(-8px) scale(1.03);
-            box-shadow: 0 15px 40px rgba(189, 0, 255, 0.25);
-            background-color: rgba(189, 0, 255, 0.05);
-            border-color: rgba(189, 0, 255, 0.4);
-        }
-
-        .card-header {
+        /* КНОПКИ СПИСКОМ */
+        .btn-list { display: flex; flex-direction: column; gap: 12px; max-width: 400px; margin: 0 auto; }
+        .btn-item {
+            background: rgba(255,255,255,0.07);
+            border: 1px solid var(--border);
+            color: #fff;
+            padding: 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            text-align: left;
             display: flex;
             align-items: center;
             gap: 15px;
-            margin-bottom: 15px;
-        }
-
-        .card-emoji {
-            font-size: 2rem;
-            text-shadow: 0 0 10px rgba(255,255,255,0.5);
-        }
-
-        .card h3 {
-            margin: 0;
-            color: #fff;
-            font-size: 1.4rem;
-            letter-spacing: 1px;
-            text-shadow: 0 0 5px rgba(255,255,255,0.3);
-        }
-
-        .card p {
-            margin: 0 0 20px 0;
-            color: var(--text-dark);
-            font-size: 0.95rem;
-            line-height: 1.5;
-            flex: 1;
-        }
-
-        .card-action {
-            text-align: right;
-            color: var(--neon-blue);
-            font-weight: bold;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Вікно результату (приховане спочатку) */
-        #resultArea {
-            display: none;
-            animation: spaceIn 0.5s ease;
-        }
-
-        @keyframes spaceIn {
-            from { opacity: 0; transform: translateY(20px) scale(0.9); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
-        }
-
-        .back-btn {
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-            border: 1px solid rgba(255,255,255,0.2);
-            padding: 10px 20px;
-            border-radius: 50px;
-            cursor: pointer;
-            margin-bottom: 25px;
-            transition: all 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            backdrop-filter: blur(5px);
-        }
-
-        .back-btn:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 0 15px rgba(255,255,255,0.2);
-        }
-
-        #resTitle {
-            color: #fff;
-            border-bottom: 2px solid var(--neon-blue);
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            text-shadow: 0 0 10px var(--neon-blue);
-        }
-
-        #resDesc {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            margin-bottom: 30px;
-            background: rgba(255, 255, 255, 0.03);
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid var(--glass-border);
-            color: #d0d0d0;
-        }
-
-        /* Конструктор фабул */
-        .constructor-section {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 25px;
-            border-radius: 15px;
-            margin-top: 30px;
-            border: 1px solid var(--neon-purple);
-            box-shadow: 0 0 20px rgba(189, 0, 255, 0.2);
-        }
-
-        .constructor-section h3 { margin-top: 0; color: #fff; }
-
-        .fabula-box {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 20px;
-            border-radius: 10px;
-            border: 2px dashed var(--neon-blue);
-            position: relative;
-            font-family: 'Courier New', Courier, monospace;
+            transition: 0.2s;
             font-size: 1rem;
-            line-height: 1.6;
-            white-space: pre-wrap;
-            color: #f0f0f0;
-            box-shadow: inset 0 0 10px rgba(0, 242, 254, 0.1);
         }
+        .btn-item:hover { background: var(--neon-blue); color: #000; font-weight: bold; }
 
-        .copy-button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: rgba(0, 242, 254, 0.2);
-            color: var(--neon-blue);
-            border: 1px solid var(--neon-blue);
-            padding: 8px 15px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 7px;
-            font-weight: bold;
-        }
-
-        .copy-button:hover {
-            background-color: var(--neon-blue);
-            color: #000;
-            box-shadow: 0 0 15px var(--neon-blue);
-        }
-
-        /* Підвал */
-        footer {
-            text-align: center;
-            padding: 30px;
-            background-color: #03060c;
-            color: #777;
-            font-size: 14px;
-            margin-top: auto;
-            border-top: 1px solid var(--glass-border);
-        }
-
-        footer strong { color: var(--neon-blue); }
-
-        /* Мобільна адаптація */
-        @media (max-width: 600px) {
-            header h1 { font-size: 2rem; }
-            .container { padding: 15px; }
-            .grid { grid-template-columns: 1fr; }
-            .search-box { padding: 15px 15px 15px 50px; }
-        }
+        .back-link { color: var(--neon-purple); cursor: pointer; display: inline-block; margin-top: 20px; text-decoration: underline; }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo-area">
-        <span class="card-emoji">🛡️</span>
-        <h1>GIDEON</h1>
-        <span class="card-emoji">🌌</span>
-    </div>
-    <p>Космічний навігатор у світі КУпАП / ПДР | Черкащина</p>
+    <h1>GIDEON 🌌</h1>
 </header>
 
 <div class="container">
-    <div id="mainPage">
-        <div class="search-container">
-            <i class="fas fa-search search-icon"></i>
-            <input type="text" class="search-box" id="search" placeholder="Пошук (напр. 130, синій дракон, алкоголь)...">
+
+    <div id="main" class="section active">
+        <div class="grid">
+            <div class="card" onclick="openSection('kadry')">
+                <i class="fas fa-folder-open"></i>
+                <h3>📂 Кадрові питання</h3>
+                <p>Відпустки, рапорти, переведення</p>
+            </div>
+            </div>
+    </div>
+
+    <div id="kadry" class="section">
+        <div class="message-box">
+            Вітаю у кадровому розділі! 📂<br><br>
+            Тут я зібрав для вас актуальні зразки документів, які найчастіше потрібні в роботі. 
+            Не потрібно нічого шукати по папках чи запитувати у колег — обирайте категорію, і я надам готовий шаблон.<br><br>
+            <strong>Що саме вас цікавить?</strong>
         </div>
-        
-        <div class="grid" id="menuGrid">
-            <div class="card" onclick="openArticle('130')">
-                <div>
-                    <div class="card-header">
-                        <span class="card-emoji">🚗🥴</span>
-                        <h3>Стаття 130</h3>
-                    </div>
-                    <p>Керування у стані сп'яніння (алко/нарко). Не роби так!</p>
-                </div>
-                <div class="card-action">Телепорт <i class="fas fa-chevron-right"></i></div>
-            </div>
 
-            <div class="card" onclick="openArticle('122')">
-                <div>
-                    <div class="card-header">
-                        <span class="card-emoji">🚀💨</span>
-                        <h3>Стаття 122</h3>
-                    </div>
-                    <p>Перевищення швидкості, червоне світло, знаки ПДР.</p>
-                </div>
-                <div class="card-action">Телепорт <i class="fas fa-chevron-right"></i></div>
+        <div class="btn-list">
+            <div class="btn-item" onclick="alert('Відкриваємо список відпусток...')">
+                <span>🚢</span> Рапорти на відпустки
             </div>
-
-            <div class="card" onclick="openArticle('173')">
-                <div>
-                    <div class="card-header">
-                        <span class="card-emoji">🤬👊</span>
-                        <h3>Стаття 173</h3>
-                    </div>
-                    <p>Дрібне хуліганство (нецензурна лайка, чіпляння).</p>
-                </div>
-                <div class="card-action">Телепорт <i class="fas fa-chevron-right"></i></div>
+            <div class="btn-item" onclick="alert('Відкриваємо грошову допомогу...')">
+                <span>💰</span> Грошова допомога
             </div>
-
-            <div class="card" onclick="openArticle('185')">
-                <div>
-                    <div class="card-header">
-                        <span class="card-emoji">⛔🚨</span>
-                        <h3>Стаття 185</h3>
-                    </div>
-                    <p>Злісна непокора законній вимозі поліцейського.</p>
-                </div>
-                <div class="card-action">Телепорт <i class="fas fa-chevron-right"></i></div>
+            <div class="btn-item" onclick="alert('Відкриваємо службові зміни...')">
+                <span>💼</span> Службові зміни
             </div>
-
-            <div class="card" onclick="openArticle('121')">
-                <div>
-                    <div class="card-header">
-                        <span class="card-emoji">🔧⛔</span>
-                        <h3>Стаття 121</h3>
-                    </div>
-                    <p>Технічні несправності, переобладнання, ремені безпеки.</p>
-                </div>
-                <div class="card-action">Телепорт <i class="fas fa-chevron-right"></i></div>
-            </div>
-
-            <div class="card" onclick="alert('Розділ ПДР у розробці! 🛠️')">
-                <div>
-                    <div class="card-header">
-                        <span class="card-emoji">🗺️🛰️</span>
-                        <h3>ПДР 2026</h3>
-                    </div>
-                    <p>Карта зоряних шляхів та правил пересування.</p>
-                </div>
-                <div class="card-action">Скоро...</div>
+            <div class="btn-item" onclick="openSection('main')" style="border-color: var(--neon-purple);">
+                <span>🏠</span> Головне меню
             </div>
         </div>
     </div>
 
-    <div id="resultArea">
-        <button class="back-btn" onclick="goBack()">
-            <i class="fas fa-planet-ringed"></i> Повернутися до навігації
-        </button>
-        <h2 id="resTitle">Назва Модуля</h2>
-        <p id="resDesc">Інструкція з кваліфікації...</p>
-        
-        <div class="constructor-section">
-            <h3>🛸 Трансмітер фабули (КУпАП):</h3>
-            <div class="fabula-box">
-                <button class="copy-button" onclick="copyText()">
-                    <i class="fas fa-robot"></i> Скопіювати
-                </button>
-                <div id="resFabula">Текст фабули...</div>
-            </div>
-        </div>
-    </div>
 </div>
 
-<footer>
-    &copy; 2026 <strong>GIDEON System</strong> v1.0 | Розроблено для НПУ | Космічний сектор Черкащина
-</footer>
-
 <script>
-    // БАЗА ДАНИХ GIDEON (Тут можна додавати нові статті)
-    const data = {
-        '130': {
-            title: "Стаття 130 ч.1 КУпАП 🥴🥂",
-            desc: "Керування транспортними засобами особами, які перебувають у стані алкогольного, наркотичного чи іншого сп'яніння...",
-            fabula: "Водій [Прізвище] [Ім'я], [Дата народження], керуючи транспортним засобом [Марка ТЗ], днз [Номер], у м. Черкаси по вул. [Вулиця], перебував у стані алкогольного сп'яніння. Огляд проведено за допомогою приладу Драгер №... Результат: ... проміле. Відсторонений."
-        },
-        '122': {
-            title: "Стаття 122 ч.1 КУпАП 💨🚀",
-            desc: "Перевищення встановлених обмежень швидкості руху ТЗ більш як на 20 кілометрів на годину, порушення вимог дорожніх знаків.",
-            fabula: "Водій [Прізвище] [Ім'я], керуючи ТЗ [Марка], днз [Номер], рухався по [Адреса/Вулиця] зі швидкістю [Швидкість] км/год, чим перевищив дозволену швидкість руху на [Різниця] км/год. Вимірювання приладом TruCam №..."
-        },
-        '173': {
-            title: "Стаття 173 КУпАП 🤬👊",
-            desc: "Дрібне хуліганство, тобто нецензурна лайка в громадських місцях, образливе чіпляння до громадян.",
-            fabula: "Гр. [Прізвище] [Ім'я], пребываючи в громадському місці за адресою [Адреса], виражався нецензурною лайкою в бік перехожих, на зауваження не реагував, чим порушив громадський порядок та спокій громадян."
-        },
-        '185': {
-            title: "Стаття 185 КУпАП ⛔🚨",
-            desc: "Злісна непокора законному розпорядженню або вимозі поліцейського.",
-            fabula: "Гр. [Прізвище] [Ім'я] вчинив злісну непокора законній вимозі поліцейського, а саме: відмовився пред'явити документи, намагався залишити місце події, попри неодноразові попередження."
-        },
-        '121': {
-            title: "Стаття 121 ч.1 КУпАП 🔧⛔",
-            desc: "Керування ТЗ із технічними несправностями (гальма, кермо, освітлення тощо).",
-            fabula: "Водій [Прізвище] [Ім'я] керував ТЗ [Марка], днз [Номер], який мав технічні несправності, а саме: (описати несправність, наприклад, не працювала ліва фара в темну пору доби)."
-        }
-    };
-
-    function openArticle(id) {
-        const item = data[id];
-        if(item) {
-            document.getElementById('mainPage').style.display = 'none';
-            document.getElementById('resultArea').style.display = 'block';
-            document.getElementById('resTitle').innerText = item.title;
-            document.getElementById('resDesc').innerText = item.desc;
-            document.getElementById('resFabula').innerText = item.fabula;
-            // Прокручуємо вгору
-            window.scrollTo(0, 0);
-        }
+    function openSection(id) {
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        window.scrollTo(0, 0);
     }
-
-    function goBack() {
-        document.getElementById('mainPage').style.display = 'block';
-        document.getElementById('resultArea').style.display = 'none';
-    }
-
-    function copyText() {
-        const text = document.getElementById('resFabula').innerText;
-        navigator.clipboard.writeText(text).then(() => {
-            // Емоджі сповіщення
-            alert("Фабулу телепортовано до буферу обміну! 👾");
-        });
-    }
-
-    // ЛОГІКА ПОШУКУ
-    document.getElementById('search').addEventListener('input', function(e) {
-        const val = e.target.value.toLowerCase().trim();
-        const cards = document.querySelectorAll('.card');
-        
-        cards.forEach(card => {
-            // Шукаємо в тексті всієї картки
-            if(card.innerText.toLowerCase().includes(val)) {
-                card.style.display = 'flex';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    });
 </script>
 
 </body>
