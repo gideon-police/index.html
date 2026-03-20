@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GIDEON 🌌 | Кадровий розділ</title>
+    <title>GIDEON 🌌 | Кадровий офіцер</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -11,76 +11,80 @@
             --space-bg: #02060c;
             --neon-blue: #00f2fe;
             --neon-purple: #bd00ff;
-            --glass: rgba(255, 255, 255, 0.04);
+            --glass: rgba(255, 255, 255, 0.05);
             --border: rgba(255, 255, 255, 0.1);
         }
 
         body {
             font-family: 'Roboto', sans-serif;
             background-color: var(--space-bg);
-            color: #fff;
-            margin: 0; padding: 0;
+            color: #fff; margin: 0; padding: 0;
             min-height: 100vh;
             background-image: radial-gradient(white, rgba(255,255,255,.1) 1px, transparent 1px);
-            background-size: 40px 40px;
+            background-size: 50px 50px;
         }
 
-        header { padding: 40px 20px; text-align: center; }
-        header h1 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; text-shadow: 0 0 15px var(--neon-blue); margin: 0; }
+        header { padding: 30px 20px; text-align: center; }
+        header h1 { font-family: 'Montserrat', sans-serif; font-size: 2.2rem; text-shadow: 0 0 15px var(--neon-blue); margin: 0; letter-spacing: 3px; }
 
-        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
 
-        /* СЕКЦІЇ МЕНЮ */
         .section { display: none; animation: fadeIn 0.4s ease; }
         .section.active { display: block; }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* КАРТКИ-КНОПКИ */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .card {
-            background: var(--glass);
-            border: 1px solid var(--border);
-            padding: 25px;
-            border-radius: 15px;
-            cursor: pointer;
-            transition: 0.3s;
-            text-align: center;
-            backdrop-filter: blur(10px);
-        }
-        .card:hover { border-color: var(--neon-blue); box-shadow: 0 0 20px rgba(0, 242, 254, 0.2); transform: translateY(-5px); }
-        .card i { font-size: 2rem; margin-bottom: 15px; display: block; color: var(--neon-blue); }
-
-        /* ПОВІДОМЛЕННЯ (як у SendPulse) */
         .message-box {
             background: var(--glass);
             border-left: 4px solid var(--neon-blue);
-            padding: 30px;
+            padding: 25px;
             border-radius: 15px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             font-size: 1.1rem;
             line-height: 1.6;
+            backdrop-filter: blur(10px);
         }
 
-        /* КНОПКИ СПИСКОМ */
-        .btn-list { display: flex; flex-direction: column; gap: 12px; max-width: 400px; margin: 0 auto; }
+        .btn-list { display: flex; flex-direction: column; gap: 10px; }
+        
         .btn-item {
-            background: rgba(255,255,255,0.07);
+            background: rgba(255,255,255,0.06);
             border: 1px solid var(--border);
             color: #fff;
-            padding: 15px;
-            border-radius: 50px;
+            padding: 16px 20px;
+            border-radius: 12px;
             cursor: pointer;
             text-align: left;
             display: flex;
             align-items: center;
             gap: 15px;
-            transition: 0.2s;
+            transition: all 0.2s;
             font-size: 1rem;
+            line-height: 1.4;
         }
-        .btn-item:hover { background: var(--neon-blue); color: #000; font-weight: bold; }
 
-        .back-link { color: var(--neon-purple); cursor: pointer; display: inline-block; margin-top: 20px; text-decoration: underline; }
+        .btn-item:hover { 
+            background: linear-gradient(90deg, rgba(0,242,254,0.1), rgba(189,0,255,0.1));
+            border-color: var(--neon-blue);
+            transform: translateX(5px);
+        }
+
+        .card-main {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            padding: 30px;
+            border-radius: 20px;
+            cursor: pointer;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .card-main:hover { border-color: var(--neon-blue); box-shadow: 0 0 20px rgba(0,242,254,0.2); }
+
+        .back-btn {
+            background: none; border: none; color: var(--neon-purple);
+            cursor: pointer; font-size: 1rem; margin-bottom: 15px;
+            display: flex; align-items: center; gap: 8px;
+        }
     </style>
 </head>
 <body>
@@ -92,36 +96,38 @@
 <div class="container">
 
     <div id="main" class="section active">
-        <div class="grid">
-            <div class="card" onclick="openSection('kadry')">
-                <i class="fas fa-folder-open"></i>
-                <h3>📂 Кадрові питання</h3>
-                <p>Відпустки, рапорти, переведення</p>
-            </div>
-            </div>
-    </div>
-
-    <div id="kadry" class="section">
-        <div class="message-box">
-            Вітаю у кадровому розділі! 📂<br><br>
-            Тут я зібрав для вас актуальні зразки документів, які найчастіше потрібні в роботі. 
-            Не потрібно нічого шукати по папках чи запитувати у колег — обирайте категорію, і я надам готовий шаблон.<br><br>
-            <strong>Що саме вас цікавить?</strong>
+        <div class="card-main" onclick="openSection('kadry')">
+            <i class="fas fa-users-cog" style="font-size: 3rem; color: var(--neon-blue); margin-bottom: 15px;"></i>
+            <h3>📂 Кадрові питання</h3>
+            <p style="color: #aaa;">Відпустки, рапорти, переведення</p>
+        </div>
         </div>
 
+    <div id="kadry" class="section">
+        <button class="back-btn" onclick="openSection('main')">⬅️ Назад</button>
+        <div class="message-box">
+            Вітаю у кадровому розділі! 📂<br><br>
+            Оберіть категорію, і я надам готовий шаблон.
+        </div>
         <div class="btn-list">
-            <div class="btn-item" onclick="alert('Відкриваємо список відпусток...')">
-                <span>🚢</span> Рапорти на відпустки
-            </div>
-            <div class="btn-item" onclick="alert('Відкриваємо грошову допомогу...')">
-                <span>💰</span> Грошова допомога
-            </div>
-            <div class="btn-item" onclick="alert('Відкриваємо службові зміни...')">
-                <span>💼</span> Службові зміни
-            </div>
-            <div class="btn-item" onclick="openSection('main')" style="border-color: var(--neon-purple);">
-                <span>🏠</span> Головне меню
-            </div>
+            <div class="btn-item" onclick="openSection('vidpustky')"><span>🚢</span> Рапорти на відпустки</div>
+            <div class="btn-item"><span>💰</span> Грошова допомога</div>
+            <div class="btn-item"><span>💼</span> Службові зміни</div>
+        </div>
+    </div>
+
+    <div id="vidpustky" class="section">
+        <button class="back-btn" onclick="openSection('kadry')">⬅️ Назад до кадрів</button>
+        <div class="message-box">
+            Відпочинок — це не розкіш, а службова необхідність! 🏖️<br><br>
+            Щоб я міг надіслати правильні бланки, уточніть, яку саме відпустку ви плануєте оформити:
+        </div>
+        <div class="btn-list">
+            <div class="btn-item" onclick="alert('Відкриваємо шаблон...')"><span>📅</span> Частина основної щорічної відпустки</div>
+            <div class="btn-item" onclick="alert('Відкриваємо шаблон...')"><span>⏳</span> Невикористана частина основної щорічної відпустки</div>
+            <div class="btn-item" onclick="alert('Відкриваємо шаблон...')"><span>🧩</span> Основна щорічна + додаткова відпустка</div>
+            <div class="btn-item" onclick="alert('Відкриваємо шаблон...')"><span>➕</span> Додаткова відпустка</div>
+            <div class="btn-item" onclick="alert('Відкриваємо шаблон...')"><span>🎖️</span> Відпустка УБД — додаткові 14 днів для захисників. (Не забудь додати копію посвідчення)</div>
         </div>
     </div>
 
