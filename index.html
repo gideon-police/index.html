@@ -40,8 +40,10 @@
         .info-step { border-left: 2px solid var(--neon); padding-left: 20px; margin-bottom: 25px; }
         .info-step h4 { color: var(--neon); margin: 0 0 10px 0; }
         .contact-box { background: rgba(255,255,255,0.03); padding: 20px; border-radius: 15px; margin-bottom: 15px; border: 1px solid var(--border); transition: 0.3s; }
+        .contact-box h3 { margin-top: 0; color: var(--neon); font-size: 1.1rem; }
+        .contact-box p { margin: 5px 0; font-size: 0.95rem; color: #ccc; }
         .list-style { padding-left: 20px; color: #d0d0d0; list-style-type: none; }
-        .list-style li { margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px; }
+        .list-style li { margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px; }
         .list-style li i { color: var(--neon); margin-top: 4px; }
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center; }
         .modal-content { background: #0a0f1d; padding: 40px; border-radius: 20px; border: 1px solid var(--neon); text-align: center; width: 400px; }
@@ -111,7 +113,7 @@
                 <div class="cards-grid">
                     <div class="sub-card" onclick="switchTab('ubd-money')"><i class="fas fa-hand-holding-usd"></i><h3>Грошова підтримка</h3><p>Виплати від міської ради.</p></div>
                     <div class="sub-card" onclick="switchTab('ubd-discounts')"><i class="fas fa-gift"></i><h3>Акції та знижки</h3><p>АЗС, Магазини, Спорт.</p></div>
-                    <div class="sub-card" onclick="switchTab('ubd-communal')"><i class="fas fa-home"></i><h3>Пільги на комуналку</h3><p>Як оформити -75% знижки.</p></div>
+                    <div class="sub-card" onclick="switchTab('ubd-communal')"><i class="fas fa-home-billing"></i><h3>Пільги на комуналку</h3><p>Як оформити -75% знижки.</p></div>
                     <div class="sub-card" onclick="switchTab('ubd-medical')"><i class="fas fa-hospital-user"></i><h3>Медицина та реабілітація</h3><p>Спеціальні умови лікування.</p></div>
                 </div>
             </div>
@@ -140,13 +142,69 @@
                     <p><i class="fas fa-phone"></i> 0472-393-601 [cite: 4]</p>
                 </div>
                 <div class="cards-grid">
-                    <div class="contact-box"><h3>🏢 ВПД № 1 (м. Черкаси)</h3><p>Начальник: підполковник поліції Кирило Барашковський [cite: 6]</p><p><i class="fas fa-map-marker-alt"></i> провулок Медичний, 3 [cite: 7]</p><p><i class="fas fa-phone"></i> 0472-373-515 [cite: 8]</p></div>
-                    <div class="contact-box"><h3>🏢 ВПД № 2 (м. Чигирин)</h3><p>Т.в.о. нач: підполковник поліції Андрій Долінський [cite: 10]</p><p><i class="fas fa-map-marker-alt"></i> м. Чигирин, вул. Б. Хмельницького, 55 [cite: 11]</p><p><i class="fas fa-phone"></i> 0230-600-03 [cite: 12]</p></div>
+                    <div class="contact-box"><h3>🏢 ВПД № 1 (м. Черкаси)</h3><p>Начальник: підполковник поліції Кирило Барашковський [cite: 6]</p><p><i class="fas fa-map-marker-alt"></i> провулок Медичний, 3, м.Черкаси [cite: 7]</p><p><i class="fas fa-phone"></i> 0472-373-515 [cite: 8]</p></div>
+                    <div class="contact-box"><h3>🏢 ВПД № 2 (м. Чигирин)</h3><p>Т.в.о. начальника: підполковник поліції Андрій Долінський [cite: 10]</p><p><i class="fas fa-map-marker-alt"></i> м. Чигирин, вул. Б. Хмельницького, 55 [cite: 11]</p><p><i class="fas fa-phone"></i> 0230-600-03 [cite: 12]</p></div>
                     <div class="contact-box"><h3>🏢 Відділ поліції № 1 (м. Канів)</h3><p>Начальник: майор поліції В’ячеслав Ступенко [cite: 14]</p><p><i class="fas fa-map-marker-alt"></i> м. Канів, вул. Енергетиків, 86 [cite: 15]</p><p><i class="fas fa-phone"></i> 0236-387-02 [cite: 16]</p></div>
                     <div class="contact-box"><h3>🏢 Відділ поліції № 2 (м. Сміла)</h3><p>Начальник: майор поліції Сергій Данилюк [cite: 18]</p><p><i class="fas fa-map-marker-alt"></i> м. Сміла, вул. Перемоги, 13 [cite: 19]</p><p><i class="fas fa-phone"></i> 04733-410-72 [cite: 20]</p></div>
                     <div class="contact-box"><h3>🏢 СПД № 1 (м. Кам'янка)</h3><p>Начальник: підполковник поліції Валерій Паливода [cite: 22]</p><p><i class="fas fa-map-marker-alt"></i> м. Кам’янка, вул. Пушкіна, 50 [cite: 23]</p><p><i class="fas fa-phone"></i> 0232-615-07 [cite: 24]</p></div>
-                    <div class="contact-box"><h3>🏢 Відділення поліції № 1 (м. Корсунь)</h3><p>Начальник: підполковник поліції Ігор Кротов [cite: 26]</p><p><i class="fas fa-map-marker-alt"></i> вул. Я. Мудрого, 36 [cite: 27]</p><p><i class="fas fa-phone"></i> 04735-208-52 [cite: 28]</p></div>
+                    <div class="contact-box"><h3>🏢 Відділення поліції № 1 (м. Корсунь)</h3><p>Начальник: підполковник поліції Ігор Кротов [cite: 26]</p><p><i class="fas fa-map-marker-alt"></i> м. Корсунь-Шевченківський, вул. Я. Мудрого, 36 [cite: 27]</p><p><i class="fas fa-phone"></i> 04735-208-52 [cite: 28]</p></div>
                     <div class="contact-box"><h3>🏢 СПД № 1 (м. Городище)</h3><p>Начальник: полковник поліції Андрій Друмов [cite: 30]</p><p><i class="fas fa-map-marker-alt"></i> м. Городище, вул. Миру, 77 [cite: 31]</p></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="cont-urup" class="content-section">
+            <div class="glass-panel">
+                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('sub-contacts')">← НАЗАД ДО ДЕРЕВА</button>
+                <h2>Уманське районне управління</h2>
+                <div class="contact-box" style="border: 2px solid var(--neon);">
+                    <h3>🏛️ Уманське районне управління поліції</h3>
+                    <p><strong>Начальник:</strong> полковник поліції Олександр ГНЄДОВ [cite: 43]</p>
+                    <p><i class="fas fa-map-marker-alt"></i> м. Умань, вул. Незалежності, 35 [cite: 44]</p>
+                    <p><i class="fas fa-phone"></i> 0(4744) 40366 [cite: 45]</p>
+                </div>
+                <div class="cards-grid">
+                    <div class="contact-box"><h3>🏢 ВПД № 1 (м. Монастирище)</h3><p>Начальник: майор поліції Сергій Журавльов [cite: 47]</p><p><i class="fas fa-map-marker-alt"></i> м. Монастирище, вул. Гагаріна, 8 [cite: 48]</p></div>
+                    <div class="contact-box"><h3>🏢 ВПД № 2 (м. Умань)</h3><p>Начальник: підполковник поліції Ігор Козаченко [cite: 50]</p><p><i class="fas fa-map-marker-alt"></i> м. Умань, вул. Європейська, 35 [cite: 51]</p></div>
+                    <div class="contact-box"><h3>🏢 ВПД № 3 (м. Христинівка)</h3><p>Начальник: майор поліції Павло Сухецький [cite: 53]</p><p><i class="fas fa-map-marker-alt"></i> м. Христинівка, вул. Шевченка, 42 [cite: 54]</p><p><i class="fas fa-phone"></i> 0 (4745) 2-26-61 [cite: 55]</p></div>
+                    <div class="contact-box"><h3>🏢 Відділ поліції № 1 (м. Жашків)</h3><p>Начальник: підполковник поліції Андрій Чермісов [cite: 57]</p><p><i class="fas fa-map-marker-alt"></i> м. Жашків, вул. Соборна, 100 [cite: 58]</p><p><i class="fas fa-phone"></i> 0 (4747) 6-21-31 [cite: 59]</p></div>
+                    <div class="contact-box"><h3>🏢 СПД № 1 (сел. Маньківка)</h3><p>Начальник: підполковник поліції Андрій Бенеда [cite: 61]</p><p><i class="fas fa-map-marker-alt"></i> селище Маньківка, вул. Соборна, 24 [cite: 62]</p></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="cont-zven" class="content-section">
+            <div class="glass-panel">
+                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('sub-contacts')">← НАЗАД ДО ДЕРЕВА</button>
+                <h2>Звенигородське районне управління</h2>
+                <div class="contact-box" style="border: 2px solid var(--neon);">
+                    <h3>🏛️ Звенигородський районний відділ поліції</h3>
+                    <p><strong>Тимчасово виконуючий обов'язки начальника:</strong> полковник поліції Станіслав ЗАГУРСЬКИЙ [cite: 64]</p>
+                    <p><i class="fas fa-map-marker-alt"></i> м. Звенигородка, вул. Благовісна, 50 [cite: 65]</p>
+                    <p><i class="fas fa-phone"></i> 0 (4740) 2-22-78 [cite: 66]</p>
+                </div>
+                <div class="cards-grid">
+                    <div class="contact-box"><h3>🏢 ВПД № 1 (м. Тальне)</h3><p>Начальник: майор поліції Максим Поліщук [cite: 68]</p><p><i class="fas fa-map-marker-alt"></i> м. Тальне вул. Соборна, 11 [cite: 69]</p><p><i class="fas fa-phone"></i> 0 (4731) 3-02-02 [cite: 70]</p></div>
+                    <div class="contact-box"><h3>🏢 ВПД № 2 (м. Шпола)</h3><p>Начальник: полковник поліції Віталій Сивенюк [cite: 72]</p><p><i class="fas fa-map-marker-alt"></i> м. Шпола, вул. Волонтерська, 24 [cite: 73]</p><p><i class="fas fa-phone"></i> 0 (4741) 5-25-20 [cite: 74]</p></div>
+                    <div class="contact-box"><h3>🏢 СПД № 1 (сел. Калинопіль)</h3><p>Начальник: капітан поліції Анатолій Лимаренко [cite: 76]</p><p><i class="fas fa-map-marker-alt"></i> селище Калинопіль, вул. Соборна, 44 [cite: 77]</p><p><i class="fas fa-phone"></i> (04742) 2-26-00 [cite: 78]</p></div>
+                    <div class="contact-box"><h3>🏢 СПД № 2 (смт Лисянка)</h3><p>Начальник: майор поліції Олександр Антощенко [cite: 80]</p><p><i class="fas fa-map-marker-alt"></i> селище Лисянка, провулок Поштовий, 8 [cite: 81]</p><p><i class="fas fa-phone"></i> 098 285 3507 [cite: 82]</p></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="cont-zolo" class="content-section">
+            <div class="glass-panel">
+                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('sub-contacts')">← НАЗАД ДО ДЕРЕВА</button>
+                <h2>Золотоніський районний відділ</h2>
+                <div class="contact-box" style="border: 2px solid var(--neon);">
+                    <h3>🏛️ Золотоніський районний відділ поліції</h3>
+                    <p><strong>Тимчасово виконуючий обов'язки начальника:</strong> підполковник поліції Олег МІЩЕНКО [cite: 33]</p>
+                    <p><i class="fas fa-map-marker-alt"></i> м. Золотоноша, вул. Січова, 3 [cite: 34]</p>
+                    <p><i class="fas fa-phone"></i> 04737-525-70 [cite: 35]</p>
+                </div>
+                <div class="cards-grid">
+                    <div class="contact-box"><h3>🏢 ВПД № 1 (сел. Драбів)</h3><p>Начальник: майор поліції Юрій Куліш [cite: 37]</p><p><i class="fas fa-map-marker-alt"></i> селище Драбів, вул. Центральна, 81 [cite: 38]</p></div>
+                    <div class="contact-box"><h3>🏢 ВПД № 2 (сел. Чорнобай)</h3><p>Начальник: підполковник поліції Олег Скачко [cite: 40]</p><p><i class="fas fa-map-marker-alt"></i> селище Чорнобай, вул. Центральна, 216 [cite: 41]</p></div>
                 </div>
             </div>
         </div>
@@ -155,13 +213,20 @@
             <div class="glass-panel">
                 <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('ubd-main')">← НАЗАД</button>
                 <h2>💵 Грошові виплати та допомога (м. Черкаси)</h2>
-                <div class="info-step"><h4>🔹 Місцева виплата (до Дня захисників)</h4><p>У 2025 році сума становила 3 000 грн. У 2026 році суму може бути змінено. Оформлюється через Департамент соцполітики.</p></div>
-                <div class="info-step"><h4>🔹 Допомога до Дня Незалежності</h4><p>Виплачується замість виплати до 5 травня. Розмір визначається урядом щороку (орієнтовно від 1 000 грн).</p></div>
-                <div class="info-step"><h4>🔹 Допомога добровольцям (ДФТГ)</h4><p>30 000 грн щорічно для бійців, які офіційно задіяні у виконанні бойових розпоряджень.</p></div>
+                <p>Окрім загальнодержавних пільг, у нашому місті діють додаткові програми фінансової підтримки захисників та ветеранів.</p>
+                <div class="info-step">
+                    <h4>💰 Види виплат у Черкасах:</h4>
+                    <ul class="list-style">
+                        <li><i class="fas fa-check"></i> <strong>Місцева виплата (до Дня захисників):</strong> у 2025 р. — 3 000 грн. У 2026 р. суму може бути змінено.</li>
+                        <li><i class="fas fa-check"></i> <strong>Допомога до Дня Незалежності:</strong> розмір визначається урядом щороку.</li>
+                        <li><i class="fas fa-check"></i> <strong>Допомога добровольцям (ДФТГ):</strong> 30 000 грн щорічно.</li>
+                        <li><i class="fas fa-check"></i> <strong>Компенсація за житло:</strong> для осіб з інвалідністю та родин загиблих.</li>
+                    </ul>
+                </div>
                 <div class="contact-box">
                     <h3>🏢 Департамент соціальної політики ЧМР</h3>
                     <p>📍 м. Черкаси, бул. Шевченка, 307, каб. 104.</p>
-                    <p>📞 (0472) 33-63-29 | (0472) 54-22-01 (запис на прийом).</p>
+                    <p>📞 (0472) 33-63-29 | (0472) 54-22-01 (запис).</p>
                 </div>
             </div>
         </div>
@@ -169,12 +234,20 @@
         <div id="ubd-discounts" class="content-section">
             <div class="glass-panel">
                 <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('ubd-main')">← НАЗАД</button>
-                <h2>⛽ Знижки та Транспорт</h2>
+                <h2>⛽ Знижки, Магазини та Транспорт</h2>
                 <div class="cards-grid">
-                    <div class="contact-box"><h3>🚗 АЗС</h3><p><strong>WOG/OKKO:</strong> знижки через PRIDE/Fishka (+2-3 грн вигоди).</p><p><strong>Укрнафта:</strong> Спеціальна ціна при пред'явленні посвідчення.</p></div>
-                    <div class="contact-box"><h3>🛒 МАГАЗИНИ</h3><p><strong>Епіцентр:</strong> Бальна система реєстрації на інфокасі.</p><p><strong>Велмарт/Кишеня:</strong> Соціальні знижки на власні бренди.</p></div>
+                    <div class="contact-box"><h3>🚗 АЗС</h3><p><strong>WOG / OKKO:</strong> знижки через PRIDE/Fishka (+2-3 грн вигоди).</p><p><strong>Укрнафта:</strong> спеціальна ціна при пред'явленні посвідчення.</p></div>
+                    <div class="contact-box"><h3>🛒 МАГАЗИНИ</h3><p><strong>Епіцентр:</strong> бальна система (реєстрація на інфокасі).</p><p><strong>Велмарт / Велика Кишеня:</strong> соціальні знижки.</p></div>
+                    <div class="contact-box"><h3>🏟️ СПОРТ</h3><p><strong>Matrix / Дніпро-Плаза:</strong> пільгові абонементи (30-50% знижка).</p></div>
                 </div>
-                <div class="info-step" style="margin-top:20px;"><h4>🚆 ТРАНСПОРТ</h4><ul class="list-style"><li>Тролейбуси: Безкоштовно.</li><li>Маршрутки: Безкоштовно (згідно з квотою).</li><li>Потяг/Автобус (міжміські): -75% на квиток.</li></ul></div>
+                <div class="info-step" style="margin-top:20px;">
+                    <h4>🚆 ТРАНСПОРТ</h4>
+                    <ul class="list-style">
+                        <li><i class="fas fa-bus"></i> Тролейбуси: безкоштовно.</li>
+                        <li><i class="fas fa-shuttle-van"></i> Маршрутки: безкоштовно (згідно з квотою).</li>
+                        <li><i class="fas fa-train"></i> Потяг / Автобус: -75% на міжміські квитки.</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
@@ -182,8 +255,17 @@
             <div class="glass-panel">
                 <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('ubd-main')">← НАЗАД</button>
                 <h2>🏠 Пільги на комунальні послуги (-75%)</h2>
-                <div class="info-step"><h4>👣 Де оформити в Черкасах?</h4><p>📍 ПФУ: вул. Смілянська, 23 або вул. Гоголя, 390.</p><p>📍 ЦНАП: вул. Благовісна, 170.</p></div>
-                <div class="contact-box"><h3>📋 Необхідні документи:</h3><p>Паспорт, ІПН, Посвідчення УБД, Витяг про реєстрацію, IBAN рахунку, Особові рахунки квитанцій.</p></div>
+                <p>УБД мають право на знижку в межах соціальних норм на газ, електроенергію, воду, опалення та сміття.</p>
+                <div class="info-step">
+                    <h4>👣 Як оформити в Черкасах?</h4>
+                    <p>📍 ПФУ: вул. Смілянська, 23 | вул. Гоголя, 390.</p>
+                    <p>📍 ЦНАП: вул. Благовісна, 170.</p>
+                    <p>🌐 Онлайн: портал електронних послуг ПФУ.</p>
+                </div>
+                <div class="contact-box">
+                    <h3>📋 Необхідні документи:</h3>
+                    <p>Паспорт/ІПН, УБД (оригінал), Витяг про реєстрацію, IBAN рахунку, Особові рахунки квитанцій.</p>
+                </div>
             </div>
         </div>
 
@@ -192,19 +274,83 @@
                 <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('ubd-main')">← НАЗАД</button>
                 <h2>💊 Медицина та реабілітація</h2>
                 <div class="cards-grid">
-                    <div class="contact-box"><h3>🏥 МЦ «Лікар Здоров'я»</h3><p>-20% на консультації та УЗД.</p><p>📍 бул. Шевченка, 135 | 📞 (0472) 33-53-35</p></div>
-                    <div class="contact-box"><h3>👓 МЦ «Люксоптика»</h3><p>Безкоштовно: перевірка зору, окуляри за рецептом.</p><p>📞 0 800 30 98 97</p></div>
+                    <div class="contact-box"><h3>🏥 МЦ «Лікар Здоров'я»</h3><p>-20% на всі послуги та УЗД.</p><p>📍 бул. Шевченка, 135 | 📞 (0472) 33-53-35</p></div>
+                    <div class="contact-box"><h3>💊 «Ліки для України»</h3><p>-5% для родини, -15% сиротам.</p><p>📍 вул. Небесної Сотні, 55 | 📞 067 54 74 934</p></div>
+                    <div class="contact-box"><h3>👓 «Люксоптика»</h3><p>Безкоштовно: перевірка зору, окуляри за рецептом.</p><p>📞 0 800 30 98 97</p></div>
                 </div>
             </div>
         </div>
 
-        <div id="sub-vidpustky" class="content-section"><div class="glass-panel"><button class="action-btn" onclick="switchTab('kadry')">← НАЗАД</button><h2>🚢 Відпустки</h2><div class="cards-grid"><div class="sub-card" onclick="showModal('Частина основної', 'chastyna_osnovnoi.pdf')"><h3>📅 Частина основної</h3></div><div class="sub-card" onclick="showModal('Невикористана', 'nevykoristana_chastyna.pdf')"><h3>⏳ Невикористана</h3></div><div class="sub-card" onclick="showModal('Основна+Дод', 'osnovna_dodatkova.pdf')"><h3>🧩 Основна+Додаткова</h3></div><div class="sub-card" onclick="showModal('Додаткова', 'dodatkova_vidpustka.pdf')"><h3>➕ Додаткова</h3></div><div class="sub-card" onclick="showModal('Відпустка УБД', 'vidpustka_ubd.pdf')"><h3>🎖️ Відпустка УБД</h3></div></div></div></div>
-        <div id="sub-kadry-money" class="content-section"><div class="glass-panel"><button class="action-btn" onclick="switchTab('kadry')">← НАЗАД</button><h2>💰 Допомога</h2><div class="cards-grid"><div class="sub-card" onclick="showModal('Оздоровлення', 'ozdorovlennya.pdf')"><h3>🏥 На оздоровлення</h3></div><div class="sub-card" onclick="showModal('Соц-побут', 'soc_pobut.pdf')"><h3>🤝 Соціально-побутова</h3></div></div></div></div>
+        <div id="sub-vidpustky" class="content-section">
+            <div class="glass-panel">
+                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('kadry')">← НАЗАД</button>
+                <h2>🚢 Рапорти на відпустки</h2>
+                <div class="cards-grid">
+                    <div class="sub-card" onclick="showModal('Частина основної', 'chastyna_osnovnoi.pdf')"><h3>📅 Частина основної</h3></div>
+                    <div class="sub-card" onclick="showModal('Невикористана частина', 'nevykoristana_chastyna.pdf')"><h3>⏳ Невикористана</h3></div>
+                    <div class="sub-card" onclick="showModal('Основна+Додаткова', 'osnovna_dodatkova.pdf')"><h3>🧩 Основна+Додаткова</h3></div>
+                    <div class="sub-card" onclick="showModal('Додаткова відпустка', 'dodatkova_vidpustka.pdf')"><h3>➕ Додаткова</h3></div>
+                    <div class="sub-card" onclick="showModal('Відпустка УБД', 'vidpustka_ubd.pdf')"><h3>🎖️ Відпустка УБД</h3></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="sub-rent-size" class="content-section">
+            <div class="glass-panel">
+                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('money')">← НАЗАД</button>
+                <h2>🪙 Розмір компенсації</h2>
+                <p>Грошова компенсація виплачується щомісяця у розмірі фактичних витрат, але не більше встановлених меж:</p>
+                <div class="info-step"><h4>🏙 м. Київ</h4><p>два прожиткових мінімуми (наразі 5840 грн).</p></div>
+                <div class="info-step"><h4>🌆 Обласні центри</h4><p>півтора прожиткового мінімуму (наразі 4380 грн).</p></div>
+                <div class="info-step"><h4>🏡 Інші населені пункти</h4><p>один прожитковий мінімум (наразі 2920 грн).</p></div>
+                <div class="contact-box">
+                    <p>👨‍👩‍👧‍👦 <strong>Бонус за сім'ю:</strong> Якщо у поліцейського 3 і більше членів сім'ї, розмір компенсації збільшується в 1,5 раза.</p>
+                    <p>⚠️ <strong>Важливо:</strong> Якщо двоє членів сім'ї — поліцейські, компенсація виплачується лише одному з них. Компенсація не покриває оплату комунальних послуг, ремонт або обслуговування будинку.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="sub-rent-docs" class="content-section">
+            <div class="glass-panel">
+                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('money')">← НАЗАД</button>
+                <h2>📄 Необхідні документи</h2>
+                <ul class="list-style">
+                    <li>📄 Рапорт.</li>
+                    <li>🆔 Копії паспортів та ІПН.</li>
+                    <li>💍 Копії свідоцтв про шлюб/дітей.</li>
+                    <li>🏠 Копія договору найму.</li>
+                    <li>🏢 Довідка про квартирний облік.</li>
+                    <li>📍 Довідка про реєстрацію.</li>
+                    <li>🏢 Довідка про здачу житла.</li>
+                    <li>💼 Довідка про неотримання компенсації сім'єю.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="sub-rent-limits" class="content-section">
+            <div class="glass-panel">
+                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('money')">← НАЗАД</button>
+                <h2>⚠️ Важливі умови</h2>
+                <div class="info-step"><h4>🏠 Тільки ізольоване житло</h4><p>Предметом договору може бути виключно ізольоване приміщення.</p></div>
+                <div class="info-step"><h4>🚫 Обмеження</h4><p>Не можуть бути кімнати в гуртожитках, комунальних квартирах або підсобні приміщення.</p></div>
+                <div class="info-step"><h4>📜 Нотаріальне завірення</h4><p>Договір має бути нотаріально завіреним.</p></div>
+                <p>👤 <strong>Тетяна КАРЕЛІНА</strong> | 📞 097 531 21 78</p>
+            </div>
+        </div>
+
+        <div id="sub-house-algo" class="content-section">
+            <div class="glass-panel">
+                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('house')">← НАЗАД</button>
+                <h2>📋 Алгоритм житлового обліку</h2>
+                <div class="info-step"><h4>І етап</h4><p>Зверніться за місцем реєстрації для оновлення документів.</p></div>
+                <div class="info-step"><h4>ІІ етап</h4><p>До 01.02.2026 подайте рапорт у ГУНП.</p></div>
+                <div class="contact-box"><p>📞 097 531 21 78</p></div>
+            </div>
+        </div>
+
+        <div id="sub-kadry-money" class="content-section"><div class="glass-panel"><button class="action-btn" onclick="switchTab('kadry')">← НАЗАД</button><h2>💰 Допомога</h2><div class="cards-grid"><div class="sub-card" onclick="showModal('На оздоровлення', 'ozdorovlennya.pdf')"><h3>🏥 На оздоровлення</h3></div><div class="sub-card" onclick="showModal('Соц-побут', 'soc_pobut.pdf')"><h3>🤝 Соціально-побутова</h3></div></div></div></div>
         <div id="sub-zminy" class="content-section"><div class="glass-panel"><button class="action-btn" onclick="switchTab('kadry')">← НАЗАД</button><h2>🚀 Зміни</h2><div class="cards-grid"><div class="sub-card" onclick="showModal('Переведення', 'perevedennya.pdf')"><h3>🔃 Переведення</h3></div><div class="sub-card" onclick="showModal('Звільнення 10+', 'zvilnennya_10.pdf')"><h3>🎖️ Звільнення (10+)</h3></div><div class="sub-card" onclick="showModal('Звільнення', 'zvilnennya.pdf')"><h3>🌱 Звільнення</h3></div><div class="sub-card" onclick="showModal('Вища посада', 'vyshcha_posada.pdf')"><h3>📈 Вища посада</h3></div></div></div></div>
-        <div id="sub-rent-size" class="content-section"><div class="glass-panel"><button class="action-btn" onclick="switchTab('money')">← НАЗАД</button><h2>🪙 Розміри компенсації</h2><div class="info-step"><h4>🏙 м. Київ</h4><p>5840 грн.</p></div><div class="info-step"><h4>🌆 Облцентри</h4><p>4380 грн.</p></div><div class="info-step"><h4>🏡 Інші</h4><p>2920 грн.</p></div></div></div>
-        <div id="sub-rent-docs" class="content-section"><div class="glass-panel"><button class="action-btn" onclick="switchTab('money')">← НАЗАД</button><h2>📄 Документи</h2><ul class="list-style"><li>📄 Рапорт.</li><li>🆔 Паспорти/ІПН сім'ї.</li><li>💍 Шлюб/діти.</li><li>🏠 Договір найму.</li><li>🏢 Кварт-облік.</li></ul></div></div>
-        <div id="sub-rent-limits" class="content-section"><div class="glass-panel"><button class="action-btn" onclick="switchTab('money')">← НАЗАД</button><h2>⚠️ Умови</h2><div class="info-step"><h4>🏠 Тільки ізольоване житло</h4><p>Виключно окреме житло.</p></div><div class="info-step"><h4>📜 Нотаріус</h4><p>Договір має бути завірений.</p></div><p>📞 097 531 21 78</p></div></div>
-        <div id="sub-house-algo" class="content-section"><div class="glass-panel"><button class="action-btn" onclick="switchTab('house')">← НАЗАД</button><h2>📋 Алгоритм житла</h2><div class="info-step"><h4>І етап</h4><p>Оновіть документи за місцем реєстрації.</p></div><div class="info-step"><h4>ІІ етап</h4><p>До 01.02.2026 подайте рапорт у ГУНП.</p></div></div></div>
+
     </div>
 
     <div id="fileModal" class="modal"><div class="modal-content"><h3 id="modalTitle" style="color:var(--neon)">Файл</h3><p style="color:#777">Готовий до завантаження🛰️</p><a id="downloadBtn" class="action-btn" href="#" download><i class="fas fa-download"></i> ЗАВАНТАЖИТИ PDF</a><br><br><button onclick="closeModal()" style="background:none; border:none; color:#555; cursor:pointer;">[ ЗАКРИТИ ]</button></div></div>
