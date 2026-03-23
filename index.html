@@ -56,7 +56,7 @@
         <div class="nav-item" onclick="switchTab('house')"><i class="fas fa-key"></i> Квартирний облік</div>
         <div class="nav-item" onclick="switchTab('money')"><i class="fas fa-wallet"></i> Компенсація за винайм</div>
         <div class="nav-item" onclick="switchTab('sub-contacts')"><i class="fas fa-address-book"></i> Довідник контактів</div>
-        <div class="nav-item"><i class="fas fa-medal"></i> СТАТУС УБД</div>
+        <div class="nav-item" onclick="switchTab('ubd-main')"><i class="fas fa-medal"></i> СТАТУС УБД</div>
     </div>
 
     <div class="main-content">
@@ -191,101 +191,143 @@
             </div>
         </div>
 
-        <div id="sub-vidpustky" class="content-section">
+        <div id="ubd-main" class="content-section">
             <div class="glass-panel">
-                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('kadry')">← НАЗАД</button>
-                <h2>🚢 Рапорти на відпустки</h2>
+                <h2>🎖️ СТАТУС УБД: Права та пільги (Черкаси)</h2>
+                <p>Вітаємо, захиснику! Тут зібрана інформація про твої права, місцеві виплати та пільги, які діють саме в нашому обласному центрі.</p>
+                <p style="color: #00f2fe; font-size: 0.9rem;"><i class="fas fa-lightbulb"></i> Пам'ятайте: для отримання більшості пільг необхідно бути зареєстрованим у м. Черкаси або територіальній громаді.</p>
+                
                 <div class="cards-grid">
-                    <div class="sub-card" onclick="showModal('Частина основної', 'chastyna_osnovnoi.pdf')"><h3>📅 Частина основної</h3></div>
-                    <div class="sub-card" onclick="showModal('Невикористана частина', 'nevykoristana_chastyna.pdf')"><h3>⏳ Невикористана</h3></div>
-                    <div class="sub-card" onclick="showModal('Основна+Додаткова', 'osnovna_dodatkova.pdf')"><h3>🧩 Основна+Додаткова</h3></div>
-                    <div class="sub-card" onclick="showModal('Додаткова відпустка', 'dodatkova_vidpustka.pdf')"><h3>➕ Додаткова</h3></div>
-                    <div class="sub-card" onclick="showModal('Відпустка УБД', 'vidpustka_ubd.pdf')"><h3>🎖️ Відпустка УБД</h3></div>
+                    <div class="sub-card" onclick="switchTab('ubd-money')"><i class="fas fa-hand-holding-usd"></i><h3>Грошова підтримка</h3><p>Виплати від міської ради.</p></div>
+                    <div class="sub-card" onclick="switchTab('ubd-discounts')"><i class="fas fa-gift"></i><h3>Акції та знижки</h3><p>Магазини, АЗС, Спорт.</p></div>
+                    <div class="sub-card" onclick="switchTab('ubd-communal')"><i class="fas fa-home"></i><h3>Пільги на комуналку</h3><p>Як оформити -75% знижки.</p></div>
+                    <div class="sub-card" onclick="switchTab('ubd-medical')"><i class="fas fa-hospital-user"></i><h3>Медицина та реабілітація</h3><p>Спеціальні умови лікування.</p></div>
                 </div>
             </div>
         </div>
 
-        <div id="sub-kadry-money" class="content-section">
+        <div id="ubd-money" class="content-section">
             <div class="glass-panel">
-                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('kadry')">← НАЗАД</button>
-                <h2>💰 Допомога</h2>
-                <div class="cards-grid">
-                    <div class="sub-card" onclick="showModal('На оздоровлення', 'ozdorovlennya.pdf')"><h3>🏥 На оздоровлення</h3></div>
-                    <div class="sub-card" onclick="showModal('Соц-побут', 'soc_pobut.pdf')"><h3>🤝 Соціально-побутова</h3></div>
+                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('ubd-main')">← НАЗАД</button>
+                <h2>💵 Грошові виплати та допомога (м. Черкаси)</h2>
+                <p>Окрім загальнодержавних пільг, у нашому місті діють додаткові програми фінансової підтримки:</p>
+                
+                <div class="info-step">
+                    <h4>🔹 Місцева виплата (до Дня захисників)</h4>
+                    <p>У 2025 році сума становила 3 000 грн. У 2026 суму може бути змінено. Оформлюється через Департамент соцполітики.</p>
+                </div>
+                <div class="info-step">
+                    <h4>🔹 Допомога до Дня Незалежності</h4>
+                    <p>Щорічна разова допомога замість виплати до 5 травня. Розмір визначається урядом (орієнтовно від 1 000 грн).</p>
+                </div>
+                <div class="info-step">
+                    <h4>🔹 Допомога добровольцям (ДФТГ)</h4>
+                    <p>30 000 грн щорічно для бійців, офіційно задіяних у виконанні бойових розпоряджень.</p>
+                </div>
+                <div class="info-step">
+                    <h4>🔹 Компенсація за житло</h4>
+                    <p>Окремі програми для захисників з інвалідністю та родин загиблих (на купівлю або будівництво).</p>
+                </div>
+
+                <div class="contact-box" style="border: 1px dashed var(--neon);">
+                    <h3>🏢 Куди звертатися:</h3>
+                    <p>Департамент соціальної політики ЧМР (📍 бул. Шевченка, 307, каб. 104)</p>
+                    <p>📞 (0472) 33-63-29 | (0472) 54-22-01 (запис)</p>
                 </div>
             </div>
         </div>
 
-        <div id="sub-zminy" class="content-section">
+        <div id="ubd-discounts" class="content-section">
             <div class="glass-panel">
-                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('kadry')">← НАЗАД</button>
-                <h2>🚀 Зміни</h2>
+                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('ubd-main')">← НАЗАД</button>
+                <h2>⛽ АЗС, МАГАЗИНИ ТА ТРАНСПОРТ</h2>
+                
                 <div class="cards-grid">
-                    <div class="sub-card" onclick="showModal('Переведення', 'perevedennya.pdf')"><h3>🔃 Переведення</h3></div>
-                    <div class="sub-card" onclick="showModal('Звільнення 10+', 'zvilnennya_10.pdf')"><h3>🎖️ Звільнення (10+)</h3></div>
-                    <div class="sub-card" onclick="showModal('Звільнення', 'zvilnennya.pdf')"><h3>🌱 Звільнення</h3></div>
-                    <div class="sub-card" onclick="showModal('Вища посада', 'vyshcha_posada.pdf')"><h3>📈 Вища посада</h3></div>
+                    <div class="contact-box">
+                        <h3>🚗 АЗС</h3>
+                        <p><strong>WOG/OKKO:</strong> -2-3 грн/літр через PRIDE/Fishka.</p>
+                        <p><strong>Укрнафта:</strong> Спеціальна ціна при пред'явленні посвідчення.</p>
+                    </div>
+                    <div class="contact-box">
+                        <h3>🛒 МАГАЗИНИ</h3>
+                        <p><strong>Епіцентр:</strong> Бальна система лояльності (інфокаса).</p>
+                        <p><strong>Велмарт/Кишеня:</strong> Соціальні знижки на власні бренди.</p>
+                    </div>
+                    <div class="contact-box">
+                        <h3>🏟️ СПОРТ</h3>
+                        <p><strong>Matrix/Дніпро-Плаза:</strong> Знижка 30-50% або безкоштовні ранкові години.</p>
+                    </div>
+                </div>
+
+                <div class="info-step" style="margin-top:20px;">
+                    <h4>🚆 ТРАНСПОРТ</h4>
+                    <ul class="list-style">
+                        <li><i class="fas fa-bus"></i> Тролейбуси: Безкоштовно (без обмежень).</li>
+                        <li><i class="fas fa-shuttle-van"></i> Маршрутки: Безкоштовно (згідно з квотою місць).</li>
+                        <li><i class="fas fa-train"></i> Потяг / Автобус: -75% на міжміські квитки в касах.</li>
+                    </ul>
                 </div>
             </div>
         </div>
 
-        <div id="sub-rent-size" class="content-section">
+        <div id="ubd-communal" class="content-section">
             <div class="glass-panel">
-                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('money')">← НАЗАД</button>
-                <h2>🪙 Розмір компенсації</h2>
-                <p>Грошова компенсація виплачується щомісяця у розмірі фактичних витрат, але не більше встановлених меж:</p>
-                <div class="info-step"><h4>🏙 м. Київ</h4><p>два прожиткових мінімуми (наразі 5840 грн).</p></div>
-                <div class="info-step"><h4>🌆 Обласні центри</h4><p>півтора прожиткового мінімуму (наразі 4380 грн).</p></div>
-                <div class="info-step"><h4>🏡 Інші населені пункти</h4><p>один прожитковий мінімум (наразі 2920 грн).</p></div>
+                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('ubd-main')">← НАЗАД</button>
+                <h2>🏠 Пільги на комунальні послуги</h2>
+                <p>УБД мають право на <strong>75% знижку</strong> на оплату газу, світла, води, опалення та вивозу сміття.</p>
+                
+                <div class="info-step">
+                    <h4>👣 Як оформити в Черкасах?</h4>
+                    <p>Подайте дві заяви (внесення до Реєстру та призначення виплати) за адресами:</p>
+                    <ul class="list-style">
+                        <li>📍 ПФУ: вул. Смілянська, 23 | вул. Гоголя, 390</li>
+                        <li>📍 ЦНАП: вул. Благовісна, 170</li>
+                        <li>🌐 Онлайн: портал електронних послуг ПФУ</li>
+                    </ul>
+                </div>
+
                 <div class="contact-box">
-                    <p>👨‍👩‍👧‍👦 <strong>Бонус за сім'ю:</strong> Якщо у поліцейського 3 і більше членів сім'ї, розмір компенсації збільшується в 1,5 раза.</p>
-                    <p>⚠️ <strong>Важливо:</strong><br>Якщо двоє членів сім'ї — поліцейські, компенсація виплачується лише одному з них. <br>Компенсація не покриває оплату комунальних послуг, ремонт або обслуговування будинку.</p>
+                    <h3>📋 Необхідні документи:</h3>
+                    <p>✅ Паспорт/ІПН | ✅ Посвідчення УБД | ✅ Витяг про місце проживання | ✅ Реквізити IBAN | ✅ Особові рахунки з квитанцій.</p>
+                </div>
+
+                <p style="color: #aaa; font-size: 0.9rem;">⚠️ <strong>Важливо:</strong> Пільга надається на 21 м² на особу + 10,5 м² на сім'ю. Можна оформити за адресою оренди житла. Гроші приходять на рахунок (монетизація).</p>
+            </div>
+        </div>
+
+        <div id="ubd-medical" class="content-section">
+            <div class="glass-panel">
+                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('ubd-main')">← НАЗАД</button>
+                <h2>💊 Медицина та реабілітація</h2>
+                <p>Для поліцейських зі статусом УБД та членів їхніх родин діють спеціальні умови у приватних закладах міста:</p>
+                
+                <div class="cards-grid">
+                    <div class="contact-box">
+                        <h3>🏥 МЦ «Лікар Здоров'я»</h3>
+                        <p><strong>-20%</strong> на всі консультативні послуги та УЗД.</p>
+                        <p>📍 вул. Шевченка, 135 | 📞 (0472) 33-53-35</p>
+                    </div>
+                    <div class="contact-box">
+                        <h3>💊 Проєкт «Ліки для України»</h3>
+                        <p><strong>-5%</strong> для всієї родини, <strong>-15%</strong> дітям-сиротам.</p>
+                        <p>📍 вул. Небесної Сотні, 55 | 📞 067 54 74 934</p>
+                    </div>
+                    <div class="contact-box">
+                        <h3>👓 МЦ «Люксоптика»</h3>
+                        <p><strong>Безкоштовно:</strong> Перевірка зору, виготовлення окулярів за рецептом, видача лінз.</p>
+                        <p>📞 Гаряча лінія: 0 800 30 98 97</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div id="sub-rent-docs" class="content-section">
-            <div class="glass-panel">
-                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('money')">← НАЗАД</button>
-                <h2>📄 Необхідні документи</h2>
-                <p>Для отримання виплат необхідно надати до управління (відділу) логістики за місцем служби такі документи:</p>
-                <ul class="list-style">
-                    <li>📄 Рапорт.</li>
-                    <li>🆔 Копії паспортів та ІПН (вашого та членів сім'ї).</li>
-                    <li>💍 Копії свідоцтв про шлюб та народження дітей (за наявності).</li>
-                    <li>🏠 Копія договору житлового найму.</li>
-                    <li>🏢 Довідка про перебування на обліку громадян, які потребують поліпшення житлових умов (квартирний облік).</li>
-                    <li>📍 Довідка про реєстрацію місця проживання кожного члена сім'ї.</li>
-                    <li>🏢 Довідка з попереднього місця служби про отримання/здачу житла.</li>
-                    <li>💼 Довідка з місця роботи членів сім'ї про те, що вони не отримують таку компенсацію.</li>
-                </ul>
-            </div>
-        </div>
-
-        <div id="sub-rent-limits" class="content-section">
-            <div class="glass-panel">
-                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('money')">← НАЗАД</button>
-                <h2>⚠️ Важливі умови</h2>
-                <div class="info-step"><h4>🏠 Тільки ізольоване житло</h4><p>Предметом договору найму може бути виключно ізольоване житлове приміщення.</p></div>
-                <div class="info-step"><h4>🚫 Обмеження</h4><p>Не можуть бути кімнати в гуртожитках, комунальних квартирах або підсобні приміщення.</p></div>
-                <div class="info-step"><h4>📜 Нотаріальне завірення</h4><p>Договір найму має бути нотаріально завіреним.</p></div>
-                <div class="info-step"><h4>📅 Терміни виплат</h4><p>Виплачується щомісяця у поточному місяці за попередній.</p></div>
-                <div class="info-step"><h4>💸 Що не компенсується</h4><p>Виплата не покриває комунальні послуги, ремонт або обслуговування.</p></div>
-                <div class="contact-box">
-                    <p>👤 <strong>Тетяна КАРЕЛІНА</strong><br>📞 097 531 21 78</p>
-                </div>
-            </div>
-        </div>
-
-        <div id="sub-house-algo" class="content-section">
-            <div class="glass-panel">
-                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('house')">← НАЗАД</button>
-                <h2>📋 Алгоритм житлового обліку</h2>
-                <div class="info-step"><h4>І етап</h4><p>Зверніться за місцем реєстрації для оновлення документів або постановки на чергу.</p></div>
-                <div class="info-step"><h4>ІІ етап</h4><p>До 01.02.2026 подайте рапорт на ім'я керівника ГУНП з новою довідкою.</p></div>
-                <div class="contact-box"><p>📞 097 531 21 78</p></div>
-            </div>
-        </div>
+        <div id="sub-vidpustky" class="content-section"><div class="glass-panel"><button class="action-btn" onclick="switchTab('kadry')">← НАЗАД</button><h2>🚢 Відпустки</h2><div class="cards-grid"><div class="sub-card" onclick="showModal('Частина основної', 'chastyna_osnovnoi.pdf')"><h3>📅 Частина основної</h3></div><div class="sub-card" onclick="showModal('Невикористана', 'nevykoristana_chastyna.pdf')"><h3>⏳ Невикористана</h3></div><div class="sub-card" onclick="showModal('Основна+Дод', 'osnovna_dodatkova.pdf')"><h3>🧩 Основна+Дод</h3></div><div class="sub-card" onclick="showModal('Додаткова', 'dodatkova_vidpustka.pdf')"><h3>➕ Додаткова</h3></div><div class="sub-card" onclick="showModal('Відпустка УБД', 'vidpustka_ubd.pdf')"><h3>🎖️ Відпустка УБД</h3></div></div></div></div>
+        <div id="sub-kadry-money" class="content-section"><div class="glass-panel"><button class="action-btn" onclick="switchTab('kadry')">← НАЗАД</button><h2>💰 Допомога</h2><div class="cards-grid"><div class="sub-card" onclick="showModal('Оздоровлення', 'ozdorovlennya.pdf')"><h3>🏥 На оздоровлення</h3></div><div class="sub-card" onclick="showModal('Соц-побут', 'soc_pobut.pdf')"><h3>🤝 Соціально-побутова</h3></div></div></div></div>
+        <div id="sub-zminy" class="content-section"><div class="glass-panel"><button class="action-btn" onclick="switchTab('kadry')">← НАЗАД</button><h2>🚀 Зміни</h2><div class="cards-grid"><div class="sub-card" onclick="showModal('Переведення', 'perevedennya.pdf')"><h3>🔃 Переведення</h3></div><div class="sub-card" onclick="showModal('Звільнення 10+', 'zvilnennya_10.pdf')"><h3>🎖️ Звільнення 10+</h3></div><div class="sub-card" onclick="showModal('Звільнення', 'zvilnennya.pdf')"><h3>🌱 Звільнення</h3></div><div class="sub-card" onclick="showModal('Вища посада', 'vyshcha_posada.pdf')"><h3>📈 Вища посада</h3></div></div></div></div>
+        <div id="sub-rent-size" class="content-section"><div class="glass-panel"><button class="action-btn" onclick="switchTab('money')">← НАЗАД</button><h2>🪙 Розмір компенсації</h2><div class="info-step"><h4>🏙 м. Київ</h4><p>5840 грн.</p></div><div class="info-step"><h4>🌆 Облцентри</h4><p>4380 грн.</p></div><div class="info-step"><h4>🏡 Інші</h4><p>2920 грн.</p></div></div></div>
+        <div id="sub-rent-docs" class="content-section"><div class="glass-panel"><button class="action-btn" onclick="switchTab('money')">← НАЗАД</button><h2>📄 Документи</h2><ul class="list-style"><li>Рапорт</li><li>Паспорти/ІПН</li><li>Договір найму</li><li>Довідка кварт-обліку</li></ul></div></div>
+        <div id="sub-rent-limits" class="content-section"><div class="glass-panel"><button class="action-btn" onclick="switchTab('money')">← НАЗАД</button><h2>⚠️ Умови</h2><p>Тільки ізольоване житло, нотаріальний договір.</p></div></div>
+        <div id="sub-house-algo" class="content-section"><div class="glass-panel"><button class="action-btn" onclick="switchTab('house')">← НАЗАД</button><h2>📋 Алгоритм житлового обліку</h2><p>Подача рапорту до 01.02.2026.</p></div></div>
 
     </div>
 
@@ -299,6 +341,7 @@
             if(target) target.classList.add('active');
             
             let rootId = tabId;
+            if(tabId.startsWith('ubd-')) rootId = 'ubd-main';
             if(tabId.startsWith('cont-')) rootId = 'sub-contacts';
             if(tabId.startsWith('sub-vidpustky') || tabId.startsWith('sub-kadry-money') || tabId.startsWith('sub-zminy')) rootId = 'kadry';
             if(tabId.startsWith('sub-house')) rootId = 'house';
