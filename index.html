@@ -137,7 +137,7 @@
             <div class="glass-panel">
                 <h1>GIDEON System 🌌</h1>
                 <p>Вітаємо в цифровому просторі <strong>ГУНП в Черкаській області</strong>.</p>
-                <p>Ваша кадрова підтримка працює в штатному режимі.</p>
+                <p>Всі системи та бази рапортів оновлено до останньої версії.</p>
             </div>
         </div>
 
@@ -148,7 +148,7 @@
                     <div class="sub-card" onclick="switchTab('sub-vidpustky')">
                         <i class="fas fa-umbrella-beach"></i>
                         <h3>ВІДПУСТКИ</h3>
-                        <p>Шаблони на всі види відпочинку.</p>
+                        <p>Щорічні, додаткові та УБД.</p>
                     </div>
                     <div class="sub-card" onclick="switchTab('sub-money')">
                         <i class="fas fa-hand-holding-usd"></i>
@@ -158,7 +158,7 @@
                     <div class="sub-card" onclick="switchTab('sub-zminy')">
                         <i class="fas fa-sync-alt"></i>
                         <h3>СЛУЖБОВІ ЗМІНИ</h3>
-                        <p>Переведення, звільнення, кар'єра.</p>
+                        <p>Переведення та звільнення.</p>
                     </div>
                 </div>
             </div>
@@ -184,12 +184,12 @@
                 <h2>💰 Грошова допомога</h2>
                 <div class="cards-grid">
                     <div class="sub-card" onclick="showModal('Допомога на оздоровлення', 'оздоровлення.pdf')">
-                        <i class="fas fa-plus-square"></i>
+                        <i class="fas fa-hospital-user"></i>
                         <h3>На оздоровлення</h3>
                     </div>
                     <div class="sub-card" onclick="showModal('Соціально-побутова допомога', 'соц-побут.pdf')">
-                        <i class="fas fa-home"></i>
-                        <h3>Соціально-побутові</h3>
+                        <i class="fas fa-house-user"></i>
+                        <h3>Соціально-побутова</h3>
                     </div>
                 </div>
             </div>
@@ -198,18 +198,22 @@
         <div id="sub-zminy" class="content-section">
             <div class="glass-panel">
                 <button class="action-btn" style="background:#333; margin-bottom:20px;" onclick="switchTab('kadry')">← НАЗАД</button>
-                <h2>🚀 Службові зміни та кар'єра</h2>
+                <h2>🚀 Службові зміни</h2>
                 <div class="cards-grid">
                     <div class="sub-card" onclick="showModal('Рапорт на переведення', 'переведення.pdf')">
                         <i class="fas fa-exchange-alt"></i>
                         <h3>Переведення</h3>
                     </div>
+                    <div class="sub-card" onclick="showModal('Звільнення (понад 10 років)', 'звільнення 10.pdf')">
+                        <i class="fas fa-user-shield"></i>
+                        <h3>Звільнення (10+ років)</h3>
+                    </div>
                     <div class="sub-card" onclick="showModal('Рапорт на звільнення', 'звільнення.pdf')">
-                        <i class="fas fa-door-open"></i>
+                        <i class="fas fa-user-minus"></i>
                         <h3>Звільнення</h3>
                     </div>
-                    <div class="sub-card" onclick="showModal('Переміщення на вищу посаду', 'вища_посада.pdf')">
-                        <i class="fas fa-chevron-circle-up"></i>
+                    <div class="sub-card" onclick="showModal('Переміщення на вищу посаду', 'вища посада.pdf')">
+                        <i class="fas fa-angle-double-up"></i>
                         <h3>Вища посада</h3>
                         <p>Матеріали переміщення</p>
                     </div>
@@ -217,13 +221,13 @@
             </div>
         </div>
 
-        <div id="house" class="content-section"><h2>🏠 Квартирний облік</h2><p>Розділ у розробці...</p></div>
+        <div id="house" class="content-section"><h2>🏠 Квартирний облік</h2><p>Система очікує дані...</p></div>
     </div>
 
     <div id="fileModal" class="modal">
         <div class="modal-content">
             <h3 id="modalTitle" style="color:var(--neon); font-size: 1.8rem;">Файл</h3>
-            <p style="color:#aaa;">Шаблон готовий до завантаження.</p>
+            <p style="color:#aaa;">Передача через захищений шлюз готова.</p>
             <button id="downloadLink" class="action-btn"><i class="fas fa-download"></i> ЗАВАНТАЖИТИ PDF</button>
             <br><br>
             <button onclick="closeModal()" style="background:none; border:none; color:#555; cursor:pointer;">[ ЗАКРИТИ ]</button>
@@ -245,7 +249,7 @@
             document.getElementById('fileModal').style.display = 'flex';
             document.getElementById('downloadLink').onclick = function() {
                 const link = document.createElement('a');
-                link.href = fileName;
+                link.href = encodeURIComponent(fileName);
                 link.download = fileName;
                 link.click();
             };
