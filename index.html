@@ -188,3 +188,73 @@
     </script>
 </body>
 </html>
+<div id="kadry" class="content-section">
+    <div class="glass-panel">
+        <h2>📂 Кадрові протоколи</h2>
+        <p>Вітаю у кадровому розділі! Тут зібрані актуальні зразки документів, які найчастіше потрібні в роботі. Оберіть категорію:</p>
+        <div class="cards-grid">
+            <div class="sub-card" onclick="switchTab('sub-vidpustky')">
+                <i class="fas fa-umbrella-beach"></i>
+                <h3>ВІДПУСТКИ</h3>
+                <p>5 видів рапортів на відпочинок.</p>
+            </div>
+            <div class="sub-card" onclick="switchTab('sub-kadry-money')">
+                <i class="fas fa-hand-holding-usd"></i>
+                <h3>ГРОШОВА ДОПОМОГА</h3>
+                <p>Оздоровлення та соц-побут.</p>
+            </div>
+            <div class="sub-card" onclick="switchTab('sub-zminy')">
+                <i class="fas fa-sync-alt"></i>
+                <h3>СЛУЖБОВІ ЗМІНИ</h3>
+                <p>Переведення, звільнення та кар'єра.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="sub-vidpustky" class="content-section">
+    <div class="glass-panel">
+        <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('kadry')">← НАЗАД</button>
+        <h2>🚢 Рапорти на відпустки</h2>
+        <p>Відпочинок — це не розкіш, а службова необхідність!</p>
+        <div class="cards-grid">
+            <div class="sub-card" onclick="showModal('Частина основної відпустки', 'chastyna_osnovnoi.pdf')"><h3>📅 Частина основної</h3></div>
+            <div class="sub-card" onclick="showModal('Невикористана частина', 'nevykoristana_chastyna.pdf')"><h3>⏳ Невикористана частина</h3></div>
+            <div class="sub-card" onclick="showModal('Основна + Додаткова', 'osnovna_dodatkova.pdf')"><h3>🧩 Основна + Додаткова</h3></div>
+            <div class="sub-card" onclick="showModal('Додаткова відпустка', 'dodatkova_vidpustka.pdf')"><h3>➕ Додаткова відпустка</h3></div>
+            <div class="sub-card" onclick="showModal('Відпустка УБД', 'vidpustka_ubd.pdf')"><h3>🎖️ Відпустка УБД</h3></div>
+        </div>
+    </div>
+</div>
+
+<div id="sub-kadry-money" class="content-section">
+    <div class="glass-panel">
+        <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('kadry')">← НАЗАД</button>
+        <h2>💰 Грошова допомога</h2>
+        <p>Грошова підтримка — це те, що додає впевненості!</p>
+        <div class="cards-grid">
+            <div class="sub-card" onclick="showModal('На оздоровлення', 'ozdorovlennya.pdf')">
+                <i class="fas fa-plus-square"></i>
+                <h3>На оздоровлення</h3>
+            </div>
+            <div class="sub-card" onclick="showModal('Соціально-побутова допомога', 'soc_pobut.pdf')">
+                <i class="fas fa-hand-holding-heart"></i>
+                <h3>Соціально-побутова</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="sub-zminy" class="content-section">
+    <div class="glass-panel">
+        <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('kadry')">← НАЗАД</button>
+        <h2>🚀 Службові зміни</h2>
+        <p>Зміни — це завжди шлях до розвитку!</p>
+        <div class="cards-grid">
+            <div class="sub-card" onclick="showModal('Рапорт на переведення', 'perevedennya.pdf')"><h3>🔃 Переведення</h3></div>
+            <div class="sub-card" onclick="showModal('Звільнення (понад 10 років)', 'zvilnennya_10.pdf')"><h3>🎖️ Звільнення (10+)</h3></div>
+            <div class="sub-card" onclick="showModal('Рапорт на звільнення', 'zvilnennya.pdf')"><h3>🌱 Звільнення</h3></div>
+            <div class="sub-card" onclick="showModal('Вища посада', 'vyshcha_posada.pdf')"><h3>📈 Вища посада</h3></div>
+        </div>
+    </div>
+</div>
