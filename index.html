@@ -101,13 +101,28 @@
 
         .action-btn {
             background: linear-gradient(135deg, var(--accent), #8a00ff);
-            border: none; color: #fff; padding: 12px 25px;
-            border-radius: 10px; cursor: pointer;
-            font-weight: bold; transition: 0.3s;
+            border: none; color: #fff; padding: 10px 20px;
+            border-radius: 8px; cursor: pointer;
+            font-weight: bold; transition: 0.2s;
             margin-top: 15px; display: inline-block;
             text-decoration: none;
         }
         .action-btn:hover { background: var(--accent); box-shadow: 0 0 15px var(--accent); }
+
+        /* СПЕЦІАЛЬНИЙ БЛОК ДЛЯ АЛГОРИТМУ */
+        .algo-step {
+            border-left: 2px solid var(--neon);
+            padding-left: 20px;
+            margin-bottom: 30px;
+        }
+        .algo-step h4 { color: var(--neon); margin-bottom: 10px; }
+        .contact-box {
+            background: rgba(0, 242, 254, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border: 1px dashed var(--neon);
+        }
 
         .modal {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -128,17 +143,17 @@
         <div class="nav-item" onclick="switchTab('house')"><i class="fas fa-key"></i> Квартирний облік</div>
         <div class="nav-item" onclick="switchTab('money')"><i class="fas fa-wallet"></i> Компенсація житла</div>
         <div class="nav-item" onclick="switchTab('contacts')"><i class="fas fa-address-book"></i> Довідник контактів</div>
-        <div class="nav-item" onclick="switchTab('ubd')"><i class="fas fa-medal"></i> Статус УБД</div>
+        <div class="nav-item" onclick="switchTab('ubd')"><i class="fas fa-medal"></i> СТАТУС УБД</div>
         <div class="nav-item" onclick="switchTab('bank')"><i class="fas fa-university"></i> Банківські реквізити</div>
         <div class="nav-item" onclick="switchTab('union')"><i class="fas fa-users-rectangle"></i> Профспілка</div>
     </div>
 
     <div class="main-content">
         <div id="home" class="content-section active">
-            <div class="glass-panel">
+            <div class="welcome-card">
                 <h1>GIDEON System 🌌</h1>
                 <p>Вітаємо в цифровому просторі <strong>ГУНП в Черкаській області</strong>.</p>
-                <p>Всі системи та бази рапортів оновлено до останньої версії.</p>
+                <p>Ваш навігатор оновлено. Модуль житлового забезпечення готовий до роботи.</p>
             </div>
         </div>
 
@@ -146,64 +161,65 @@
             <div class="glass-panel">
                 <h2>📂 Кадрові протоколи</h2>
                 <div class="cards-grid">
-                    <div class="sub-card" onclick="switchTab('sub-vidpustky')">
-                        <i class="fas fa-umbrella-beach"></i>
-                        <h3>ВІДПУСТКИ</h3>
-                        <p>Щорічні, додаткові та УБД.</p>
-                    </div>
-                    <div class="sub-card" onclick="switchTab('sub-money')">
-                        <i class="fas fa-hand-holding-usd"></i>
-                        <h3>ГРОШОВА ДОПОМОГА</h3>
-                        <p>Оздоровлення та соц-побут.</p>
-                    </div>
-                    <div class="sub-card" onclick="switchTab('sub-zminy')">
-                        <i class="fas fa-sync-alt"></i>
-                        <h3>СЛУЖБОВІ ЗМІНИ</h3>
-                        <p>Переведення та звільнення.</p>
-                    </div>
+                    <div class="sub-card" onclick="switchTab('sub-vidpustky')"><i class="fas fa-umbrella-beach"></i><h3>ВІДПУСТКИ</h3></div>
+                    <div class="sub-card" onclick="switchTab('sub-money')"><i class="fas fa-hand-holding-usd"></i><h3>ГРОШОВА ДОПОМОГА</h3></div>
+                    <div class="sub-card" onclick="switchTab('sub-zminy')"><i class="fas fa-sync-alt"></i><h3>СЛУЖБОВІ ЗМІНИ</h3></div>
                 </div>
             </div>
         </div>
 
-        <div id="sub-vidpustky" class="content-section">
+        <div id="house" class="content-section">
             <div class="glass-panel">
-                <button class="action-btn" style="background:#444; border:none; margin-bottom:20px;" onclick="switchTab('kadry')">← НАЗАД</button>
-                <h2>🚢 Рапорти на відпустки</h2>
+                <h2>🏠 Квартирний облік</h2>
+                <p>Власне житло — це твій надійний тил! 🏰🛡️ Оберіть потрібний розділ нижче:</p>
                 <div class="cards-grid">
-                    <div class="sub-card" onclick="showModal('Частина основної відпустки', 'chastyna_osnovnoi.pdf')"><h3>📅 Частина основної</h3></div>
-                    <div class="sub-card" onclick="showModal('Невикористана частина', 'nevykoristana_chastyna.pdf')"><h3>⏳ Невикористана частина</h3></div>
-                    <div class="sub-card" onclick="showModal('Основна + Додаткова', 'osnovna_dodatkova.pdf')"><h3>🧩 Основна + Додаткова</h3></div>
-                    <div class="sub-card" onclick="showModal('Додаткова відпустка', 'dodatkova_vidpustka.pdf')"><h3>➕ Додаткова</h3></div>
-                    <div class="sub-card" onclick="showModal('Відпустка УБД', 'vidpustka_ubd.pdf')"><h3>🎖️ Відпустка УБД</h3></div>
+                    <div class="sub-card" onclick="switchTab('sub-algo')">
+                        <i class="fas fa-list-ol"></i>
+                        <h3>Алгоритм дій</h3>
+                        <p>Покроковий шлях для постановки на облік.</p>
+                    </div>
+                    <div class="sub-card" onclick="showModal('Рапорт на включення', 'Рапорт про взяття на облік осіб.pdf')">
+                        <i class="fas fa-file-signature"></i>
+                        <h3>Рапорт (Включення)</h3>
+                        <p>Для тих, хто стає на облік вперше.</p>
+                    </div>
+                    <div class="sub-card" onclick="showModal('Щорічне підтвердження', 'Щорічне підтвердження перебування.pdf')">
+                        <i class="fas fa-check-double"></i>
+                        <h3>Рапорт (Підтвердження)</h3>
+                        <p>Щорічне підтвердження права перебування на обліку.</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div id="sub-money" class="content-section">
+        <div id="sub-algo" class="content-section">
             <div class="glass-panel">
-                <button class="action-btn" style="background:#444; border:none; margin-bottom:20px;" onclick="switchTab('kadry')">← НАЗАД</button>
-                <h2>💰 Грошова допомога</h2>
-                <div class="cards-grid">
-                    <div class="sub-card" onclick="showModal('Допомога на оздоровлення', 'ozdorovlennya.pdf')"><h3>🏥 На оздоровлення</h3></div>
-                    <div class="sub-card" onclick="showModal('Соціально-побутова допомога', 'soc_pobut.pdf')"><h3>🤝 Соціально-побутова</h3></div>
+                <button class="action-btn" style="background:#444; border:none; margin-bottom:20px;" onclick="switchTab('house')">← НАЗАД</button>
+                <h2>📋 Алгоритм житлового обліку</h2>
+                
+                <div class="algo-step">
+                    <h4>І етап: Підготовка документів</h4>
+                    <p><strong>Варіант А:</strong> Ви вже на квартирному обліку? Зверніться до органів виконавчої влади за місцем реєстрації для оновлення документів.</p>
+                    <p><strong>Варіант Б:</strong> Ви потребуєте поліпшення умов, але не на обліку? Зверніться із заявою до органів виконавчої влади за місцем реєстрації для взяття на облік.</p>
+                </div>
+
+                <div class="algo-step" style="border-color: var(--accent);">
+                    <h4>ІІ етап: Подача рапорту в ГУНП</h4>
+                    <p>В термін <strong>до 01.02.2026</strong> подати на ім'я керівника ГУНП в Черкаській області рапорт/заяву про включення або підтвердження перебування в Контрольному списку.</p>
+                    <p><strong>Важливо:</strong> Обов'язково долучити оновлену довідку, видану у 2026 році.</p>
+                </div>
+
+                <div class="contact-box">
+                    <p><i class="fas fa-phone-alt"></i> <strong>Контактна особа:</strong> Кареліна Тетяна (УЛМТЗ ГУНП)</p>
+                    <p><i class="fab fa-viber"></i> <a href="tel:0975312178" style="color:var(--neon); text-decoration:none;">(097) 531-21-78</a></p>
                 </div>
             </div>
         </div>
 
-        <div id="sub-zminy" class="content-section">
-            <div class="glass-panel">
-                <button class="action-btn" style="background:#444; border:none; margin-bottom:20px;" onclick="switchTab('kadry')">← НАЗАД</button>
-                <h2>🚀 Службові зміни</h2>
-                <div class="cards-grid">
-                    <div class="sub-card" onclick="showModal('Рапорт на переведення', 'perevedennya.pdf')"><h3>🔃 Переведення</h3></div>
-                    <div class="sub-card" onclick="showModal('Звільнення (10+ років)', 'zvilnennya_10.pdf')"><h3>🎖️ Звільнення (10+)</h3></div>
-                    <div class="sub-card" onclick="showModal('Рапорт на звільнення', 'zvilnennya.pdf')"><h3>🌱 Звільнення</h3></div>
-                    <div class="sub-card" onclick="showModal('Переміщення на вищу посаду', 'vyshcha_posada.pdf')"><h3>📈 Вища посада</h3></div>
-                </div>
-            </div>
-        </div>
+        <div id="sub-vidpustky" class="content-section">...</div>
+        <div id="sub-money" class="content-section">...</div>
+        <div id="sub-zminy" class="content-section">...</div>
 
-        <div id="house" class="content-section"><h2>🏠 Квартирний облік</h2><p>Система очікує дані...</p></div>
     </div>
 
     <div id="fileModal" class="modal">
@@ -230,7 +246,6 @@
             document.getElementById('modalTitle').innerText = title;
             document.getElementById('fileModal').style.display = 'flex';
             const btn = document.getElementById('downloadBtn');
-            // Пряме посилання на файл у репозиторії
             btn.href = fileName;
         }
 
