@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --bg: #030610;
-            --side-bg: rgba(255, 255, 255, 0.02);
+            --bg: #010409;
+            --side-bg: rgba(255, 255, 255, 0.015);
             --neon: #00f2fe;
             --accent: #bd00ff;
-            --glass: rgba(255, 255, 255, 0.05);
+            --glass: rgba(255, 255, 255, 0.04);
             --border: rgba(255, 255, 255, 0.08);
+            --star-color: rgba(255, 255, 255, 0.8);
         }
 
         body {
@@ -22,44 +23,63 @@
             color: #fff; margin: 0;
             display: flex; height: 100vh;
             overflow: hidden;
-            background-image: radial-gradient(circle at 50% 50%, rgba(0, 242, 254, 0.05), transparent);
+            /* КОСМІЧНИЙ ФОН З ЗІРКАМИ */
+            background-image: 
+                radial-gradient(var(--star-color) 1px, transparent 1px),
+                radial-gradient(var(--star-color) 1px, transparent 1px),
+                linear-gradient(135deg, rgba(0, 242, 254, 0.03) 0%, transparent 40%),
+                linear-gradient(225deg, rgba(189, 0, 255, 0.03) 0%, transparent 40%);
+            background-size: 50px 50px, 100px 100px, 100% 100%, 100% 100%;
+            background-position: 0 0, 25px 25px, 0 0, 0 0;
+            animation: starsMove 200s linear infinite;
+        }
+
+        @keyframes starsMove {
+            from { background-position: 0 0, 25px 25px, 0 0, 0 0; }
+            to { background-position: 1000px 1000px, 1025px 1025px, 0 0, 0 0; }
         }
 
         /* SIDEBAR */
         .sidebar {
             width: 300px;
             background: var(--side-bg);
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(25px);
             border-right: 1px solid var(--border);
             display: flex; flex-direction: column;
             padding: 20px;
             z-index: 10;
         }
 
-        .emblem-container {
+        .logo-container {
             text-align: center;
-            margin-bottom: 30px;
-            padding: 10px;
-            position: relative;
+            margin-bottom: 40px;
+            padding: 10px 0;
         }
 
-        /* Посилання на емблему у вашому репозиторії */
-        .emblem-img {
-            width: 100%;
-            max-width: 220px;
-            filter: drop-shadow(0 0 10px rgba(0, 242, 254, 0.2));
-            animation: emblemPulse 4s ease-in-out infinite;
+        /* НАДПИС ГІДЕОН (Замість емблеми) */
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: 
+                0 0 10px #fff,
+                0 0 20px var(--neon),
+                0 0 30px var(--neon);
+            animation: logoGlow 4s ease-in-out infinite;
         }
 
-        @keyframes emblemPulse {
-            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(0, 242, 254, 0.3)); }
-            50% { transform: scale(1.03); filter: drop-shadow(0 0 20px rgba(0, 242, 254, 0.6)); }
+        @keyframes logoGlow {
+            0%, 100% { text-shadow: 0 0 10px #fff, 0 0 20px var(--neon), 0 0 30px var(--neon); opacity: 1; }
+            50% { text-shadow: 0 0 15px #fff, 0 0 30px var(--neon), 0 0 50px var(--neon); opacity: 0.9; }
         }
 
         .nav-item {
             padding: 14px 18px;
             margin-bottom: 8px;
-            border-radius: 10px;
+            border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s;
             display: flex; align-items: center;
@@ -71,14 +91,12 @@
             background: rgba(0, 242, 254, 0.05);
             color: var(--neon);
             border-color: rgba(0, 242, 254, 0.1);
-            box-shadow: 0 0 15px rgba(0, 242, 254, 0.1);
         }
 
         .nav-item.active {
             background: linear-gradient(90deg, rgba(0, 242, 254, 0.1), transparent);
             color: #fff;
             border-left: 4px solid var(--neon);
-            border-color: rgba(0, 242, 254, 0.2);
             font-weight: 500;
         }
 
@@ -88,13 +106,6 @@
             overflow-y: auto;
             padding: 40px;
             position: relative;
-        }
-
-        .header-status {
-            display: flex; justify-content: flex-end;
-            margin-bottom: 30px; font-size: 0.85rem;
-            color: var(--neon); letter-spacing: 1px;
-            opacity: 0.8;
         }
 
         .content-section {
@@ -114,21 +125,13 @@
             padding: 40px;
             border-radius: 20px;
             border: 1px solid var(--border);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .welcome-card::after {
-            content: ""; position: absolute; bottom: 0; right: 0;
-            width: 150px; height: 150px;
-            background: radial-gradient(circle, rgba(189, 0, 255, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
         }
 
         h1 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 2.8rem; margin-top: 0;
+            font-size: 3rem; margin-top: 0;
             text-shadow: 0 0 15px var(--neon);
         }
 
@@ -138,103 +141,78 @@
             letter-spacing: 2px; margin-top: 0;
         }
 
-        p { line-height: 1.7; color: #d0d0d0; font-size: 1.05rem; }
+        p { line-height: 1.8; color: #e0e0e0; font-size: 1.1rem; font-weight: 300; }
 
         /* Кнопки всередині розділів */
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px; margin-top: 30px;
         }
 
         .sub-card {
-            background: rgba(255,255,255,0.03);
+            background: rgba(255,255,255,0.02);
             border: 1px solid var(--border);
             padding: 25px; border-radius: 15px;
             cursor: pointer; transition: all 0.3s;
+            backdrop-filter: blur(5px);
         }
 
         .sub-card:hover {
-            background: rgba(0, 242, 254, 0.05);
+            background: rgba(0, 242, 254, 0.04);
             border-color: var(--neon);
             transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(0, 242, 254, 0.15);
+            box-shadow: 0 5px 25px rgba(0, 242, 254, 0.1);
         }
 
-        .sub-card i { color: var(--neon); margin-bottom: 15px; font-size: 1.8rem; display: block; }
-        .sub-card h3 { margin: 0 0 10px 0; color: #fff; font-size: 1.3rem; }
-        .sub-card p { margin: 0; font-size: 0.95rem; color: #b0b0b0; }
-
-        /* Рапорт / Інструкція (Текст) */
-        .info-panel {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px dashed var(--accent);
-            padding: 25px; border-radius: 12px;
-            font-family: monospace; line-height: 1.6;
-            margin-top: 30px; position: relative;
-            color: #f0f0f0; font-size: 1rem;
-        }
-
-        .copy-btn {
-            position: absolute; top: 10px; right: 10px;
-            background: rgba(189, 0, 255, 0.2); color: var(--accent);
-            border: 1px solid var(--accent); padding: 7px 12px;
-            border-radius: 6px; cursor: pointer; font-weight: bold;
-            transition: all 0.2s;
-        }
-
-        .copy-btn:hover { background: var(--accent); color: #fff; box-shadow: 0 0 10px var(--accent); }
+        .sub-card i { color: var(--neon); margin-bottom: 15px; font-size: 2rem; display: block; }
+        .sub-card h3 { margin: 0 0 10px 0; color: #fff; font-size: 1.4rem; }
+        .sub-card p { margin: 0; font-size: 1rem; color: #aaaaaa; }
 
     </style>
 </head>
 <body>
 
     <div class="sidebar">
-        <div class="emblem-container">
-            <img src="https://raw.githubusercontent.com/gideon-police/gideon-police.github.io/main/Зображення11.jpg" class="emblem-img" alt="Емблема УГІ">
+        <div class="logo-container">
+            <div class="logo-text">GIDEON</div>
         </div>
         
-        <div class="nav-item active" onclick="switchTab('home')"><i class="fas fa-satellite-dish"></i> Головний Термінал</div>
-        <div class="nav-item" onclick="switchTab('kadry')"><i class="fas fa-user-shield"></i> Кадрові питання</div>
-        <div class="nav-item" onclick="switchTab('house')"><i class="fas fa-hoome"></i> Квартирний облік</div>
-        <div class="nav-item" onclick="switchTab('money')"><i class="fas fa-hand-holding-usd"></i> Компенсація житла</div>
+        <div class="nav-item active" onclick="switchTab('home')"><i class="fas fa-home"></i> Головний Термінал</div>
+        <div class="nav-item" onclick="switchTab('kadry')"><i class="fas fa-user-tie"></i> Кадрові питання</div>
+        <div class="nav-item" onclick="switchTab('house')"><i class="fas fa-key"></i> Квартирний облік</div>
+        <div class="nav-item" onclick="switchTab('money')"><i class="fas fa-wallet"></i> Компенсація житла</div>
         <div class="nav-item" onclick="switchTab('contacts')"><i class="fas fa-address-book"></i> Довідник контактів</div>
         <div class="nav-item" onclick="switchTab('ubd')"><i class="fas fa-medal"></i> Статус УБД</div>
-        <div class="nav-item" onclick="switchTab('bank')"><i class="fas fa-credit-card"></i> Банківські реквізити</div>
-        <div class="nav-item" onclick="switchTab('union')"><i class="fas fa-users-rectangle"></i> Профспілка</div>
+        <div class="nav-item" onclick="switchTab('bank')"><i class="fas fa-university"></i> Банківські реквізити</div>
+        <div class="nav-item" onclick="switchTab('union')"><i class="fas fa-shield-halved"></i> Профспілка</div>
     </div>
 
     <div class="main-content">
-        <div class="header-status">
-            <i class="fas fa-lock"></i> Secure Connection | Welcome, Operator
-        </div>
-
         <div id="home" class="content-section active">
             <div class="welcome-card">
-                <h1>GIDEON System 🌌</h1>
-                <p>Вітаємо в єдиному цифровому просторі Управління головної інспекції. 
-                   Всі кадрові, соціальні та довідкові ресурси інтегровані в зручний інтерфейс. 
-                   Оберіть потрібний розділ у лівому меню.</p>
+                <h1>Вітаємо у GIDEON 🌌</h1>
+                <p>Ваш персональний цифровий навігатор. Оберіть розділ у лівій панелі, щоб розпочати роботу. Всі рапорти, інструкції та нормативна база Управління головної інспекції тепер в одному місці.</p>
             </div>
         </div>
 
         <div id="kadry" class="content-section">
             <h2>📂 Кадрові питання</h2>
-            <p>Оберіть категорію для отримання шаблону документа або інструкції:</p>
+            <p>Оберіть категорію для отримання шаблону документа:</p>
             <div class="cards-grid">
                 <div class="sub-card" onclick="alert('Тут з’явиться список рапортів на відпустки')">
                     <i class="fas fa-umbrella-beach"></i>
-                    <h3>ВІДПУСТКИ</h3>
+                    <h3>🚢 ВІДПУСТКИ</h3>
                     <p>Шаблони рапортів на всі види відпочинку (щорічні, додаткові, УБД).</p>
                 </div>
                 <div class="sub-card">
                     <i class="fas fa-notes-medical"></i>
-                    <h3>ДОПОМОГА</h3>
+                    <h3>💰 ДОПОМОГА</h3>
                     <p>Оздоровлення та соціально-побутові питання.</p>
                 </div>
                 <div class="sub-card">
-                    <i class="fas fa-sync-alt"></i>
-                    <h3>СЛУЖБОВІ ЗМІНИ</h3>
+                    <i class="fas fa-exchange-alt"></i>
+                    <h3>💼 ЗМІНИ</h3>
                     <p>Рапорти на переведення або звільнення.</p>
                 </div>
             </div>
