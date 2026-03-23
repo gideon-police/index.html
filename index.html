@@ -129,7 +129,7 @@
         <div class="nav-item" onclick="switchTab('contacts')"><i class="fas fa-address-book"></i> Довідник контактів</div>
         <div class="nav-item" onclick="switchTab('ubd')"><i class="fas fa-medal"></i> Статус УБД</div>
         <div class="nav-item" onclick="switchTab('bank')"><i class="fas fa-university"></i> Банківські реквізити</div>
-        <div class="nav-item" onclick="switchTab('union')"><i class="fas fa-users-rectangle"></i> Профспілка</div>
+        <div class="nav-item" onclick="switchTab('union')"><i class="fas fa-shield-halved"></i> Профспілка</div>
     </div>
 
     <div class="main-content">
@@ -137,7 +137,7 @@
             <div class="glass-panel">
                 <h1>GIDEON System 🌌</h1>
                 <p>Вітаємо в цифровому просторі <strong>ГУНП в Черкаській області</strong>.</p>
-                <p>Всі системи та бази рапортів оновлено до останньої версії.</p>
+                <p>Система завантажена. Оберіть розділ для роботи з документами.</p>
             </div>
         </div>
 
@@ -215,20 +215,19 @@
                     <div class="sub-card" onclick="showModal('Переміщення на вищу посаду', 'вища посада.pdf')">
                         <i class="fas fa-angle-double-up"></i>
                         <h3>Вища посада</h3>
-                        <p>Матеріали переміщення</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div id="house" class="content-section"><h2>🏠 Квартирний облік</h2><p>Система очікує дані...</p></div>
+        <div id="house" class="content-section"><h2>🏠 Квартирний облік</h2><p>Очікування даних...</p></div>
     </div>
 
     <div id="fileModal" class="modal">
         <div class="modal-content">
             <h3 id="modalTitle" style="color:var(--neon); font-size: 1.8rem;">Файл</h3>
-            <p style="color:#aaa;">Передача через захищений шлюз готова.</p>
-            <button id="downloadLink" class="action-btn"><i class="fas fa-download"></i> ЗАВАНТАЖИТИ PDF</button>
+            <p style="color:#aaa;">Натисніть кнопку для завантаження.</p>
+            <a id="downloadBtn" class="action-btn" href="#" download><i class="fas fa-download"></i> ЗАВАНТАЖИТИ PDF</a>
             <br><br>
             <button onclick="closeModal()" style="background:none; border:none; color:#555; cursor:pointer;">[ ЗАКРИТИ ]</button>
         </div>
@@ -247,12 +246,11 @@
         function showModal(title, fileName) {
             document.getElementById('modalTitle').innerText = title;
             document.getElementById('fileModal').style.display = 'flex';
-            document.getElementById('downloadLink').onclick = function() {
-                const link = document.createElement('a');
-                link.href = encodeURIComponent(fileName);
-                link.download = fileName;
-                link.click();
-            };
+            
+            // ПРАВИЛЬНЕ ФОРМУВАННЯ ПОСИЛАННЯ (враховуючи пробіли)
+            const downloadBtn = document.getElementById('downloadBtn');
+            downloadBtn.href = encodeURI(fileName);
+            downloadBtn.setAttribute('download', fileName);
         }
 
         function closeModal() {
