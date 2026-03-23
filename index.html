@@ -22,17 +22,14 @@
             color: #fff; margin: 0;
             display: flex; height: 100vh;
             overflow: hidden;
-            /* ЕФЕКТ КОСМОСУ */
             background-image: 
-                radial-gradient(rgba(255,255,255,0.4) 1px, transparent 1px),
-                radial-gradient(rgba(255,255,255,0.3) 1.5px, transparent 1.5px),
-                linear-gradient(135deg, rgba(0, 242, 254, 0.05) 0%, transparent 50%),
-                linear-gradient(225deg, rgba(189, 0, 255, 0.05) 0%, transparent 50%);
-            background-size: 80px 80px, 150px 150px, 100% 100%, 100% 100%;
+                radial-gradient(rgba(255,255,255,0.3) 1px, transparent 1px),
+                linear-gradient(135deg, rgba(0, 242, 254, 0.05) 0%, transparent 50%);
+            background-size: 80px 80px, 100% 100%;
             animation: starsMove 300s linear infinite;
         }
 
-        @keyframes starsMove { from {background-position: 0 0, 0 0;} to {background-position: 1000px 1000px, 500px 500px;} }
+        @keyframes starsMove { from {background-position: 0 0;} to {background-position: 1000px 1000px;} }
 
         .sidebar {
             width: 300px;
@@ -48,7 +45,6 @@
             font-size: 2.2rem; font-weight: 700;
             text-align: center; margin: 20px 0 40px 0;
             letter-spacing: 5px; text-shadow: 0 0 20px var(--neon);
-            color: #fff;
         }
 
         .nav-item {
@@ -98,7 +94,6 @@
             background: rgba(0, 242, 254, 0.08);
             border-color: var(--neon);
             transform: translateY(-5px);
-            box-shadow: 0 0 20px rgba(0, 242, 254, 0.2);
         }
 
         .sub-card i { color: var(--neon); font-size: 2rem; margin-bottom: 10px; display: block; }
@@ -112,7 +107,6 @@
         }
         .action-btn:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--accent); }
 
-        /* MODAL */
         .modal {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.85); z-index: 1000; justify-content: center; align-items: center;
@@ -121,7 +115,6 @@
         .modal-content {
             background: #0a0f1d; padding: 40px; border-radius: 25px;
             border: 2px solid var(--neon); text-align: center; width: 450px;
-            box-shadow: 0 0 50px rgba(0, 242, 254, 0.3);
         }
     </style>
 </head>
@@ -143,8 +136,8 @@
         <div id="home" class="content-section active">
             <div class="glass-panel">
                 <h1>GIDEON System 🌌</h1>
-                <p>Вітаємо в єдиному цифровому просторі <strong>ГУНП в Черкаській області</strong>.</p>
-                <p>Ваша система завантажена. Всі рапорти тепер синхронізовані з базою даних.</p>
+                <p>Вітаємо в цифровому просторі <strong>ГУНП в Черкаській області</strong>.</p>
+                <p>Ваша кадрова підтримка працює в штатному режимі.</p>
             </div>
         </div>
 
@@ -155,12 +148,17 @@
                     <div class="sub-card" onclick="switchTab('sub-vidpustky')">
                         <i class="fas fa-umbrella-beach"></i>
                         <h3>ВІДПУСТКИ</h3>
-                        <p>Доступ до 5-ти основних шаблонів.</p>
+                        <p>Шаблони на всі види відпочинку.</p>
                     </div>
-                    <div class="sub-card" onclick="alert('Розділ наповнюється...')">
+                    <div class="sub-card" onclick="switchTab('sub-money')">
                         <i class="fas fa-hand-holding-usd"></i>
-                        <h3>ДОПОМОГА</h3>
+                        <h3>ГРОШОВА ДОПОМОГА</h3>
                         <p>Оздоровлення та соц-побут.</p>
+                    </div>
+                    <div class="sub-card" onclick="switchTab('sub-zminy')">
+                        <i class="fas fa-sync-alt"></i>
+                        <h3>СЛУЖБОВІ ЗМІНИ</h3>
+                        <p>Переведення, звільнення, кар'єра.</p>
                     </div>
                 </div>
             </div>
@@ -179,17 +177,56 @@
                 </div>
             </div>
         </div>
-        
-        <div id="house" class="content-section"><h2>🏠 Квартирний облік</h2><p>Очікування даних від оператора...</p></div>
+
+        <div id="sub-money" class="content-section">
+            <div class="glass-panel">
+                <button class="action-btn" style="background:#333; margin-bottom:20px;" onclick="switchTab('kadry')">← НАЗАД</button>
+                <h2>💰 Грошова допомога</h2>
+                <div class="cards-grid">
+                    <div class="sub-card" onclick="showModal('Допомога на оздоровлення', 'оздоровлення.pdf')">
+                        <i class="fas fa-plus-square"></i>
+                        <h3>На оздоровлення</h3>
+                    </div>
+                    <div class="sub-card" onclick="showModal('Соціально-побутова допомога', 'соц-побут.pdf')">
+                        <i class="fas fa-home"></i>
+                        <h3>Соціально-побутові</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="sub-zminy" class="content-section">
+            <div class="glass-panel">
+                <button class="action-btn" style="background:#333; margin-bottom:20px;" onclick="switchTab('kadry')">← НАЗАД</button>
+                <h2>🚀 Службові зміни та кар'єра</h2>
+                <div class="cards-grid">
+                    <div class="sub-card" onclick="showModal('Рапорт на переведення', 'переведення.pdf')">
+                        <i class="fas fa-exchange-alt"></i>
+                        <h3>Переведення</h3>
+                    </div>
+                    <div class="sub-card" onclick="showModal('Рапорт на звільнення', 'звільнення.pdf')">
+                        <i class="fas fa-door-open"></i>
+                        <h3>Звільнення</h3>
+                    </div>
+                    <div class="sub-card" onclick="showModal('Переміщення на вищу посаду', 'вища_посада.pdf')">
+                        <i class="fas fa-chevron-circle-up"></i>
+                        <h3>Вища посада</h3>
+                        <p>Матеріали переміщення</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="house" class="content-section"><h2>🏠 Квартирний облік</h2><p>Розділ у розробці...</p></div>
     </div>
 
     <div id="fileModal" class="modal">
         <div class="modal-content">
-            <h3 id="modalTitle" style="color:var(--neon); font-size: 1.8rem; margin-bottom: 10px;">Файл</h3>
-            <p style="color:#aaa;">Протокол готовий до передачі. Натисніть кнопку для завантаження на ваш пристрій.</p>
+            <h3 id="modalTitle" style="color:var(--neon); font-size: 1.8rem;">Файл</h3>
+            <p style="color:#aaa;">Шаблон готовий до завантаження.</p>
             <button id="downloadLink" class="action-btn"><i class="fas fa-download"></i> ЗАВАНТАЖИТИ PDF</button>
             <br><br>
-            <button onclick="closeModal()" style="background:none; border:none; color:#555; cursor:pointer; font-family:inherit;">[ ЗАКРИТИ ]</button>
+            <button onclick="closeModal()" style="background:none; border:none; color:#555; cursor:pointer;">[ ЗАКРИТИ ]</button>
         </div>
     </div>
 
@@ -197,7 +234,8 @@
         function switchTab(tabId) {
             document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
             document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active');
+            const target = document.getElementById(tabId);
+            if(target) target.classList.add('active');
             const nav = document.querySelector(`[onclick="switchTab('${tabId}')"]`);
             if(nav) nav.classList.add('active');
         }
@@ -205,12 +243,9 @@
         function showModal(title, fileName) {
             document.getElementById('modalTitle').innerText = title;
             document.getElementById('fileModal').style.display = 'flex';
-            
-            // Встановлюємо шлях до файлу (використовуємо відносний шлях, бо файли в тому ж репозиторії)
-            const btn = document.getElementById('downloadLink');
-            btn.onclick = function() {
+            document.getElementById('downloadLink').onclick = function() {
                 const link = document.createElement('a');
-                link.href = fileName; // Файл лежить поруч з index.html
+                link.href = fileName;
                 link.download = fileName;
                 link.click();
             };
