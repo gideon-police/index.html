@@ -109,11 +109,11 @@
         }
         .action-btn:hover { background: var(--accent); box-shadow: 0 0 15px var(--accent); }
 
-        /* СПЕЦІАЛЬНІ БЛОКИ */
+        /* СПЕЦІАЛЬНІ БЛОКИ ІНФО */
         .info-step { border-left: 2px solid var(--neon); padding-left: 20px; margin-bottom: 25px; }
         .info-step h4 { color: var(--neon); margin: 0 0 10px 0; }
         .contact-box { background: rgba(0, 242, 254, 0.05); padding: 15px; border-radius: 10px; margin-top: 20px; border: 1px dashed var(--neon); }
-        .list-style { padding-left: 20px; color: #d0d0d0; }
+        .list-style { padding-left: 20px; color: #d0d0d0; list-style-type: square; }
         .list-style li { margin-bottom: 10px; }
 
         .modal {
@@ -142,65 +142,119 @@
 
     <div class="main-content">
         <div id="home" class="content-section active">
-            <div class="welcome-card">
+            <div class="welcome-card" style="background: var(--glass); padding: 40px; border-radius: 20px; border: 1px solid var(--border);">
                 <h1>GIDEON System 🌌</h1>
                 <p>Вітаємо в цифровому просторі <strong>ГУНП в Черкаській області</strong>.</p>
-                <p>Оберіть потрібний протокол у лівій панелі.</p>
+                <p>Ваша інтелектуальна система підтримки. Оберіть потрібний розділ у меню зліва для початку роботи.</p>
+            </div>
+        </div>
+
+        <div id="kadry" class="content-section">
+            <div class="glass-panel">
+                <h2>📂 Кадрові питання</h2>
+                <p>Вітаю у кадровому розділі! Оберіть категорію документів: [cite: 1]</p>
+                <div class="cards-grid">
+                    <div class="sub-card" onclick="switchTab('sub-vidpustky')"><i class="fas fa-umbrella-beach"></i><h3>ВІДПУСТКИ</h3><p>Всі види рапортів на відпочинок.</p></div>
+                    <div class="sub-card" onclick="switchTab('sub-kadry-money')"><i class="fas fa-hand-holding-usd"></i><h3>ГРОШОВА ДОПОМОГА</h3><p>Оздоровлення та соц-побут.</p></div>
+                    <div class="sub-card" onclick="switchTab('sub-zminy')"><i class="fas fa-sync-alt"></i><h3>СЛУЖБОВІ ЗМІНИ</h3><p>Переведення та звільнення.</p></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="house" class="content-section">
+            <div class="glass-panel">
+                <h2>🏠 Квартирний облік</h2>
+                <p>Власне житло — це твій надійний тил! 🏰🛡️ Оберіть потрібний розділ: [cite: 1]</p>
+                <div class="cards-grid">
+                    <div class="sub-card" onclick="switchTab('sub-house-algo')"><i class="fas fa-list-ol"></i><h3>Алгоритм дій</h3><p>Покроковий шлях для постановки.</p></div>
+                    <div class="sub-card" onclick="showModal('Рапорт на включення', 'vkluchennya.pdf')"><i class="fas fa-file-signature"></i><h3>Рапорт (Включення)</h3><p>Зразки для первинної постановки.</p></div>
+                    <div class="sub-card" onclick="showModal('Щорічне підтвердження', 'pidtverdzhennya.pdf')"><i class="fas fa-check-double"></i><h3>Рапорт (Підтвердження)</h3><p>Щорічна перевірка даних.</p></div>
+                </div>
             </div>
         </div>
 
         <div id="money" class="content-section">
             <div class="glass-panel">
                 <h2>💰 Компенсація за винайм житла</h2>
-                <p>(згідно з Постановою КМУ № 866)</p>
-                <p>Грошова компенсація призначається поліцейським, які не мають власного житла в населеному пункті за місцем служби та винаймають його на підставі офіційного договору.</p>
-                
+                <p>(згідно з Постановою КМУ № 866) [cite: 1]</p>
                 <div class="cards-grid">
-                    <div class="sub-card" onclick="switchTab('sub-rent-size')">
-                        <i class="fas fa-coins"></i>
-                        <h3>Розмір виплат</h3>
-                        <p>Розрахунок згідно з населеним пунктом.</p>
-                    </div>
-                    <div class="sub-card" onclick="switchTab('sub-rent-docs')">
-                        <i class="fas fa-file-invoice"></i>
-                        <h3>Перелік документів</h3>
-                        <p>Що потрібно надати в логістику.</p>
-                    </div>
-                    <div class="sub-card" onclick="switchTab('sub-rent-limits')">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <h3>Важливі обмеження</h3>
-                        <p>Умови договору та типи житла.</p>
-                    </div>
+                    <div class="sub-card" onclick="switchTab('sub-rent-size')"><i class="fas fa-coins"></i><h3>Розмір виплат</h3><p>Граничні межі компенсації.</p></div>
+                    <div class="sub-card" onclick="switchTab('sub-rent-docs')"><i class="fas fa-file-invoice"></i><h3>Перелік документів</h3><p>Що подати в УЛМТЗ.</p></div>
+                    <div class="sub-card" onclick="switchTab('sub-rent-limits')"><i class="fas fa-exclamation-triangle"></i><h3>Важливі обмеження</h3><p>Умови до житла та договору.</p></div>
                 </div>
+            </div>
+        </div>
+
+        <div id="sub-vidpustky" class="content-section">
+            <div class="glass-panel">
+                <button class="action-btn" style="background:#444; border:none; margin-bottom:20px;" onclick="switchTab('kadry')">← НАЗАД</button>
+                <h2>🚢 Рапорти на відпустки</h2>
+                <div class="cards-grid">
+                    <div class="sub-card" onclick="showModal('Частина основної', 'chastyna_osnovnoi.pdf')"><h3>📅 Частина основної</h3></div>
+                    <div class="sub-card" onclick="showModal('Невикористана частина', 'nevykoristana_chastyna.pdf')"><h3>⏳ Невикористана</h3></div>
+                    <div class="sub-card" onclick="showModal('Основна + Додаткова', 'osnovna_dodatkova.pdf')"><h3>🧩 Основна+Додаткова</h3></div>
+                    <div class="sub-card" onclick="showModal('Додаткова відпустка', 'dodatkova_vidpustka.pdf')"><h3>➕ Додаткова</h3></div>
+                    <div class="sub-card" onclick="showModal('Відпустка УБД', 'vidpustka_ubd.pdf')"><h3>🎖️ Відпустка УБД</h3></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="sub-kadry-money" class="content-section">
+            <div class="glass-panel">
+                <button class="action-btn" style="background:#444; border:none; margin-bottom:20px;" onclick="switchTab('kadry')">← НАЗАД</button>
+                <h2>💰 Грошова допомога</h2>
+                <div class="cards-grid">
+                    <div class="sub-card" onclick="showModal('На оздоровлення', 'ozdorovlennya.pdf')"><h3>🏥 На оздоровлення</h3></div>
+                    <div class="sub-card" onclick="showModal('Соц-побутова допомога', 'soc_pobut.pdf')"><h3>🤝 Соціально-побутова</h3></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="sub-zminy" class="content-section">
+            <div class="glass-panel">
+                <button class="action-btn" style="background:#444; border:none; margin-bottom:20px;" onclick="switchTab('kadry')">← НАЗАД</button>
+                <h2>🚀 Службові зміни</h2>
+                <div class="cards-grid">
+                    <div class="sub-card" onclick="showModal('Переведення', 'perevedennya.pdf')"><h3>🔃 Переведення</h3></div>
+                    <div class="sub-card" onclick="showModal('Звільнення 10+', 'zvilnennya_10.pdf')"><h3>🎖️ Звільнення (10+)</h3></div>
+                    <div class="sub-card" onclick="showModal('Звільнення', 'zvilnennya.pdf')"><h3>🌱 Звільнення</h3></div>
+                    <div class="sub-card" onclick="showModal('Вища посада', 'vyshcha_posada.pdf')"><h3>📈 Вища посада</h3></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="sub-house-algo" class="content-section">
+            <div class="glass-panel">
+                <button class="action-btn" style="background:#444; border:none; margin-bottom:20px;" onclick="switchTab('house')">← НАЗАД</button>
+                <h2>📋 Алгоритм житлового обліку</h2>
+                <div class="info-step"><h4>І етап: Органи виконавчої влади</h4><p>Оновіть документи або станьте на чергу за місцем реєстрації. Отримайте відповідну довідку.</p></div>
+                <div class="info-step"><h4>ІІ етап: Подача в ГУНП</h4><p>До <strong>01.02.2026</strong> подайте рапорт керівнику ГУНП з довідкою за 2026 рік.</p></div>
+                <div class="contact-box"><p><strong>УЛМТЗ:</strong> Тетяна Кареліна <a href="tel:0975312178" style="color:var(--neon)">(097) 531-21-78</a></p></div>
             </div>
         </div>
 
         <div id="sub-rent-size" class="content-section">
             <div class="glass-panel">
                 <button class="action-btn" style="background:#444; border:none; margin-bottom:20px;" onclick="switchTab('money')">← НАЗАД</button>
-                <h2>🪙 Розмір компенсації</h2>
-                <p>Виплачується щомісяця у розмірі фактичних витрат, але не більше меж:</p>
-                <div class="info-step"><h4>🏙️ м. Київ</h4><p>2 прожиткових мінімуми (наразі 5840 грн).</p></div>
-                <div class="info-step"><h4>🌆 Обласні центри</h4><p>1.5 прожиткових мінімуму (наразі 4380 грн).</p></div>
-                <div class="info-step"><h4>🏡 Інші населені пункти</h4><p>1 прожитковий мінімум (наразі 2920 грн).</p></div>
-                <div class="contact-box">
-                    <p>👨‍👩‍👧‍👦 <strong>Бонус за сім'ю:</strong> Якщо у поліцейського 3 і більше членів сім'ї, розмір компенсації збільшується в 1,5 раза.</p>
-                </div>
+                <h2>🪙 Розміри виплат</h2>
+                <ul class="list-style">
+                    <li>🌆 м. Київ: 5840 грн.</li>
+                    <li>🏢 Обласні центри: 4380 грн.</li>
+                    <li>🏠 Інші пункти: 2920 грн.</li>
+                </ul>
+                <p>👨‍👩‍👧‍👦 Бонус: +50% за 3+ членів сім'ї.</p>
             </div>
         </div>
 
         <div id="sub-rent-docs" class="content-section">
             <div class="glass-panel">
                 <button class="action-btn" style="background:#444; border:none; margin-bottom:20px;" onclick="switchTab('money')">← НАЗАД</button>
-                <h2>📄 Необхідні документи</h2>
+                <h2>📄 Документи для УЛМТЗ</h2>
                 <ul class="list-style">
                     <li>📝 Рапорт.</li>
-                    <li>🆔 Копії паспортів та ІПН (вашого та членів сім'ї).</li>
-                    <li>💍 Копії свідоцтв про шлюб та народження дітей.</li>
-                    <li>🏠 Копія договору житлового найму (нотаріальна).</li>
-                    <li>🏢 Довідка про перебування на квартирному обліку.</li>
-                    <li>📍 Довідка про реєстрацію місця проживання кожного члена сім'ї.</li>
-                    <li>💼 Довідки з місця роботи членів сім'ї (що вони не отримують компенсацію).</li>
+                    <li>🆔 Копії паспортів/ІПН сім'ї.</li>
+                    <li>🏘️ Договір найму (нотаріальний).</li>
+                    <li>🏢 Довідка про кварт-облік.</li>
                 </ul>
             </div>
         </div>
@@ -208,18 +262,25 @@
         <div id="sub-rent-limits" class="content-section">
             <div class="glass-panel">
                 <button class="action-btn" style="background:#444; border:none; margin-bottom:20px;" onclick="switchTab('money')">← НАЗАД</button>
-                <h2>⚠️ Обов'язкові умови</h2>
-                <div class="info-step"><h4>🏠 Тільки ізольоване житло</h4><p>Предметом договору найму може бути виключно ізольоване житлове приміщення.</p></div>
-                <div class="info-step"><h4>🚫 Обмеження</h4><p>Не можуть бути кімнати в гуртожитках, комуналках або підсобні приміщення.</p></div>
-                <div class="info-step"><h4>📜 Нотаріальне завірення</h4><p>Договір найму має бути обов'язково нотаріально завіреним.</p></div>
-                <div class="contact-box">
-                    <p>💡 <strong>Консультація:</strong> Тетяна Кареліна <a href="tel:0975312178" style="color:var(--neon)">(097) 531-21-78</a></p>
-                </div>
+                <h2>⚠️ Обмеження</h2>
+                <ul class="list-style">
+                    <li>🏚️ Тільки ізольоване житло.</li>
+                    <li>🚫 Не гуртожитки, не комуналки.</li>
+                    <li>📜 Тільки нотаріальний договір.</li>
+                </ul>
             </div>
         </div>
 
-        <div id="kadry" class="content-section">...</div>
-        <div id="house" class="content-section">...</div>
+    </div>
+
+    <div id="fileModal" class="modal">
+        <div class="modal-content">
+            <h3 id="modalTitle" style="color:var(--neon)">Файл</h3>
+            <p style="color:#777">Готовий до передачі.</p>
+            <a id="downloadBtn" class="action-btn" href="#" download><i class="fas fa-download"></i> ЗАВАНТАЖИТИ PDF</a>
+            <br><br>
+            <button onclick="closeModal()" style="background:none; border:none; color:#555; cursor:pointer;">[ ЗАКРИТИ ]</button>
+        </div>
     </div>
 
     <script>
@@ -228,8 +289,25 @@
             document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
             const target = document.getElementById(tabId);
             if(target) target.classList.add('active');
-            const nav = document.querySelector(`[onclick="switchTab('${tabId}')"]`) || document.querySelector(`[onclick="switchTab('money')"]`);
+            
+            // Підсвітка меню (знаходимо основний батьківський розділ)
+            let rootId = tabId;
+            if(tabId.startsWith('sub-vidpustky') || tabId.startsWith('sub-kadry-money') || tabId.startsWith('sub-zminy')) rootId = 'kadry';
+            if(tabId.startsWith('sub-house-algo')) rootId = 'house';
+            if(tabId.startsWith('sub-rent')) rootId = 'money';
+            
+            const nav = document.querySelector(`[onclick="switchTab('${rootId}')"]`);
             if(nav) nav.classList.add('active');
+        }
+
+        function showModal(title, fileName) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('fileModal').style.display = 'flex';
+            document.getElementById('downloadBtn').href = fileName;
+        }
+
+        function closeModal() {
+            document.getElementById('fileModal').style.display = 'none';
         }
     </script>
 </body>
