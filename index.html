@@ -41,9 +41,8 @@
         .info-step h4 { color: var(--neon); margin: 0 0 10px 0; }
         .contact-box { background: rgba(255,255,255,0.03); padding: 20px; border-radius: 15px; margin-bottom: 15px; border: 1px solid var(--border); }
         .contact-box h3 { margin-top: 0; color: var(--neon); font-size: 1.1rem; }
-        .contact-box p { margin: 5px 0; font-size: 0.95rem; color: #ccc; }
         .list-style { padding-left: 20px; color: #d0d0d0; list-style-type: none; }
-        .list-style li { margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px; }
+        .list-style li { margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px; }
         .list-style li i { color: var(--neon); margin-top: 4px; }
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center; }
         .modal-content { background: #0a0f1d; padding: 40px; border-radius: 20px; border: 1px solid var(--neon); text-align: center; width: 400px; }
@@ -103,16 +102,60 @@
             </div>
         </div>
 
-        <div id="sub-vidpustky" class="content-section">
+        <div id="ubd-main" class="content-section">
             <div class="glass-panel">
-                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('kadry')">← НАЗАД</button>
-                <h2>🚢 Рапорти на відпустки</h2>
+                <h2>🎖️ СТАТУС УБД: Права та пільги (Черкаси)</h2>
+                <p>Вітаємо, захиснику! Тут зібрана інформація про твої права, місцеві виплати та пільги, які діють саме в нашому обласному центрі.</p>
+                <div class="contact-box" style="border: 1px dashed var(--neon);">
+                    <p style="color: #00f2fe; margin: 0;"><i class="fas fa-lightbulb"></i> Пам'ятайте: для отримання більшості пільг необхідно бути зареєстрованим у м. Черкаси.</p>
+                </div>
                 <div class="cards-grid">
-                    <div class="sub-card" onclick="showModal('Частина основної', 'chastyna_osnovnoi.pdf')"><h3>📅 Частина основної</h3></div>
-                    <div class="sub-card" onclick="showModal('Невикористана частина', 'nevykoristana_chastyna.pdf')"><h3>⏳ Невикористана</h3></div>
-                    <div class="sub-card" onclick="showModal('Основна+Додаткова', 'osnovna_dodatkova.pdf')"><h3>🧩 Основна+Додаткова</h3></div>
-                    <div class="sub-card" onclick="showModal('Додаткова відпустка', 'dodatkova_vidpustka.pdf')"><h3>➕ Додаткова</h3></div>
-                    <div class="sub-card" onclick="showModal('Відпустка УБД', 'vidpustka_ubd.pdf')"><h3>🎖️ Відпустка УБД</h3></div>
+                    <div class="sub-card" onclick="switchTab('ubd-money')"><i class="fas fa-hand-holding-usd"></i><h3>Грошова підтримка</h3><p>Виплати від міської ради.</p></div>
+                    <div class="sub-card" onclick="switchTab('ubd-discounts')"><i class="fas fa-gift"></i><h3>Акції та знижки</h3><p>АЗС, Магазини, Спорт.</p></div>
+                    <div class="sub-card" onclick="switchTab('ubd-communal')"><i class="fas fa-home"></i><h3>Пільги на комуналку</h3><p>Як оформити -75% знижки.</p></div>
+                    <div class="sub-card" onclick="switchTab('ubd-medical')"><i class="fas fa-hospital-user"></i><h3>Медицина та реабілітація</h3><p>Спеціальні умови лікування.</p></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="ubd-money" class="content-section">
+            <div class="glass-panel">
+                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('ubd-main')">← НАЗАД</button>
+                <h2>💵 Грошові виплати (м. Черкаси)</h2>
+                <div class="info-step"><h4>🔹 Місцева виплата</h4><p>У 2025 році — 3 000 грн. Оформлюється через Департамент соцполітики.</p></div>
+                <div class="info-step"><h4>🔹 Допомога добровольцям (ДФТГ)</h4><p>30 000 грн щорічно для офіційно задіяних бійців.</p></div>
+                <div class="contact-box"><h3>🏢 Департамент соцполітики ЧМР:</h3><p>📍 бул. Шевченка, 307, каб. 104 | 📞 (0472) 33-63-29</p></div>
+            </div>
+        </div>
+
+        <div id="ubd-discounts" class="content-section">
+            <div class="glass-panel">
+                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('ubd-main')">← НАЗАД</button>
+                <h2>⛽ АЗС, МАГАЗИНИ ТА ТРАНСПОРТ</h2>
+                <div class="cards-grid">
+                    <div class="contact-box"><h3>🚗 АЗС</h3><p>WOG/OKKO: -2-3 грн/л. Укрнафта: спецціна.</p></div>
+                    <div class="contact-box"><h3>🛒 МАГАЗИНИ</h3><p>Епіцентр (лояльність), Велмарт (соцзнижки).</p></div>
+                </div>
+                <div class="info-step" style="margin-top:20px;"><h4>🚆 ТРАНСПОРТ</h4><p>Тролейбуси: Безкоштовно. Потяг/Автобус: -75%.</p></div>
+            </div>
+        </div>
+
+        <div id="ubd-communal" class="content-section">
+            <div class="glass-panel">
+                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('ubd-main')">← НАЗАД</button>
+                <h2>🏠 Пільги на комунальні послуги (-75%)</h2>
+                <div class="info-step"><h4>👣 Де оформити?</h4><p>📍 ПФУ: вул. Смілянська, 23 | 📍 ЦНАП: вул. Благовісна, 170</p></div>
+                <div class="contact-box"><h3>📋 Документи:</h3><p>Паспорт, ІПН, УБД, Витяг про проживання, IBAN, Особові рахунки.</p></div>
+            </div>
+        </div>
+
+        <div id="ubd-medical" class="content-section">
+            <div class="glass-panel">
+                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('ubd-main')">← НАЗАД</button>
+                <h2>💊 Медицина та реабілітація</h2>
+                <div class="cards-grid">
+                    <div class="contact-box"><h3>🏥 МЦ «Лікар Здоров'я»</h3><p>-20% на консультації та УЗД. 📍 вул. Шевченка, 135</p></div>
+                    <div class="contact-box"><h3>👓 МЦ «Люксоптика»</h3><p>Безкоштовно: перевірка зору та окуляри за рецептом.</p></div>
                 </div>
             </div>
         </div>
@@ -121,8 +164,8 @@
             <div class="glass-panel">
                 <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('house')">← НАЗАД</button>
                 <h2>📋 Алгоритм житлового обліку</h2>
-                <div class="info-step"><h4>І етап: Органи виконавчої влади</h4><p>Зверніться за місцем реєстрації для оновлення документів або постановки на чергу та отримайте довідку.</p></div>
-                <div class="info-step"><h4>ІІ етап: Подача в ГУНП</h4><p>В термін <strong>до 01.02.2026</strong> подайте рапорт на ім'я керівника ГУНП разом з оновленою довідкою.</p></div>
+                <div class="info-step"><h4>І етап: Органи виконавчої влади</h4><p>Зверніться за місцем реєстрації для оновлення документів або постановки на чергу.</p></div>
+                <div class="info-step"><h4>ІІ етап: Подача в ГУНП</h4><p>В термін <strong>до 01.02.2026</strong> подайте рапорт на ім'я керівника ГУНП.</p></div>
                 <div class="contact-box"><p>👤 Тетяна Кареліна (УЛМТЗ): <a href="tel:0975312178" style="color:var(--neon)">(097) 531-21-78</a></p></div>
             </div>
         </div>
@@ -131,29 +174,26 @@
             <div class="glass-panel">
                 <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('money')">← НАЗАД</button>
                 <h2>🪙 Розмір компенсації</h2>
-                <p>Грошова компенсація виплачується щомісяця у розмірі фактичних витрат, але не більше встановлених меж:</p>
-                <div class="info-step"><h4>🏙 м. Київ</h4><p>дві суми (наразі 5840 грн).</p></div>
-                <div class="info-step"><h4>🌆 Обласні центри</h4><p>півтори суми (наразі 4380 грн).</p></div>
-                <div class="info-step"><h4>🏡 Інші пункти</h4><p>одна сума (наразі 2920 грн).</p></div>
-                <div class="contact-box">
-                    <p>👨‍👩‍👧‍👦 <strong>Бонус:</strong> +50% за 3+ членів сім'ї. <br>⚠️ Виплата одному з подружжя-поліцейських.</p>
-                </div>
+                <div class="info-step"><h4>🏙 м. Київ: 5840 грн</h4></div>
+                <div class="info-step"><h4>🌆 Обласні центри: 4380 грн</h4></div>
+                <div class="info-step"><h4>🏡 Інші пункти: 2920 грн</h4></div>
+                <p>👨‍👩‍👧‍👦 Бонус: +50% за 3+ членів сім'ї.</p>
             </div>
         </div>
 
         <div id="sub-rent-docs" class="content-section">
             <div class="glass-panel">
                 <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('money')">← НАЗАД</button>
-                <h2>📄 Необхідні документи</h2>
+                <h2>📄 Необхідні документи (8 пунктів)</h2>
                 <ul class="list-style">
-                    <li><i class="fas fa-check"></i> Рапорт.</li>
-                    <li><i class="fas fa-check"></i> Копії паспортів та ІПН сім'ї.</li>
-                    <li><i class="fas fa-check"></i> Свідоцтва про шлюб та дітей.</li>
-                    <li><i class="fas fa-check"></i> Копія договору житлового найму.</li>
-                    <li><i class="fas fa-check"></i> Довідка про квартирний облік.</li>
-                    <li><i class="fas fa-check"></i> Довідка про реєстрацію місця проживання.</li>
-                    <li><i class="fas fa-check"></i> Довідка з попереднього місця (житло).</li>
-                    <li><i class="fas fa-check"></i> Довідка з роботи сім'ї (неотримання виплат).</li>
+                    <li><i class="fas fa-check"></i> Рапорт</li>
+                    <li><i class="fas fa-check"></i> Паспорти/ІПН сім'ї</li>
+                    <li><i class="fas fa-check"></i> Свідоцтва про шлюб/дітей</li>
+                    <li><i class="fas fa-check"></i> Договір найму (нотаріальний)</li>
+                    <li><i class="fas fa-check"></i> Довідка про квартирний облік</li>
+                    <li><i class="fas fa-check"></i> Довідка про реєстрацію проживання</li>
+                    <li><i class="fas fa-check"></i> Довідка з попереднього місця служби</li>
+                    <li><i class="fas fa-check"></i> Довідка, що сім'я не отримує компенсацію</li>
                 </ul>
             </div>
         </div>
@@ -162,11 +202,16 @@
             <div class="glass-panel">
                 <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('money')">← НАЗАД</button>
                 <h2>⚠️ Важливі умови</h2>
-                <div class="info-step"><h4>🏠 Тільки ізольоване житло</h4><p>Виключно окрема квартира/будинок (не кімнати чи гуртожитки).</p></div>
+                <div class="info-step"><h4>🏠 Тільки ізольоване житло</h4><p>Предметом договору може бути виключно окрема квартира.</p></div>
                 <div class="info-step"><h4>📜 Нотаріальне завірення</h4><p>Договір найму має бути нотаріально завіреним.</p></div>
-                <div class="contact-box"><p>👤 Консультація: Тетяна КАРЕЛІНА (097 531 21 78)</p></div>
+                <p>👤 <strong>Тетяна КАРЕЛІНА</strong> | 📞 097 531 21 78</p>
             </div>
         </div>
+
+        <div id="sub-vidpustky" class="content-section"><div class="glass-panel"><button class="action-btn" onclick="switchTab('kadry')">← НАЗАД</button><h2>🚢 Відпустки</h2><div class="cards-grid"><div class="sub-card" onclick="showModal('Частина основної', '1.pdf')"><h3>📅 Основна</h3></div><div class="sub-card" onclick="showModal('Відпустка УБД', '2.pdf')"><h3>🎖️ УБД</h3></div></div></div></div>
+
+        <div id="sub-kadry-money" class="content-section"><div class="glass-panel"><button class="action-btn" onclick="switchTab('kadry')">← НАЗАД</button><h2>💰 Допомога</h2><div class="cards-grid"><div class="sub-card" onclick="showModal('Оздоровлення', '3.pdf')"><h3>🏥 Оздоровлення</h3></div></div></div></div>
+        <div id="sub-zminy" class="content-section"><div class="glass-panel"><button class="action-btn" onclick="switchTab('kadry')">← НАЗАД</button><h2>🚀 Зміни</h2><div class="cards-grid"><div class="sub-card" onclick="showModal('Переведення', '4.pdf')"><h3>🔃 Переведення</h3></div></div></div></div>
 
         <div id="sub-contacts" class="content-section">
             <div class="glass-panel">
@@ -174,64 +219,23 @@
                 <div class="cards-grid">
                     <div class="sub-card" onclick="switchTab('cont-chrup')"><i class="fas fa-building"></i><h3>Черкаське РУП</h3></div>
                     <div class="sub-card" onclick="switchTab('cont-urup')"><i class="fas fa-hotel"></i><h3>Уманське РУП</h3></div>
-                    <div class="sub-card" onclick="switchTab('cont-zven')"><i class="fas fa-landmark"></i><h3>Звенигородське РВП</h3></div>
-                    <div class="sub-card" onclick="switchTab('cont-zolo')"><i class="fas fa-city"></i><h3>Золотоніське РВП</h3></div>
                 </div>
             </div>
         </div>
 
         <div id="cont-chrup" class="content-section">
             <div class="glass-panel">
-                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('sub-contacts')">← НАЗАД ДО ДЕРЕВА</button>
+                <button class="action-btn" onclick="switchTab('sub-contacts')">← НАЗАД</button>
                 <div class="contact-box" style="border: 2px solid var(--neon);">
-                    <h3>🏛️ Черкаське районне управління поліції</h3>
-                    <p><strong>Т.в.о. начальника:</strong> полковник поліції Дмитро КІРДЯПКІН</p>
-                    <p><i class="fas fa-map-marker-alt"></i> вул. Пастерівська, 104, м.Черкаси | 📞 0472-393-601</p>
-                </div>
-                <div class="cards-grid">
-                    <div class="contact-box"><h3>🏢 ВПД № 1 (м. Черкаси)</h3><p>Начальник: підполковник Кирило Барашковський</p><p>📞 0472-373-515</p></div>
-                    <div class="contact-box"><h3>🏢 ВПД № 2 (м. Чигирин)</h3><p>Т.в.о. нач: підполковник Андрій Долінський</p><p>📞 0230-600-03</p></div>
+                    <h3>🏛️ Черкаське районне управління</h3>
+                    <p>Т.в.о. нач: полковник Дмитро КІРДЯПКІН | 📞 0472-393-601</p>
                 </div>
             </div>
         </div>
-
-        <div id="ubd-main" class="content-section">
-            <div class="glass-panel">
-                <h2>🎖️ СТАТУС УБД: Права та пільги</h2>
-                <div class="cards-grid">
-                    <div class="sub-card" onclick="switchTab('ubd-money')"><i class="fas fa-hand-holding-usd"></i><h3>Грошова підтримка</h3></div>
-                    <div class="sub-card" onclick="switchTab('ubd-discounts')"><i class="fas fa-gift"></i><h3>Акції та знижки</h3></div>
-                    <div class="sub-card" onclick="switchTab('ubd-communal')"><i class="fas fa-home"></i><h3>Пільги на комуналку</h3></div>
-                    <div class="sub-card" onclick="switchTab('ubd-medical')"><i class="fas fa-hospital-user"></i><h3>Медицина</h3></div>
-                </div>
-            </div>
-        </div>
-
-        <div id="ubd-money" class="content-section">
-            <div class="glass-panel">
-                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('ubd-main')">← НАЗАД</button>
-                <h2>💵 Виплати в м. Черкаси</h2>
-                <div class="info-step"><h4>🔹 Місцева виплата</h4><p>3 000 грн (2025 р.). Департамент соцполітики.</p></div>
-                <div class="info-step"><h4>🔹 До Дня Незалежності</h4><p>Щорічна разова допомога.</p></div>
-                <div class="contact-box"><p>Департамент ЧМР: бул. Шевченка, 307 | 📞 33-63-29</p></div>
-            </div>
-        </div>
-
-        <div id="ubd-communal" class="content-section">
-            <div class="glass-panel">
-                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('ubd-main')">← НАЗАД</button>
-                <h2>🏠 Комунальні пільги (-75%)</h2>
-                <p><strong>Де оформити:</strong> Смілянська, 23 (ПФУ) або Благовісна, 170 (ЦНАП).</p>
-                <ul class="list-style"><li><i class="fas fa-check"></i> Паспорт/ІПН/УБД</li><li><i class="fas fa-check"></i> Витяг про реєстрацію</li><li><i class="fas fa-check"></i> IBAN рахунку</li></ul>
-            </div>
-        </div>
-
-        <div id="sub-kadry-money" class="content-section"><div class="glass-panel"><button class="action-btn" onclick="switchTab('kadry')">← НАЗАД</button><h2>💰 Допомога</h2><div class="cards-grid"><div class="sub-card" onclick="showModal('Оздоровлення', 'ozdorovlennya.pdf')"><h3>🏥 На оздоровлення</h3></div><div class="sub-card" onclick="showModal('Соц-побут', 'soc_pobut.pdf')"><h3>🤝 Соціально-побутова</h3></div></div></div></div>
-        <div id="sub-zminy" class="content-section"><div class="glass-panel"><button class="action-btn" onclick="switchTab('kadry')">← НАЗАД</button><h2>🚀 Зміни</h2><div class="cards-grid"><div class="sub-card" onclick="showModal('Переведення', 'perevedennya.pdf')"><h3>🔃 Переведення</h3></div><div class="sub-card" onclick="showModal('Звільнення 10+', 'zvilnennya_10.pdf')"><h3>🎖️ Звільнення (10+)</h3></div><div class="sub-card" onclick="showModal('Звільнення', 'zvilnennya.pdf')"><h3>🌱 Звільнення</h3></div><div class="sub-card" onclick="showModal('Вища посада', 'vyshcha_posada.pdf')"><h3>📈 Вища посада</h3></div></div></div></div>
 
     </div>
 
-    <div id="fileModal" class="modal"><div class="modal-content"><h3 id="modalTitle" style="color:var(--neon)">Файл</h3><p style="color:#777">Готовий до завантаження.</p><a id="downloadBtn" class="action-btn" href="#" download><i class="fas fa-download"></i> ЗАВАНТАЖИТИ PDF</a><br><br><button onclick="closeModal()" style="background:none; border:none; color:#555; cursor:pointer;">[ ЗАКРИТИ ]</button></div></div>
+    <div id="fileModal" class="modal"><div class="modal-content"><h3 id="modalTitle" style="color:var(--neon)">Файл</h3><p style="color:#777">Готовий до завантаження🛰️</p><a id="downloadBtn" class="action-btn" href="#" download><i class="fas fa-download"></i> ЗАВАНТАЖИТИ PDF</a><br><br><button onclick="closeModal()" style="background:none; border:none; color:#555; cursor:pointer;">[ ЗАКРИТИ ]</button></div></div>
 
     <script>
         function switchTab(tabId) {
