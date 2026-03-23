@@ -8,156 +8,62 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --bg: #010409;
-            --side-bg: rgba(255, 255, 255, 0.015);
-            --neon: #00f2fe;
-            --accent: #bd00ff;
-            --glass: rgba(255, 255, 255, 0.04);
-            --border: rgba(255, 255, 255, 0.08);
+            --bg: #010409; --side-bg: rgba(255, 255, 255, 0.015);
+            --neon: #00f2fe; --accent: #bd00ff;
+            --glass: rgba(255, 255, 255, 0.04); --border: rgba(255, 255, 255, 0.08);
             --star: rgba(255, 255, 255, 0.5);
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--bg);
-            color: #fff;
-            margin: 0;
-            display: flex;
-            height: 100vh;
-            overflow: hidden;
-            background-image: 
-                radial-gradient(var(--star) 1px, transparent 1px),
-                linear-gradient(135deg, rgba(0, 242, 254, 0.04) 0%, transparent 50%);
-            background-size: 70px 70px, 100% 100%;
-            animation: starsMove 200s linear infinite;
+            font-family: 'Roboto', sans-serif; background-color: var(--bg); color: #fff;
+            margin: 0; display: flex; height: 100vh; overflow: hidden;
+            background-image: radial-gradient(var(--star) 1px, transparent 1px), linear-gradient(135deg, rgba(0, 242, 254, 0.04) 0%, transparent 50%);
+            background-size: 70px 70px, 100% 100%; animation: starsMove 200s linear infinite;
         }
 
         @keyframes starsMove { from {background-position: 0 0;} to {background-position: 1000px 1000px;} }
 
-        /* SIDEBAR (ВИПРАВЛЕНО) */
-        .sidebar {
-            width: 320px; /* Трохи ширше для наочності */
-            background: var(--side-bg);
-            backdrop-filter: blur(30px);
-            border-right: 1px solid var(--border);
-            display: flex;
-            flex-direction: column;
-            padding: 30px; /* Збільшено відступи */
-        }
+        .sidebar { width: 320px; background: var(--side-bg); backdrop-filter: blur(30px); border-right: 1px solid var(--border); display: flex; flex-direction: column; padding: 30px; }
+        .logo-text { font-family: 'Montserrat', sans-serif; font-size: 2.2rem; font-weight: 700; text-align: center; margin: 20px 0 50px 0; letter-spacing: 5px; text-shadow: 0 0 20px var(--neon); }
 
-        .logo-text {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 700;
-            text-align: center;
-            margin: 20px 0 50px 0;
-            letter-spacing: 5px;
-            text-shadow: 0 0 20px var(--neon);
-        }
-
-        .nav-item {
-            padding: 16px 20px;
-            margin-bottom: 12px;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            color: #aaaaaa;
-            border: 1px solid transparent;
-            font-size: 1.1rem;
-        }
-
-        .nav-item:hover, .nav-item.active {
-            background: rgba(0, 242, 254, 0.08);
-            color: #fff;
-            border-color: rgba(0, 242, 254, 0.2);
-        }
+        .nav-item { padding: 16px 20px; margin-bottom: 12px; border-radius: 12px; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 15px; color: #aaaaaa; border: 1px solid transparent; font-size: 1.1rem; }
+        .nav-item:hover, .nav-item.active { background: rgba(0, 242, 254, 0.08); color: #fff; border-color: rgba(0, 242, 254, 0.2); }
         .nav-item.active { border-left: 4px solid var(--neon); }
 
-        /* MAIN CONTENT (ВИПРАВЛЕНО ДЛЯ ЦЕНТРУВАННЯ) */
-        .main-content {
-            flex: 1;
-            display: flex; /* Flexbox для центрування контенту */
-            align-items: center; /* Центрування по вертикалі */
-            justify-content: center; /* Центрування по горизонталі */
-            overflow-y: auto;
-            padding: 50px;
-            position: relative;
-        }
+        .main-content { flex: 1; display: flex; align-items: center; justify-content: center; overflow-y: auto; padding: 50px; position: relative; }
 
-        .content-section {
-            display: none;
-            animation: fadeIn 0.6s ease;
-            width: 100%; /* Займає всю ширину батьківського flex */
-            max-width: 800px; /* Максимальна ширина для тексту */
-            text-align: center; /* Текст посередині */
-        }
-
+        .content-section { display: none; animation: fadeIn 0.6s ease; width: 100%; max-width: 900px; text-align: center; }
         .content-section.active { display: block; }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
-        .glass-panel {
-            background: var(--glass);
-            padding: 60px; /* Більше відступів для "Вау-ефекту" */
-            border-radius: 25px;
-            border: 1px solid var(--border);
-            backdrop-filter: blur(15px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            width: 100%;
-        }
+        .glass-panel { background: var(--glass); padding: 50px; border-radius: 25px; border: 1px solid var(--border); backdrop-filter: blur(15px); box-shadow: 0 20px 50px rgba(0,0,0,0.5); width: 100%; box-sizing: border-box; }
 
-        h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3.5rem;
-            margin-top: 0;
-            margin-bottom: 25px;
-            text-shadow: 0 0 15px var(--neon);
-            color: #fff;
-        }
+        h1 { font-family: 'Montserrat', sans-serif; font-size: 3.2rem; margin-bottom: 25px; text-shadow: 0 0 15px var(--neon); color: #fff; }
+        h2 { font-family: 'Montserrat', sans-serif; color: var(--neon); text-transform: uppercase; margin-bottom: 20px; }
 
-        p {
-            line-height: 1.8;
-            color: #d0d0d0;
-            font-size: 1.2rem;
-            font-weight: 300;
-            margin-bottom: 15px;
-        }
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
+        .sub-card { background: rgba(255,255,255,0.02); border: 1px solid var(--border); padding: 25px; border-radius: 15px; cursor: pointer; transition: 0.3s; text-align: center; }
+        .sub-card:hover { background: rgba(0, 242, 254, 0.05); border-color: var(--neon); transform: translateY(-5px); }
+        .sub-card i { color: var(--neon); font-size: 1.8rem; margin-bottom: 15px; display: block; }
 
-        .action-btn {
-            background: linear-gradient(135deg, var(--accent), #8a00ff);
-            border: none;
-            color: #fff;
-            padding: 12px 25px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.3s;
-            margin-top: 20px;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-        }
+        .action-btn { background: linear-gradient(135deg, var(--accent), #8a00ff); border: none; color: #fff; padding: 12px 25px; border-radius: 10px; cursor: pointer; font-weight: bold; transition: 0.3s; margin-top: 20px; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
         .action-btn:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--accent); }
 
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 1000; justify-content: center; align-items: center; backdrop-filter: blur(10px); }
-        .modal-content { background: #0a0f1d; padding: 40px; border-radius: 25px; border: 2px solid var(--neon); text-align: center; width: 450px; box-shadow: 0 0 50px rgba(0, 242, 254, 0.3); }
-
+        .modal-content { background: #0a0f1d; padding: 40px; border-radius: 25px; border: 2px solid var(--neon); text-align: center; width: 450px; }
     </style>
 </head>
 <body>
 
     <div class="sidebar">
         <div class="logo-text">GIDEON</div>
-        <div class="nav-item active" onclick="switchTab('home')"><i class="fas fa-satellite-dish"></i> Головна</div>
-        <div class="nav-item"><i class="fas fa-user-tie"></i> Кадрові питання</div>
-        <div class="nav-item"><i class="fas fa-key"></i> Квартирний облік</div>
-        <div class="nav-item"><i class="fas fa-wallet"></i> Компенсація за винайм</div>
-        <div class="nav-item"><i class="fas fa-address-book"></i> Довідник контактів</div>
-        <div class="nav-item"><i class="fas fa-medal"></i> СТАТУС УБД</div>
+        <div class="nav-item active" id="nav-home" onclick="switchTab('home')"><i class="fas fa-satellite-dish"></i> Головна</div>
+        <div class="nav-item" id="nav-kadry" onclick="switchTab('kadry')"><i class="fas fa-user-tie"></i> Кадрові питання</div>
+        <div class="nav-item" onclick="switchTab('house')"><i class="fas fa-key"></i> Квартирний облік</div>
+        <div class="nav-item" onclick="switchTab('money')"><i class="fas fa-wallet"></i> Компенсація за винайм</div>
+        <div class="nav-item" onclick="switchTab('contacts')"><i class="fas fa-address-book"></i> Довідник контактів</div>
+        <div class="nav-item" onclick="switchTab('ubd')"><i class="fas fa-medal"></i> СТАТУС УБД</div>
     </div>
 
     <div class="main-content">
@@ -166,11 +72,63 @@
                 <h1>GIDEON System 🌌</h1>
                 <p>Вітаємо в цифровому просторі <br><strong>Головного управління Національної поліції в Черкаській області</strong>.</p>
                 <p>Ваша інтелектуальна система підтримки.</p>
-                <p style="color: #aaaaaa; margin-top: 30px; font-size: 1.1rem; letter-spacing: 1px;">
-                    Оберіть потрібний розділ у меню зліва для початку роботи з даними.
-                </p>
+                <p style="color: #aaaaaa; margin-top: 30px; font-size: 1.1rem;">Оберіть потрібний розділ у меню зліва для початку роботи.</p>
             </div>
         </div>
+
+        <div id="kadry" class="content-section">
+            <div class="glass-panel">
+                <h2>📂 Кадрові протоколи</h2>
+                <div class="cards-grid">
+                    <div class="sub-card" onclick="switchTab('sub-vidpustky')"><i class="fas fa-umbrella-beach"></i><h3>ВІДПУСТКИ</h3><p>5 видів рапортів.</p></div>
+                    <div class="sub-card" onclick="switchTab('sub-money')"><i class="fas fa-hand-holding-usd"></i><h3>ГРОШОВА ДОПОМОГА</h3><p>Оздоровлення та соц-побут.</p></div>
+                    <div class="sub-card" onclick="switchTab('sub-zminy')"><i class="fas fa-sync-alt"></i><h3>СЛУЖБОВІ ЗМІНИ</h3><p>Переведення та звільнення.</p></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="sub-vidpustky" class="content-section">
+            <div class="glass-panel">
+                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('kadry')">← НАЗАД</button>
+                <h2>🚢 Рапорти на відпустки</h2>
+                <div class="cards-grid">
+                    <div class="sub-card" onclick="showModal('Частина основної', 'chastyna_osnovnoi.pdf')"><h3>📅 Частина основної</h3></div>
+                    <div class="sub-card" onclick="showModal('Невикористана частина', 'nevykoristana_chastyna.pdf')"><h3>⏳ Невикористана</h3></div>
+                    <div class="sub-card" onclick="showModal('Основна+Додаткова', 'osnovna_dodatkova.pdf')"><h3>🧩 Основна+Додаткова</h3></div>
+                    <div class="sub-card" onclick="showModal('Додаткова відпустка', 'dodatkova_vidpustka.pdf')"><h3>➕ Додаткова</h3></div>
+                    <div class="sub-card" onclick="showModal('Відпустка УБД', 'vidpustka_ubd.pdf')"><h3>🎖️ Відпустка УБД</h3></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="sub-money" class="content-section">
+            <div class="glass-panel">
+                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('kadry')">← НАЗАД</button>
+                <h2>💰 Грошова допомога</h2>
+                <div class="cards-grid">
+                    <div class="sub-card" onclick="showModal('На оздоровлення', 'ozdorovlennya.pdf')"><h3>🏥 На оздоровлення</h3></div>
+                    <div class="sub-card" onclick="showModal('Соц-побутова допомога', 'soc_pobut.pdf')"><h3>🤝 Соціально-побутова</h3></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="sub-zminy" class="content-section">
+            <div class="glass-panel">
+                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('kadry')">← НАЗАД</button>
+                <h2>🚀 Службові зміни</h2>
+                <div class="cards-grid">
+                    <div class="sub-card" onclick="showModal('Переведення', 'perevedennya.pdf')"><h3>🔃 Переведення</h3></div>
+                    <div class="sub-card" onclick="showModal('Звільнення 10+', 'zvilnennya_10.pdf')"><h3>🎖️ Звільнення (10+)</h3></div>
+                    <div class="sub-card" onclick="showModal('Звільнення', 'zvilnennya.pdf')"><h3>🌱 Звільнення</h3></div>
+                    <div class="sub-card" onclick="showModal('Вища посада', 'vyshcha_posada.pdf')"><h3>📈 Вища посада</h3></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="house" class="content-section"><div class="glass-panel"><h2>🏠 Квартирний облік</h2><p>Розділ наповнюється...</p></div></div>
+        <div id="money" class="content-section"><div class="glass-panel"><h2>💵 Компенсація за винайм</h2><p>Розділ наповнюється...</p></div></div>
+        <div id="contacts" class="content-section"><div class="glass-panel"><h2>📞 Довідник контактів</h2><p>Розділ наповнюється...</p></div></div>
+        <div id="ubd" class="content-section"><div class="glass-panel"><h2>🎖️ СТАТУС УБД</h2><p>Розділ наповнюється...</p></div></div>
     </div>
 
     <div id="fileModal" class="modal"><div class="modal-content"><h3 id="modalTitle" style="color:var(--neon)">Файл</h3><p style="color:#777">Готовий до передачі🛰️</p><a id="downloadBtn" class="action-btn" href="#" download><i class="fas fa-download"></i> ЗАВАНТАЖИТИ PDF</a><br><br><button onclick="closeModal()" style="background:none; border:none; color:#555; cursor:pointer;">[ ЗАКРИТИ ]</button></div></div>
@@ -179,82 +137,22 @@
         function switchTab(tabId) {
             document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
             document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            
             const target = document.getElementById(tabId);
             if(target) target.classList.add('active');
-            const nav = document.querySelector(`[onclick="switchTab('${tabId}')"]`);
+            
+            // Підсвітка активного пункту в меню (логіка для підрозділів)
+            let menuId = tabId;
+            if(tabId.startsWith('sub-')) menuId = 'kadry';
+            const nav = document.querySelector(`[onclick="switchTab('${menuId}')"]`);
             if(nav) nav.classList.add('active');
+        }
+        function showModal(title, fileName) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('fileModal').style.display = 'flex';
+            document.getElementById('downloadBtn').href = fileName;
         }
         function closeModal() { document.getElementById('fileModal').style.display = 'none'; }
     </script>
 </body>
 </html>
-<div id="kadry" class="content-section">
-    <div class="glass-panel">
-        <h2>📂 Кадрові протоколи</h2>
-        <p>Вітаю у кадровому розділі! Тут зібрані актуальні зразки документів, які найчастіше потрібні в роботі. Оберіть категорію:</p>
-        <div class="cards-grid">
-            <div class="sub-card" onclick="switchTab('sub-vidpustky')">
-                <i class="fas fa-umbrella-beach"></i>
-                <h3>ВІДПУСТКИ</h3>
-                <p>5 видів рапортів на відпочинок.</p>
-            </div>
-            <div class="sub-card" onclick="switchTab('sub-kadry-money')">
-                <i class="fas fa-hand-holding-usd"></i>
-                <h3>ГРОШОВА ДОПОМОГА</h3>
-                <p>Оздоровлення та соц-побут.</p>
-            </div>
-            <div class="sub-card" onclick="switchTab('sub-zminy')">
-                <i class="fas fa-sync-alt"></i>
-                <h3>СЛУЖБОВІ ЗМІНИ</h3>
-                <p>Переведення, звільнення та кар'єра.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="sub-vidpustky" class="content-section">
-    <div class="glass-panel">
-        <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('kadry')">← НАЗАД</button>
-        <h2>🚢 Рапорти на відпустки</h2>
-        <p>Відпочинок — це не розкіш, а службова необхідність!</p>
-        <div class="cards-grid">
-            <div class="sub-card" onclick="showModal('Частина основної відпустки', 'chastyna_osnovnoi.pdf')"><h3>📅 Частина основної</h3></div>
-            <div class="sub-card" onclick="showModal('Невикористана частина', 'nevykoristana_chastyna.pdf')"><h3>⏳ Невикористана частина</h3></div>
-            <div class="sub-card" onclick="showModal('Основна + Додаткова', 'osnovna_dodatkova.pdf')"><h3>🧩 Основна + Додаткова</h3></div>
-            <div class="sub-card" onclick="showModal('Додаткова відпустка', 'dodatkova_vidpustka.pdf')"><h3>➕ Додаткова відпустка</h3></div>
-            <div class="sub-card" onclick="showModal('Відпустка УБД', 'vidpustka_ubd.pdf')"><h3>🎖️ Відпустка УБД</h3></div>
-        </div>
-    </div>
-</div>
-
-<div id="sub-kadry-money" class="content-section">
-    <div class="glass-panel">
-        <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('kadry')">← НАЗАД</button>
-        <h2>💰 Грошова допомога</h2>
-        <p>Грошова підтримка — це те, що додає впевненості!</p>
-        <div class="cards-grid">
-            <div class="sub-card" onclick="showModal('На оздоровлення', 'ozdorovlennya.pdf')">
-                <i class="fas fa-plus-square"></i>
-                <h3>На оздоровлення</h3>
-            </div>
-            <div class="sub-card" onclick="showModal('Соціально-побутова допомога', 'soc_pobut.pdf')">
-                <i class="fas fa-hand-holding-heart"></i>
-                <h3>Соціально-побутова</h3>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="sub-zminy" class="content-section">
-    <div class="glass-panel">
-        <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('kadry')">← НАЗАД</button>
-        <h2>🚀 Службові зміни</h2>
-        <p>Зміни — це завжди шлях до розвитку!</p>
-        <div class="cards-grid">
-            <div class="sub-card" onclick="showModal('Рапорт на переведення', 'perevedennya.pdf')"><h3>🔃 Переведення</h3></div>
-            <div class="sub-card" onclick="showModal('Звільнення (понад 10 років)', 'zvilnennya_10.pdf')"><h3>🎖️ Звільнення (10+)</h3></div>
-            <div class="sub-card" onclick="showModal('Рапорт на звільнення', 'zvilnennya.pdf')"><h3>🌱 Звільнення</h3></div>
-            <div class="sub-card" onclick="showModal('Вища посада', 'vyshcha_posada.pdf')"><h3>📈 Вища посада</h3></div>
-        </div>
-    </div>
-</div>
