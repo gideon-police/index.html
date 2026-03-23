@@ -8,56 +8,172 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --bg: #010409; --side-bg: rgba(255, 255, 255, 0.015);
-            --neon: #00f2fe; --accent: #bd00ff;
-            --glass: rgba(255, 255, 255, 0.04); --border: rgba(255, 255, 255, 0.08);
+            --bg: #010409;
+            --side-bg: rgba(255, 255, 255, 0.015);
+            --neon: #00f2fe;
+            --accent: #bd00ff;
+            --glass: rgba(255, 255, 255, 0.04);
+            --border: rgba(255, 255, 255, 0.08);
             --star: rgba(255, 255, 255, 0.5);
         }
+
         body {
-            font-family: 'Roboto', sans-serif; background-color: var(--bg); color: #fff; 
-            margin: 0; display: flex; height: 100vh; overflow: hidden;
-            background-image: radial-gradient(var(--star) 1px, transparent 1px), linear-gradient(135deg, rgba(0, 242, 254, 0.04) 0%, transparent 50%);
-            background-size: 70px 70px, 100% 100%; animation: starsMove 200s linear infinite;
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg);
+            color: #fff;
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+            background-image: 
+                radial-gradient(var(--star) 1px, transparent 1px),
+                linear-gradient(135deg, rgba(0, 242, 254, 0.04) 0%, transparent 50%);
+            background-size: 70px 70px, 100% 100%;
+            animation: starsMove 200s linear infinite;
         }
+
         @keyframes starsMove { from {background-position: 0 0;} to {background-position: 1000px 1000px;} }
-        .sidebar { width: 300px; background: var(--side-bg); backdrop-filter: blur(30px); border-right: 1px solid var(--border); display: flex; flex-direction: column; padding: 20px; }
-        .logo-text { font-family: 'Montserrat', sans-serif; font-size: 2.2rem; font-weight: 700; text-align: center; margin: 20px 0 40px 0; letter-spacing: 5px; text-shadow: 0 0 20px var(--neon); }
-        .nav-item { padding: 14px 18px; margin-bottom: 8px; border-radius: 12px; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 12px; color: #888; border: 1px solid transparent; }
-        .nav-item:hover, .nav-item.active { background: rgba(0, 242, 254, 0.08); color: #fff; border-color: rgba(0, 242, 254, 0.2); }
+
+        /* SIDEBAR (ВИПРАВЛЕНО) */
+        .sidebar {
+            width: 320px; /* Трохи ширше для наочності */
+            background: var(--side-bg);
+            backdrop-filter: blur(30px);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            padding: 30px; /* Збільшено відступи */
+        }
+
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-align: center;
+            margin: 20px 0 50px 0;
+            letter-spacing: 5px;
+            text-shadow: 0 0 20px var(--neon);
+        }
+
+        .nav-item {
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #aaaaaa;
+            border: 1px solid transparent;
+            font-size: 1.1rem;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            background: rgba(0, 242, 254, 0.08);
+            color: #fff;
+            border-color: rgba(0, 242, 254, 0.2);
+        }
         .nav-item.active { border-left: 4px solid var(--neon); }
-        .main-content { flex: 1; overflow-y: auto; padding: 40px; position: relative; }
-        .content-section { display: none; animation: fadeIn 0.5s ease; }
+
+        /* MAIN CONTENT (ВИПРАВЛЕНО ДЛЯ ЦЕНТРУВАННЯ) */
+        .main-content {
+            flex: 1;
+            display: flex; /* Flexbox для центрування контенту */
+            align-items: center; /* Центрування по вертикалі */
+            justify-content: center; /* Центрування по горизонталі */
+            overflow-y: auto;
+            padding: 50px;
+            position: relative;
+        }
+
+        .content-section {
+            display: none;
+            animation: fadeIn 0.6s ease;
+            width: 100%; /* Займає всю ширину батьківського flex */
+            max-width: 800px; /* Максимальна ширина для тексту */
+            text-align: center; /* Текст посередині */
+        }
+
         .content-section.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .glass-panel { background: var(--glass); padding: 40px; border-radius: 20px; border: 1px solid var(--border); backdrop-filter: blur(10px); box-shadow: 0 15px 35px rgba(0,0,0,0.5); }
-        .action-btn { background: linear-gradient(135deg, var(--accent), #8a00ff); border: none; color: #fff; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.2s; text-decoration: none; margin-top: 15px; display: inline-block; }
-        .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin-top: 30px; }
-        .sub-card { background: rgba(255,255,255,0.02); border: 1px solid var(--border); padding: 25px; border-radius: 15px; cursor: pointer; transition: 0.3s; }
-        .sub-card:hover { background: rgba(0, 242, 254, 0.05); border-color: var(--neon); transform: translateY(-5px); }
-        .sub-card i { color: var(--neon); font-size: 1.8rem; margin-bottom: 10px; display: block; }
-        .info-step { border-left: 2px solid var(--neon); padding-left: 20px; margin-bottom: 25px; }
-        .info-step h4 { color: var(--neon); margin: 0 0 10px 0; }
-        .contact-box { background: rgba(0, 242, 254, 0.05); padding: 15px; border-radius: 10px; margin-top: 20px; border: 1px dashed var(--neon); }
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center; }
-        .modal-content { background: #0a0f1d; padding: 40px; border-radius: 20px; border: 1px solid var(--neon); text-align: center; width: 400px; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+        .glass-panel {
+            background: var(--glass);
+            padding: 60px; /* Більше відступів для "Вау-ефекту" */
+            border-radius: 25px;
+            border: 1px solid var(--border);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            width: 100%;
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            margin-top: 0;
+            margin-bottom: 25px;
+            text-shadow: 0 0 15px var(--neon);
+            color: #fff;
+        }
+
+        p {
+            line-height: 1.8;
+            color: #d0d0d0;
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+
+        .action-btn {
+            background: linear-gradient(135deg, var(--accent), #8a00ff);
+            border: none;
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+            margin-top: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        .action-btn:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--accent); }
+
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 1000; justify-content: center; align-items: center; backdrop-filter: blur(10px); }
+        .modal-content { background: #0a0f1d; padding: 40px; border-radius: 25px; border: 2px solid var(--neon); text-align: center; width: 450px; box-shadow: 0 0 50px rgba(0, 242, 254, 0.3); }
+
     </style>
 </head>
 <body>
+
     <div class="sidebar">
         <div class="logo-text">GIDEON</div>
         <div class="nav-item active" onclick="switchTab('home')"><i class="fas fa-satellite-dish"></i> Головна</div>
-        <div class="nav-item" onclick="switchTab('kadry')"><i class="fas fa-user-tie"></i> Кадрові питання</div>
-        <div class="nav-item" onclick="switchTab('house')"><i class="fas fa-key"></i> Квартирний облік</div>
-        <div class="nav-item" onclick="switchTab('money')"><i class="fas fa-wallet"></i> Компенсація за винайм</div>
-        <div class="nav-item" onclick="switchTab('contacts')"><i class="fas fa-address-book"></i> Довідник контактів</div>
-        <div class="nav-item" onclick="switchTab('ubd')"><i class="fas fa-medal"></i> СТАТУС УБД</div>
+        <div class="nav-item"><i class="fas fa-user-tie"></i> Кадрові питання</div>
+        <div class="nav-item"><i class="fas fa-key"></i> Квартирний облік</div>
+        <div class="nav-item"><i class="fas fa-wallet"></i> Компенсація за винайм</div>
+        <div class="nav-item"><i class="fas fa-address-book"></i> Довідник контактів</div>
+        <div class="nav-item"><i class="fas fa-medal"></i> СТАТУС УБД</div>
     </div>
 
     <div class="main-content">
-        <div id="dynamic-content"></div>
+        <div id="home" class="content-section active">
+            <div class="glass-panel">
+                <h1>GIDEON System 🌌</h1>
+                <p>Вітаємо в цифровому просторі <br><strong>Головного управління Національної поліції в Черкаській області</strong>.</p>
+                <p>Ваша інтелектуальна система підтримки.</p>
+                <p style="color: #aaaaaa; margin-top: 30px; font-size: 1.1rem; letter-spacing: 1px;">
+                    Оберіть потрібний розділ у меню зліва для початку роботи з даними.
+                </p>
+            </div>
+        </div>
     </div>
 
-    <div id="fileModal" class="modal"><div class="modal-content"><h3 id="modalTitle" style="color:var(--neon)">Файл</h3><p style="color:#777">Готовий до передачі.</p><a id="downloadBtn" class="action-btn" href="#" download><i class="fas fa-download"></i> ЗАВАНТАЖИТИ PDF</a><br><br><button onclick="closeModal()" style="background:none; border:none; color:#555; cursor:pointer;">[ ЗАКРИТИ ]</button></div></div>
+    <div id="fileModal" class="modal"><div class="modal-content"><h3 id="modalTitle" style="color:var(--neon)">Файл</h3><p style="color:#777">Готовий до передачі🛰️</p><a id="downloadBtn" class="action-btn" href="#" download><i class="fas fa-download"></i> ЗАВАНТАЖИТИ PDF</a><br><br><button onclick="closeModal()" style="background:none; border:none; color:#555; cursor:pointer;">[ ЗАКРИТИ ]</button></div></div>
 
     <script>
         function switchTab(tabId) {
@@ -68,21 +184,7 @@
             const nav = document.querySelector(`[onclick="switchTab('${tabId}')"]`);
             if(nav) nav.classList.add('active');
         }
-        function showModal(title, fileName) { document.getElementById('modalTitle').innerText = title; document.getElementById('fileModal').style.display = 'flex'; document.getElementById('downloadBtn').href = fileName; }
         function closeModal() { document.getElementById('fileModal').style.display = 'none'; }
     </script>
 </body>
 </html>
-<div id="home" class="content-section active" style="height: 80vh; display: flex; align-items: center; justify-content: center;">
-    <div class="glass-panel" style="text-align: center; max-width: 700px; width: 100%;">
-        <h1 style="font-size: 3.5rem; margin-bottom: 20px;">GIDEON System 🌌</h1>
-        <p style="font-size: 1.4rem; line-height: 1.6; color: #fff;">
-            Вітаємо в цифровому просторі <br>
-            <strong>Головного управління Національної поліції в Черкаській області</strong>.
-        </p>
-        <p style="font-size: 1.1rem; color: #aaa; margin-top: 30px; letter-spacing: 1px;">
-            Ваша інтелектуальна система підтримки. <br>
-            Оберіть потрібний розділ у меню зліва для початку роботи з даними.
-        </p>
-    </div>
-</div>
