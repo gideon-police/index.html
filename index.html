@@ -44,7 +44,6 @@
         .contact-box p { margin: 5px 0; font-size: 0.95rem; color: #ccc; }
         .list-style { padding-left: 20px; color: #d0d0d0; list-style-type: none; }
         .list-style li { margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px; }
-        .list-style li i { color: var(--neon); margin-top: 4px; }
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center; }
         .modal-content { background: #0a0f1d; padding: 40px; border-radius: 20px; border: 1px solid var(--neon); text-align: center; width: 400px; }
     </style>
@@ -57,13 +56,12 @@
         <div class="nav-item" onclick="switchTab('house')"><i class="fas fa-key"></i> Квартирний облік</div>
         <div class="nav-item" onclick="switchTab('money')"><i class="fas fa-wallet"></i> Компенсація за винайм</div>
         <div class="nav-item" onclick="switchTab('sub-contacts')"><i class="fas fa-address-book"></i> Довідник контактів</div>
-        <div class="nav-item" onclick="switchTab('ubd-main')"><i class="fas fa-medal"></i> СТАТУС УБД</div>
+        <div class="nav-item"><i class="fas fa-medal"></i> СТАТУС УБД</div>
     </div>
 
     <div class="main-content">
         <div id="home" class="content-section active">
             <div class="glass-panel">
-                <p style="color: var(--neon); font-family: 'Montserrat'; letter-spacing: 2px;">Ваше повідомлення</p>
                 <h1>GIDEON System 🌌</h1>
                 <p style="font-size: 1.3rem; line-height: 1.6;">Вітаємо в цифровому просторі <br><strong>Головного управління Національної поліції в Черкаській області</strong>.</p>
                 <p style="color: #d0d0d0; margin-top: 20px; font-size: 1.1rem;">Ваша інтелектуальна система підтримки. Оберіть потрібний розділ у меню зліва для початку роботи з даними.</p>
@@ -103,22 +101,6 @@
             </div>
         </div>
 
-        <div id="ubd-main" class="content-section">
-            <div class="glass-panel">
-                <h2>🎖️ СТАТУС УБД: Права та пільги (Черкаси)</h2>
-                <p>Вітаємо, захиснику! Тут зібрана інформація про твої права, місцеві виплати та пільги, які діють саме в нашому обласному центрі.</p>
-                <div class="contact-box" style="border: 1px dashed var(--neon);">
-                    <p style="color: #00f2fe; margin: 0;"><i class="fas fa-lightbulb"></i> Пам'ятайте: для отримання більшості пільг необхідно бути зареєстрованим у м. Черкаси або територіальній громаді.</p>
-                </div>
-                <div class="cards-grid">
-                    <div class="sub-card" onclick="switchTab('ubd-money')"><i class="fas fa-hand-holding-usd"></i><h3>Грошова підтримка</h3><p>Виплати від міської ради.</p></div>
-                    <div class="sub-card" onclick="switchTab('ubd-discounts')"><i class="fas fa-gift"></i><h3>Акції та знижки</h3><p>АЗС, Магазини, Спорт.</p></div>
-                    <div class="sub-card" onclick="switchTab('ubd-communal')"><i class="fas fa-home-billing"></i><h3>Пільги на комуналку</h3><p>Як оформити -75% знижки.</p></div>
-                    <div class="sub-card" onclick="switchTab('ubd-medical')"><i class="fas fa-hospital-user"></i><h3>Медицина та реабілітація</h3><p>Спеціальні умови лікування.</p></div>
-                </div>
-            </div>
-        </div>
-
         <div id="sub-contacts" class="content-section">
             <div class="glass-panel">
                 <h2>🏛️ Довідник територіальних підрозділів</h2>
@@ -137,18 +119,18 @@
                 <h2>Черкаське районне управління</h2>
                 <div class="contact-box" style="border: 2px solid var(--neon);">
                     <h3>🏛️ Черкаське районне управління поліції</h3>
-                    <p><strong>Тимчасово виконуючий обов'язки начальника:</strong> полковник поліції Дмитро КІРДЯПКІН [cite: 2]</p>
-                    <p><i class="fas fa-map-marker-alt"></i> вулиця Пастерівська, 104, м.Черкаси, Черкаська область, 18000 [cite: 3]</p>
-                    <p><i class="fas fa-phone"></i> 0472-393-601 [cite: 4]</p>
+                    <p><strong>Тимчасово виконуючий обов'язки начальника:</strong> полковник поліції Дмитро КІРДЯПКІН</p>
+                    <p><i class="fas fa-map-marker-alt"></i> вулиця Пастерівська, 104, м.Черкаси, Черкаська область, 18000</p>
+                    <p><i class="fas fa-phone"></i> 0472-393-601</p>
                 </div>
                 <div class="cards-grid">
-                    <div class="contact-box"><h3>🏢 ВПД № 1 (м. Черкаси)</h3><p>Начальник: підполковник поліції Кирило Барашковський [cite: 6]</p><p><i class="fas fa-map-marker-alt"></i> провулок Медичний, 3, м.Черкаси [cite: 7]</p><p><i class="fas fa-phone"></i> 0472-373-515 [cite: 8]</p></div>
-                    <div class="contact-box"><h3>🏢 ВПД № 2 (м. Чигирин)</h3><p>Т.в.о. начальника: підполковник поліції Андрій Долінський [cite: 10]</p><p><i class="fas fa-map-marker-alt"></i> м. Чигирин, вул. Б. Хмельницького, 55 [cite: 11]</p><p><i class="fas fa-phone"></i> 0230-600-03 [cite: 12]</p></div>
-                    <div class="contact-box"><h3>🏢 Відділ поліції № 1 (м. Канів)</h3><p>Начальник: майор поліції В’ячеслав Ступенко [cite: 14]</p><p><i class="fas fa-map-marker-alt"></i> м. Канів, вул. Енергетиків, 86 [cite: 15]</p><p><i class="fas fa-phone"></i> 0236-387-02 [cite: 16]</p></div>
-                    <div class="contact-box"><h3>🏢 Відділ поліції № 2 (м. Сміла)</h3><p>Начальник: майор поліції Сергій Данилюк [cite: 18]</p><p><i class="fas fa-map-marker-alt"></i> м. Сміла, вул. Перемоги, 13 [cite: 19]</p><p><i class="fas fa-phone"></i> 04733-410-72 [cite: 20]</p></div>
-                    <div class="contact-box"><h3>🏢 СПД № 1 (м. Кам'янка)</h3><p>Начальник: підполковник поліції Валерій Паливода [cite: 22]</p><p><i class="fas fa-map-marker-alt"></i> м. Кам’янка, вул. Пушкіна, 50 [cite: 23]</p><p><i class="fas fa-phone"></i> 0232-615-07 [cite: 24]</p></div>
-                    <div class="contact-box"><h3>🏢 Відділення поліції № 1 (м. Корсунь)</h3><p>Начальник: підполковник поліції Ігор Кротов [cite: 26]</p><p><i class="fas fa-map-marker-alt"></i> м. Корсунь-Шевченківський, вул. Я. Мудрого, 36 [cite: 27]</p><p><i class="fas fa-phone"></i> 04735-208-52 [cite: 28]</p></div>
-                    <div class="contact-box"><h3>🏢 СПД № 1 (м. Городище)</h3><p>Начальник: полковник поліції Андрій Друмов [cite: 30]</p><p><i class="fas fa-map-marker-alt"></i> м. Городище, вул. Миру, 77 [cite: 31]</p></div>
+                    <div class="contact-box"><h3>🏢 ВПД № 1 (м. Черкаси)</h3><p>Начальник: підполковник поліції Кирило Барашковський</p><p><i class="fas fa-map-marker-alt"></i> провулок Медичний, 3, м.Черкаси, 18000</p><p><i class="fas fa-phone"></i> 0472-373-515</p></div>
+                    <div class="contact-box"><h3>🏢 ВПД № 2 (м. Чигирин)</h3><p>Тимчасово виконуючий обов'язки начальника: підполковник поліції Андрій Долінський</p><p><i class="fas fa-map-marker-alt"></i> м. Чигирин, вул. Б. Хмельницького, 55</p><p><i class="fas fa-phone"></i> 0230-600-03</p></div>
+                    <div class="contact-box"><h3>🏢 Відділ поліції № 1 (м. Канів)</h3><p>Начальник: майор поліції В’ячеслав Ступенко</p><p><i class="fas fa-map-marker-alt"></i> м. Канів, вул. Енергетиків, 86</p><p><i class="fas fa-phone"></i> 0236-387-02</p></div>
+                    <div class="contact-box"><h3>🏢 Відділ поліції № 2 (м. Сміла)</h3><p>Начальник: майор поліції Сергій Данилюк</p><p><i class="fas fa-map-marker-alt"></i> м. Сміла, вул. Перемоги, 13</p><p><i class="fas fa-phone"></i> 04733-410-72</p></div>
+                    <div class="contact-box"><h3>🏢 СПД № 1 (м. Кам'янка)</h3><p>Начальник: підполковник поліції Валерій Паливода</p><p><i class="fas fa-map-marker-alt"></i> м. Кам’янка, вул. Пушкіна, 50</p><p><i class="fas fa-phone"></i> 0232-615-07</p></div>
+                    <div class="contact-box"><h3>🏢 Відділення поліції № 1 (м. Корсунь)</h3><p>Начальник: підполковник поліції Ігор Кротов</p><p><i class="fas fa-map-marker-alt"></i> м. Корсунь-Шевченківський, вул. Я. Мудрого, 36</p><p><i class="fas fa-phone"></i> 04735-208-52</p></div>
+                    <div class="contact-box"><h3>🏢 СПД № 1 (м. Городище)</h3><p>Начальник: полковник поліції Андрій Друмов</p><p><i class="fas fa-map-marker-alt"></i> м. Городище, вул. Миру, 77</p></div>
                 </div>
             </div>
         </div>
@@ -159,16 +141,16 @@
                 <h2>Уманське районне управління</h2>
                 <div class="contact-box" style="border: 2px solid var(--neon);">
                     <h3>🏛️ Уманське районне управління поліції</h3>
-                    <p><strong>Начальник:</strong> полковник поліції Олександр ГНЄДОВ [cite: 43]</p>
-                    <p><i class="fas fa-map-marker-alt"></i> м. Умань, вул. Незалежності, 35 [cite: 44]</p>
-                    <p><i class="fas fa-phone"></i> 0(4744) 40366 [cite: 45]</p>
+                    <p><strong>Начальник:</strong> полковник поліції Олександр ГНЄДОВ</p>
+                    <p><i class="fas fa-map-marker-alt"></i> м. Умань, вул. Незалежності, 35</p>
+                    <p><i class="fas fa-phone"></i> 0(4744) 40366</p>
                 </div>
                 <div class="cards-grid">
-                    <div class="contact-box"><h3>🏢 ВПД № 1 (м. Монастирище)</h3><p>Начальник: майор поліції Сергій Журавльов [cite: 47]</p><p><i class="fas fa-map-marker-alt"></i> м. Монастирище, вул. Гагаріна, 8 [cite: 48]</p></div>
-                    <div class="contact-box"><h3>🏢 ВПД № 2 (м. Умань)</h3><p>Начальник: підполковник поліції Ігор Козаченко [cite: 50]</p><p><i class="fas fa-map-marker-alt"></i> м. Умань, вул. Європейська, 35 [cite: 51]</p></div>
-                    <div class="contact-box"><h3>🏢 ВПД № 3 (м. Христинівка)</h3><p>Начальник: майор поліції Павло Сухецький [cite: 53]</p><p><i class="fas fa-map-marker-alt"></i> м. Христинівка, вул. Шевченка, 42 [cite: 54]</p><p><i class="fas fa-phone"></i> 0 (4745) 2-26-61 [cite: 55]</p></div>
-                    <div class="contact-box"><h3>🏢 Відділ поліції № 1 (м. Жашків)</h3><p>Начальник: підполковник поліції Андрій Чермісов [cite: 57]</p><p><i class="fas fa-map-marker-alt"></i> м. Жашків, вул. Соборна, 100 [cite: 58]</p><p><i class="fas fa-phone"></i> 0 (4747) 6-21-31 [cite: 59]</p></div>
-                    <div class="contact-box"><h3>🏢 СПД № 1 (сел. Маньківка)</h3><p>Начальник: підполковник поліції Андрій Бенеда [cite: 61]</p><p><i class="fas fa-map-marker-alt"></i> селище Маньківка, вул. Соборна, 24 [cite: 62]</p></div>
+                    <div class="contact-box"><h3>🏢 ВПД № 1 (м. Монастирище)</h3><p>Начальник: майор поліції Сергій Журавльов</p><p><i class="fas fa-map-marker-alt"></i> м. Монастирище, вул. Гагаріна, 8</p></div>
+                    <div class="contact-box"><h3>🏢 ВПД № 2 (м. Умань)</h3><p>Начальник: підполковник поліції Ігор Козаченко</p><p><i class="fas fa-map-marker-alt"></i> м. Умань, вул. Європейська, 35</p></div>
+                    <div class="contact-box"><h3>🏢 ВПД № 3 (м. Христинівка)</h3><p>Начальник: майор поліції Павло Сухецький</p><p><i class="fas fa-map-marker-alt"></i> м. Христинівка, вул. Шевченка, 42</p><p><i class="fas fa-phone"></i> 0 (4745) 2-26-61</p></div>
+                    <div class="contact-box"><h3>🏢 Відділ поліції № 1 (м. Жашків)</h3><p>Начальник: підполковник поліції Андрій Чермісов</p><p><i class="fas fa-map-marker-alt"></i> м. Жашків, вул. Соборна, 100</p><p><i class="fas fa-phone"></i> 0 (4747) 6-21-31</p></div>
+                    <div class="contact-box"><h3>🏢 СПД № 1 (сел. Маньківка)</h3><p>Начальник: підполковник поліції Андрій Бенеда</p><p><i class="fas fa-map-marker-alt"></i> селище Маньківка, вул. Соборна, 24</p></div>
                 </div>
             </div>
         </div>
@@ -176,18 +158,18 @@
         <div id="cont-zven" class="content-section">
             <div class="glass-panel">
                 <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('sub-contacts')">← НАЗАД ДО ДЕРЕВА</button>
-                <h2>Звенигородське районне управління</h2>
+                <h2>Звенигородський районний відділ</h2>
                 <div class="contact-box" style="border: 2px solid var(--neon);">
                     <h3>🏛️ Звенигородський районний відділ поліції</h3>
-                    <p><strong>Тимчасово виконуючий обов'язки начальника:</strong> полковник поліції Станіслав ЗАГУРСЬКИЙ [cite: 64]</p>
-                    <p><i class="fas fa-map-marker-alt"></i> м. Звенигородка, вул. Благовісна, 50 [cite: 65]</p>
-                    <p><i class="fas fa-phone"></i> 0 (4740) 2-22-78 [cite: 66]</p>
+                    <p><strong>Тимчасово виконуючий обов'язки начальника:</strong> полковник поліції Станіслав ЗАГУРСЬКИЙ</p>
+                    <p><i class="fas fa-map-marker-alt"></i> м. Звенигородка, вул. Благовісна, 50</p>
+                    <p><i class="fas fa-phone"></i> 0 (4740) 2-22-78</p>
                 </div>
                 <div class="cards-grid">
-                    <div class="contact-box"><h3>🏢 ВПД № 1 (м. Тальне)</h3><p>Начальник: майор поліції Максим Поліщук [cite: 68]</p><p><i class="fas fa-map-marker-alt"></i> м. Тальне вул. Соборна, 11 [cite: 69]</p><p><i class="fas fa-phone"></i> 0 (4731) 3-02-02 [cite: 70]</p></div>
-                    <div class="contact-box"><h3>🏢 ВПД № 2 (м. Шпола)</h3><p>Начальник: полковник поліції Віталій Сивенюк [cite: 72]</p><p><i class="fas fa-map-marker-alt"></i> м. Шпола, вул. Волонтерська, 24 [cite: 73]</p><p><i class="fas fa-phone"></i> 0 (4741) 5-25-20 [cite: 74]</p></div>
-                    <div class="contact-box"><h3>🏢 СПД № 1 (сел. Калинопіль)</h3><p>Начальник: капітан поліції Анатолій Лимаренко [cite: 76]</p><p><i class="fas fa-map-marker-alt"></i> селище Калинопіль, вул. Соборна, 44 [cite: 77]</p><p><i class="fas fa-phone"></i> (04742) 2-26-00 [cite: 78]</p></div>
-                    <div class="contact-box"><h3>🏢 СПД № 2 (смт Лисянка)</h3><p>Начальник: майор поліції Олександр Антощенко [cite: 80]</p><p><i class="fas fa-map-marker-alt"></i> селище Лисянка, провулок Поштовий, 8 [cite: 81]</p><p><i class="fas fa-phone"></i> 098 285 3507 [cite: 82]</p></div>
+                    <div class="contact-box"><h3>🏢 ВПД № 1 (м. Тальне)</h3><p>Начальник: майор поліції Максим Поліщук</p><p><i class="fas fa-map-marker-alt"></i> м. Тальне вул. Соборна, 11</p><p><i class="fas fa-phone"></i> 0 (4731) 3-02-02</p></div>
+                    <div class="contact-box"><h3>🏢 ВПД № 2 (м. Шпола)</h3><p>Начальник: полковник поліції Віталій Сивенюк</p><p><i class="fas fa-map-marker-alt"></i> м. Шпола, вул. Волонтерська, 24</p><p><i class="fas fa-phone"></i> 0 (4741) 5-25-20</p></div>
+                    <div class="contact-box"><h3>🏢 СПД № 1 (сел. Калинопіль)</h3><p>Начальник: капітан поліції Анатолій Лимаренко</p><p><i class="fas fa-map-marker-alt"></i> селище Калинопіль, вул. Соборна, 44</p><p><i class="fas fa-phone"></i> (04742) 2-26-00</p></div>
+                    <div class="contact-box"><h3>🏢 СПД № 2 (смт Лисянка)</h3><p>Начальник: майор поліції Олександр Антощенко</p><p><i class="fas fa-map-marker-alt"></i> селище Лисянка, провулок Поштовий, 8</p><p><i class="fas fa-phone"></i> 098 285 3507</p></div>
                 </div>
             </div>
         </div>
@@ -198,85 +180,13 @@
                 <h2>Золотоніський районний відділ</h2>
                 <div class="contact-box" style="border: 2px solid var(--neon);">
                     <h3>🏛️ Золотоніський районний відділ поліції</h3>
-                    <p><strong>Тимчасово виконуючий обов'язки начальника:</strong> підполковник поліції Олег МІЩЕНКО [cite: 33]</p>
-                    <p><i class="fas fa-map-marker-alt"></i> м. Золотоноша, вул. Січова, 3 [cite: 34]</p>
-                    <p><i class="fas fa-phone"></i> 04737-525-70 [cite: 35]</p>
+                    <p><strong>Тимчасово виконуючий обов'язки начальника:</strong> підполковник поліції Олег МІЩЕНКО</p>
+                    <p><i class="fas fa-map-marker-alt"></i> м. Золотоноша, вул. Січова, 3</p>
+                    <p><i class="fas fa-phone"></i> 04737-525-70</p>
                 </div>
                 <div class="cards-grid">
-                    <div class="contact-box"><h3>🏢 ВПД № 1 (сел. Драбів)</h3><p>Начальник: майор поліції Юрій Куліш [cite: 37]</p><p><i class="fas fa-map-marker-alt"></i> селище Драбів, вул. Центральна, 81 [cite: 38]</p></div>
-                    <div class="contact-box"><h3>🏢 ВПД № 2 (сел. Чорнобай)</h3><p>Начальник: підполковник поліції Олег Скачко [cite: 40]</p><p><i class="fas fa-map-marker-alt"></i> селище Чорнобай, вул. Центральна, 216 [cite: 41]</p></div>
-                </div>
-            </div>
-        </div>
-
-        <div id="ubd-money" class="content-section">
-            <div class="glass-panel">
-                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('ubd-main')">← НАЗАД</button>
-                <h2>💵 Грошові виплати та допомога (м. Черкаси)</h2>
-                <p>Окрім загальнодержавних пільг, у нашому місті діють додаткові програми фінансової підтримки захисників та ветеранів.</p>
-                <div class="info-step">
-                    <h4>💰 Види виплат у Черкасах:</h4>
-                    <ul class="list-style">
-                        <li><i class="fas fa-check"></i> <strong>Місцева виплата (до Дня захисників):</strong> у 2025 р. — 3 000 грн. У 2026 р. суму може бути змінено.</li>
-                        <li><i class="fas fa-check"></i> <strong>Допомога до Дня Незалежності:</strong> розмір визначається урядом щороку.</li>
-                        <li><i class="fas fa-check"></i> <strong>Допомога добровольцям (ДФТГ):</strong> 30 000 грн щорічно.</li>
-                        <li><i class="fas fa-check"></i> <strong>Компенсація за житло:</strong> для осіб з інвалідністю та родин загиблих.</li>
-                    </ul>
-                </div>
-                <div class="contact-box">
-                    <h3>🏢 Департамент соціальної політики ЧМР</h3>
-                    <p>📍 м. Черкаси, бул. Шевченка, 307, каб. 104.</p>
-                    <p>📞 (0472) 33-63-29 | (0472) 54-22-01 (запис).</p>
-                </div>
-            </div>
-        </div>
-
-        <div id="ubd-discounts" class="content-section">
-            <div class="glass-panel">
-                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('ubd-main')">← НАЗАД</button>
-                <h2>⛽ Знижки, Магазини та Транспорт</h2>
-                <div class="cards-grid">
-                    <div class="contact-box"><h3>🚗 АЗС</h3><p><strong>WOG / OKKO:</strong> знижки через PRIDE/Fishka (+2-3 грн вигоди).</p><p><strong>Укрнафта:</strong> спеціальна ціна при пред'явленні посвідчення.</p></div>
-                    <div class="contact-box"><h3>🛒 МАГАЗИНИ</h3><p><strong>Епіцентр:</strong> бальна система (реєстрація на інфокасі).</p><p><strong>Велмарт / Велика Кишеня:</strong> соціальні знижки.</p></div>
-                    <div class="contact-box"><h3>🏟️ СПОРТ</h3><p><strong>Matrix / Дніпро-Плаза:</strong> пільгові абонементи (30-50% знижка).</p></div>
-                </div>
-                <div class="info-step" style="margin-top:20px;">
-                    <h4>🚆 ТРАНСПОРТ</h4>
-                    <ul class="list-style">
-                        <li><i class="fas fa-bus"></i> Тролейбуси: безкоштовно.</li>
-                        <li><i class="fas fa-shuttle-van"></i> Маршрутки: безкоштовно (згідно з квотою).</li>
-                        <li><i class="fas fa-train"></i> Потяг / Автобус: -75% на міжміські квитки.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div id="ubd-communal" class="content-section">
-            <div class="glass-panel">
-                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('ubd-main')">← НАЗАД</button>
-                <h2>🏠 Пільги на комунальні послуги (-75%)</h2>
-                <p>УБД мають право на знижку в межах соціальних норм на газ, електроенергію, воду, опалення та сміття.</p>
-                <div class="info-step">
-                    <h4>👣 Як оформити в Черкасах?</h4>
-                    <p>📍 ПФУ: вул. Смілянська, 23 | вул. Гоголя, 390.</p>
-                    <p>📍 ЦНАП: вул. Благовісна, 170.</p>
-                    <p>🌐 Онлайн: портал електронних послуг ПФУ.</p>
-                </div>
-                <div class="contact-box">
-                    <h3>📋 Необхідні документи:</h3>
-                    <p>Паспорт/ІПН, УБД (оригінал), Витяг про реєстрацію, IBAN рахунку, Особові рахунки квитанцій.</p>
-                </div>
-            </div>
-        </div>
-
-        <div id="ubd-medical" class="content-section">
-            <div class="glass-panel">
-                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('ubd-main')">← НАЗАД</button>
-                <h2>💊 Медицина та реабілітація</h2>
-                <div class="cards-grid">
-                    <div class="contact-box"><h3>🏥 МЦ «Лікар Здоров'я»</h3><p>-20% на всі послуги та УЗД.</p><p>📍 бул. Шевченка, 135 | 📞 (0472) 33-53-35</p></div>
-                    <div class="contact-box"><h3>💊 «Ліки для України»</h3><p>-5% для родини, -15% сиротам.</p><p>📍 вул. Небесної Сотні, 55 | 📞 067 54 74 934</p></div>
-                    <div class="contact-box"><h3>👓 «Люксоптика»</h3><p>Безкоштовно: перевірка зору, окуляри за рецептом.</p><p>📞 0 800 30 98 97</p></div>
+                    <div class="contact-box"><h3>🏢 ВПД № 1 (сел. Драбів)</h3><p>Начальник: майор поліції Юрій Куліш</p><p><i class="fas fa-map-marker-alt"></i> селище Драбів, вул. Центральна, 81</p></div>
+                    <div class="contact-box"><h3>🏢 ВПД № 2 (сел. Чорнобай)</h3><p>Начальник: підполковник поліції Олег Скачко</p><p><i class="fas fa-map-marker-alt"></i> селище Чорнобай, вул. Центральна, 216</p></div>
                 </div>
             </div>
         </div>
@@ -295,6 +205,30 @@
             </div>
         </div>
 
+        <div id="sub-kadry-money" class="content-section">
+            <div class="glass-panel">
+                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('kadry')">← НАЗАД</button>
+                <h2>💰 Допомога</h2>
+                <div class="cards-grid">
+                    <div class="sub-card" onclick="showModal('На оздоровлення', 'ozdorovlennya.pdf')"><h3>🏥 На оздоровлення</h3></div>
+                    <div class="sub-card" onclick="showModal('Соц-побут', 'soc_pobut.pdf')"><h3>🤝 Соціально-побутова</h3></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="sub-zminy" class="content-section">
+            <div class="glass-panel">
+                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('kadry')">← НАЗАД</button>
+                <h2>🚀 Зміни</h2>
+                <div class="cards-grid">
+                    <div class="sub-card" onclick="showModal('Переведення', 'perevedennya.pdf')"><h3>🔃 Переведення</h3></div>
+                    <div class="sub-card" onclick="showModal('Звільнення 10+', 'zvilnennya_10.pdf')"><h3>🎖️ Звільнення (10+)</h3></div>
+                    <div class="sub-card" onclick="showModal('Звільнення', 'zvilnennya.pdf')"><h3>🌱 Звільнення</h3></div>
+                    <div class="sub-card" onclick="showModal('Вища посада', 'vyshcha_posada.pdf')"><h3>📈 Вища посада</h3></div>
+                </div>
+            </div>
+        </div>
+
         <div id="sub-rent-size" class="content-section">
             <div class="glass-panel">
                 <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('money')">← НАЗАД</button>
@@ -305,7 +239,7 @@
                 <div class="info-step"><h4>🏡 Інші населені пункти</h4><p>один прожитковий мінімум (наразі 2920 грн).</p></div>
                 <div class="contact-box">
                     <p>👨‍👩‍👧‍👦 <strong>Бонус за сім'ю:</strong> Якщо у поліцейського 3 і більше членів сім'ї, розмір компенсації збільшується в 1,5 раза.</p>
-                    <p>⚠️ <strong>Важливо:</strong> Якщо двоє членів сім'ї — поліцейські, компенсація виплачується лише одному з них. Компенсація не покриває оплату комунальних послуг, ремонт або обслуговування будинку.</p>
+                    <p>⚠️ <strong>Важливо:</strong><br>Якщо двоє членів сім'ї — поліцейські, компенсація виплачується лише одному з них. <br>Компенсація не покриває оплату комунальних послуг, ремонт або обслуговування будинку.</p>
                 </div>
             </div>
         </div>
@@ -314,15 +248,16 @@
             <div class="glass-panel">
                 <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('money')">← НАЗАД</button>
                 <h2>📄 Необхідні документи</h2>
+                <p>Для отримання виплат необхідно надати до управління (відділу) логістики за місцем служби такі документи:</p>
                 <ul class="list-style">
                     <li>📄 Рапорт.</li>
-                    <li>🆔 Копії паспортів та ІПН.</li>
-                    <li>💍 Копії свідоцтв про шлюб/дітей.</li>
-                    <li>🏠 Копія договору найму.</li>
-                    <li>🏢 Довідка про квартирний облік.</li>
-                    <li>📍 Довідка про реєстрацію.</li>
-                    <li>🏢 Довідка про здачу житла.</li>
-                    <li>💼 Довідка про неотримання компенсації сім'єю.</li>
+                    <li>🆔 Копії паспортів та ІПН (вашого та членів сім'ї).</li>
+                    <li>💍 Копії свідоцтв про шлюб та народження дітей (за наявності).</li>
+                    <li>🏠 Копія договору житлового найму.</li>
+                    <li>🏢 Довідка про перебування на обліку громадян, які потребують поліпшення житлових умов (квартирний облік).</li>
+                    <li>📍 Довідка про реєстрацію місця проживання кожного члена сім'ї.</li>
+                    <li>🏢 Довідка з попереднього місця служби про отримання/здачу житла.</li>
+                    <li>💼 Довідка з місця роботи членів сім'ї про те, що вони не отримують таку компенсацію.</li>
                 </ul>
             </div>
         </div>
@@ -331,10 +266,14 @@
             <div class="glass-panel">
                 <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('money')">← НАЗАД</button>
                 <h2>⚠️ Важливі умови</h2>
-                <div class="info-step"><h4>🏠 Тільки ізольоване житло</h4><p>Предметом договору може бути виключно ізольоване приміщення.</p></div>
+                <div class="info-step"><h4>🏠 Тільки ізольоване житло</h4><p>Предметом договору найму може бути виключно ізольоване житлове приміщення.</p></div>
                 <div class="info-step"><h4>🚫 Обмеження</h4><p>Не можуть бути кімнати в гуртожитках, комунальних квартирах або підсобні приміщення.</p></div>
-                <div class="info-step"><h4>📜 Нотаріальне завірення</h4><p>Договір має бути нотаріально завіреним.</p></div>
-                <p>👤 <strong>Тетяна КАРЕЛІНА</strong> | 📞 097 531 21 78</p>
+                <div class="info-step"><h4>📜 Нотаріальне завірення</h4><p>Договір найму має бути нотаріально завіреним.</p></div>
+                <div class="info-step"><h4>📅 Терміни виплат</h4><p>Виплачується щомісяця у поточному місяці за попередній.</p></div>
+                <div class="info-step"><h4>💸 Що не компенсується</h4><p>Виплата не покриває комунальні послуги, ремонт або обслуговування.</p></div>
+                <div class="contact-box">
+                    <p>👤 <strong>Тетяна КАРЕЛІНА</strong><br>📞 097 531 21 78</p>
+                </div>
             </div>
         </div>
 
@@ -342,18 +281,15 @@
             <div class="glass-panel">
                 <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('house')">← НАЗАД</button>
                 <h2>📋 Алгоритм житлового обліку</h2>
-                <div class="info-step"><h4>І етап</h4><p>Зверніться за місцем реєстрації для оновлення документів.</p></div>
-                <div class="info-step"><h4>ІІ етап</h4><p>До 01.02.2026 подайте рапорт у ГУНП.</p></div>
+                <div class="info-step"><h4>І етап</h4><p>Зверніться за місцем реєстрації для оновлення документів або постановки на чергу.</p></div>
+                <div class="info-step"><h4>ІІ етап</h4><p>До 01.02.2026 подайте рапорт на ім'я керівника ГУНП з новою довідкою.</p></div>
                 <div class="contact-box"><p>📞 097 531 21 78</p></div>
             </div>
         </div>
 
-        <div id="sub-kadry-money" class="content-section"><div class="glass-panel"><button class="action-btn" onclick="switchTab('kadry')">← НАЗАД</button><h2>💰 Допомога</h2><div class="cards-grid"><div class="sub-card" onclick="showModal('На оздоровлення', 'ozdorovlennya.pdf')"><h3>🏥 На оздоровлення</h3></div><div class="sub-card" onclick="showModal('Соц-побут', 'soc_pobut.pdf')"><h3>🤝 Соціально-побутова</h3></div></div></div></div>
-        <div id="sub-zminy" class="content-section"><div class="glass-panel"><button class="action-btn" onclick="switchTab('kadry')">← НАЗАД</button><h2>🚀 Зміни</h2><div class="cards-grid"><div class="sub-card" onclick="showModal('Переведення', 'perevedennya.pdf')"><h3>🔃 Переведення</h3></div><div class="sub-card" onclick="showModal('Звільнення 10+', 'zvilnennya_10.pdf')"><h3>🎖️ Звільнення (10+)</h3></div><div class="sub-card" onclick="showModal('Звільнення', 'zvilnennya.pdf')"><h3>🌱 Звільнення</h3></div><div class="sub-card" onclick="showModal('Вища посада', 'vyshcha_posada.pdf')"><h3>📈 Вища посада</h3></div></div></div></div>
-
     </div>
 
-    <div id="fileModal" class="modal"><div class="modal-content"><h3 id="modalTitle" style="color:var(--neon)">Файл</h3><p style="color:#777">Готовий до завантаження🛰️</p><a id="downloadBtn" class="action-btn" href="#" download><i class="fas fa-download"></i> ЗАВАНТАЖИТИ PDF</a><br><br><button onclick="closeModal()" style="background:none; border:none; color:#555; cursor:pointer;">[ ЗАКРИТИ ]</button></div></div>
+    <div id="fileModal" class="modal"><div class="modal-content"><h3 id="modalTitle" style="color:var(--neon)">Файл</h3><p style="color:#777">Готовий до завантаження.</p><a id="downloadBtn" class="action-btn" href="#" download><i class="fas fa-download"></i> ЗАВАНТАЖИТИ PDF</a><br><br><button onclick="closeModal()" style="background:none; border:none; color:#555; cursor:pointer;">[ ЗАКРИТИ ]</button></div></div>
 
     <script>
         function switchTab(tabId) {
@@ -363,7 +299,6 @@
             if(target) target.classList.add('active');
             
             let rootId = tabId;
-            if(tabId.startsWith('ubd-')) rootId = 'ubd-main';
             if(tabId.startsWith('cont-')) rootId = 'sub-contacts';
             if(tabId.startsWith('sub-vidpustky') || tabId.startsWith('sub-kadry-money') || tabId.startsWith('sub-zminy')) rootId = 'kadry';
             if(tabId.startsWith('sub-house')) rootId = 'house';
