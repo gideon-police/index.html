@@ -9,11 +9,12 @@
     <style>
         :root {
             --bg: #010409;
-            --side-bg: rgba(255, 255, 255, 0.02);
+            --side-bg: rgba(255, 255, 255, 0.015);
             --neon: #00f2fe;
             --accent: #bd00ff;
-            --glass: rgba(255, 255, 255, 0.05);
-            --border: rgba(255, 255, 255, 0.1);
+            --glass: rgba(255, 255, 255, 0.04);
+            --border: rgba(255, 255, 255, 0.08);
+            --star: rgba(255, 255, 255, 0.5);
         }
 
         body {
@@ -23,10 +24,10 @@
             display: flex; height: 100vh;
             overflow: hidden;
             background-image: 
-                radial-gradient(rgba(255,255,255,0.3) 1px, transparent 1px),
-                linear-gradient(135deg, rgba(0, 242, 254, 0.05) 0%, transparent 50%);
-            background-size: 80px 80px, 100% 100%;
-            animation: starsMove 300s linear infinite;
+                radial-gradient(var(--star) 1px, transparent 1px),
+                linear-gradient(135deg, rgba(0, 242, 254, 0.04) 0%, transparent 50%);
+            background-size: 70px 70px, 100% 100%;
+            animation: starsMove 200s linear infinite;
         }
 
         @keyframes starsMove { from {background-position: 0 0;} to {background-position: 1000px 1000px;} }
@@ -34,7 +35,7 @@
         .sidebar {
             width: 300px;
             background: var(--side-bg);
-            backdrop-filter: blur(40px);
+            backdrop-filter: blur(30px);
             border-right: 1px solid var(--border);
             display: flex; flex-direction: column;
             padding: 20px;
@@ -48,35 +49,35 @@
         }
 
         .nav-item {
-            padding: 15px; margin-bottom: 8px;
+            padding: 14px 18px; margin-bottom: 8px;
             border-radius: 12px; cursor: pointer;
             transition: 0.3s; display: flex; align-items: center;
             gap: 12px; color: #888; border: 1px solid transparent;
         }
 
         .nav-item:hover, .nav-item.active {
-            background: rgba(0, 242, 254, 0.1);
+            background: rgba(0, 242, 254, 0.08);
             color: #fff; border-color: rgba(0, 242, 254, 0.2);
         }
         .nav-item.active { border-left: 4px solid var(--neon); }
 
-        .main-content { flex: 1; overflow-y: auto; padding: 40px; }
+        .main-content { flex: 1; overflow-y: auto; padding: 40px; position: relative; }
 
-        .content-section { display: none; animation: fadeIn 0.6s ease; }
+        .content-section { display: none; animation: fadeIn 0.5s ease; }
         .content-section.active { display: block; }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
         .glass-panel {
             background: var(--glass);
-            padding: 40px; border-radius: 25px;
+            padding: 40px; border-radius: 20px;
             border: 1px solid var(--border);
-            backdrop-filter: blur(15px);
+            backdrop-filter: blur(10px);
             box-shadow: 0 15px 35px rgba(0,0,0,0.5);
         }
 
         h1 { font-family: 'Montserrat', sans-serif; font-size: 2.8rem; text-shadow: 0 0 15px var(--neon); margin-top: 0; }
-        h2 { font-family: 'Montserrat', sans-serif; color: var(--neon); text-transform: uppercase; letter-spacing: 2px; }
+        h2 { font-family: 'Montserrat', sans-serif; color: var(--neon); text-transform: uppercase; margin-top: 0; }
 
         .cards-grid {
             display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -91,30 +92,30 @@
         }
 
         .sub-card:hover {
-            background: rgba(0, 242, 254, 0.08);
+            background: rgba(0, 242, 254, 0.05);
             border-color: var(--neon);
             transform: translateY(-5px);
         }
 
-        .sub-card i { color: var(--neon); font-size: 2rem; margin-bottom: 10px; display: block; }
+        .sub-card i { color: var(--neon); font-size: 1.8rem; margin-bottom: 10px; display: block; }
 
         .action-btn {
             background: linear-gradient(135deg, var(--accent), #8a00ff);
             border: none; color: #fff; padding: 12px 25px;
             border-radius: 10px; cursor: pointer;
             font-weight: bold; transition: 0.3s;
-            margin-top: 20px; display: inline-flex; align-items: center; gap: 10px;
+            margin-top: 15px; display: inline-block;
+            text-decoration: none;
         }
-        .action-btn:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--accent); }
+        .action-btn:hover { background: var(--accent); box-shadow: 0 0 15px var(--accent); }
 
         .modal {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.85); z-index: 1000; justify-content: center; align-items: center;
-            backdrop-filter: blur(10px);
+            background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center;
         }
         .modal-content {
-            background: #0a0f1d; padding: 40px; border-radius: 25px;
-            border: 2px solid var(--neon); text-align: center; width: 450px;
+            background: #0a0f1d; padding: 40px; border-radius: 20px;
+            border: 1px solid var(--neon); text-align: center; width: 400px;
         }
     </style>
 </head>
@@ -122,14 +123,14 @@
 
     <div class="sidebar">
         <div class="logo-text">GIDEON</div>
-        <div class="nav-item active" onclick="switchTab('home')"><i class="fas fa-satellite"></i> Головна</div>
+        <div class="nav-item active" onclick="switchTab('home')"><i class="fas fa-satellite-dish"></i> Головна</div>
         <div class="nav-item" onclick="switchTab('kadry')"><i class="fas fa-user-tie"></i> Кадрові питання</div>
         <div class="nav-item" onclick="switchTab('house')"><i class="fas fa-key"></i> Квартирний облік</div>
         <div class="nav-item" onclick="switchTab('money')"><i class="fas fa-wallet"></i> Компенсація житла</div>
         <div class="nav-item" onclick="switchTab('contacts')"><i class="fas fa-address-book"></i> Довідник контактів</div>
         <div class="nav-item" onclick="switchTab('ubd')"><i class="fas fa-medal"></i> Статус УБД</div>
         <div class="nav-item" onclick="switchTab('bank')"><i class="fas fa-university"></i> Банківські реквізити</div>
-        <div class="nav-item" onclick="switchTab('union')"><i class="fas fa-shield-halved"></i> Профспілка</div>
+        <div class="nav-item" onclick="switchTab('union')"><i class="fas fa-users-rectangle"></i> Профспілка</div>
     </div>
 
     <div class="main-content">
@@ -137,7 +138,7 @@
             <div class="glass-panel">
                 <h1>GIDEON System 🌌</h1>
                 <p>Вітаємо в цифровому просторі <strong>ГУНП в Черкаській області</strong>.</p>
-                <p>Система завантажена. Оберіть розділ для роботи з документами.</p>
+                <p>Всі системи та бази рапортів оновлено до останньої версії.</p>
             </div>
         </div>
 
@@ -166,67 +167,49 @@
 
         <div id="sub-vidpustky" class="content-section">
             <div class="glass-panel">
-                <button class="action-btn" style="background:#333; margin-bottom:20px;" onclick="switchTab('kadry')">← НАЗАД</button>
+                <button class="action-btn" style="background:#444; border:none; margin-bottom:20px;" onclick="switchTab('kadry')">← НАЗАД</button>
                 <h2>🚢 Рапорти на відпустки</h2>
                 <div class="cards-grid">
-                    <div class="sub-card" onclick="showModal('Частина основної відпустки', 'частина основної.pdf')"><h3>📅 Частина основної</h3></div>
-                    <div class="sub-card" onclick="showModal('Невикористана частина', 'невикористана частина.pdf')"><h3>⏳ Невикористана частина</h3></div>
-                    <div class="sub-card" onclick="showModal('Основна + Додаткова', 'основна+додаткова.pdf')"><h3>🧩 Основна + Додаткова</h3></div>
-                    <div class="sub-card" onclick="showModal('Додаткова відпустка', 'додаткова відпустка.pdf')"><h3>➕ Додаткова</h3></div>
-                    <div class="sub-card" onclick="showModal('Відпустка УБД', 'Відпустка УБД.pdf')"><h3>🎖️ Відпустка УБД</h3></div>
+                    <div class="sub-card" onclick="showModal('Частина основної відпустки', 'chastyna_osnovnoi.pdf')"><h3>📅 Частина основної</h3></div>
+                    <div class="sub-card" onclick="showModal('Невикористана частина', 'nevykoristana_chastyna.pdf')"><h3>⏳ Невикористана частина</h3></div>
+                    <div class="sub-card" onclick="showModal('Основна + Додаткова', 'osnovna_dodatkova.pdf')"><h3>🧩 Основна + Додаткова</h3></div>
+                    <div class="sub-card" onclick="showModal('Додаткова відпустка', 'dodatkova_vidpustka.pdf')"><h3>➕ Додаткова</h3></div>
+                    <div class="sub-card" onclick="showModal('Відпустка УБД', 'vidpustka_ubd.pdf')"><h3>🎖️ Відпустка УБД</h3></div>
                 </div>
             </div>
         </div>
 
         <div id="sub-money" class="content-section">
             <div class="glass-panel">
-                <button class="action-btn" style="background:#333; margin-bottom:20px;" onclick="switchTab('kadry')">← НАЗАД</button>
+                <button class="action-btn" style="background:#444; border:none; margin-bottom:20px;" onclick="switchTab('kadry')">← НАЗАД</button>
                 <h2>💰 Грошова допомога</h2>
                 <div class="cards-grid">
-                    <div class="sub-card" onclick="showModal('Допомога на оздоровлення', 'оздоровлення.pdf')">
-                        <i class="fas fa-hospital-user"></i>
-                        <h3>На оздоровлення</h3>
-                    </div>
-                    <div class="sub-card" onclick="showModal('Соціально-побутова допомога', 'соц-побут.pdf')">
-                        <i class="fas fa-house-user"></i>
-                        <h3>Соціально-побутова</h3>
-                    </div>
+                    <div class="sub-card" onclick="showModal('Допомога на оздоровлення', 'ozdorovlennya.pdf')"><h3>🏥 На оздоровлення</h3></div>
+                    <div class="sub-card" onclick="showModal('Соціально-побутова допомога', 'soc_pobut.pdf')"><h3>🤝 Соціально-побутова</h3></div>
                 </div>
             </div>
         </div>
 
         <div id="sub-zminy" class="content-section">
             <div class="glass-panel">
-                <button class="action-btn" style="background:#333; margin-bottom:20px;" onclick="switchTab('kadry')">← НАЗАД</button>
+                <button class="action-btn" style="background:#444; border:none; margin-bottom:20px;" onclick="switchTab('kadry')">← НАЗАД</button>
                 <h2>🚀 Службові зміни</h2>
                 <div class="cards-grid">
-                    <div class="sub-card" onclick="showModal('Рапорт на переведення', 'переведення.pdf')">
-                        <i class="fas fa-exchange-alt"></i>
-                        <h3>Переведення</h3>
-                    </div>
-                    <div class="sub-card" onclick="showModal('Звільнення (понад 10 років)', 'звільнення 10.pdf')">
-                        <i class="fas fa-user-shield"></i>
-                        <h3>Звільнення (10+ років)</h3>
-                    </div>
-                    <div class="sub-card" onclick="showModal('Рапорт на звільнення', 'звільнення.pdf')">
-                        <i class="fas fa-user-minus"></i>
-                        <h3>Звільнення</h3>
-                    </div>
-                    <div class="sub-card" onclick="showModal('Переміщення на вищу посаду', 'вища посада.pdf')">
-                        <i class="fas fa-angle-double-up"></i>
-                        <h3>Вища посада</h3>
-                    </div>
+                    <div class="sub-card" onclick="showModal('Рапорт на переведення', 'perevedennya.pdf')"><h3>🔃 Переведення</h3></div>
+                    <div class="sub-card" onclick="showModal('Звільнення (10+ років)', 'zvilnennya_10.pdf')"><h3>🎖️ Звільнення (10+)</h3></div>
+                    <div class="sub-card" onclick="showModal('Рапорт на звільнення', 'zvilnennya.pdf')"><h3>🌱 Звільнення</h3></div>
+                    <div class="sub-card" onclick="showModal('Переміщення на вищу посаду', 'vyshcha_posada.pdf')"><h3>📈 Вища посада</h3></div>
                 </div>
             </div>
         </div>
 
-        <div id="house" class="content-section"><h2>🏠 Квартирний облік</h2><p>Очікування даних...</p></div>
+        <div id="house" class="content-section"><h2>🏠 Квартирний облік</h2><p>Система очікує дані...</p></div>
     </div>
 
     <div id="fileModal" class="modal">
         <div class="modal-content">
-            <h3 id="modalTitle" style="color:var(--neon); font-size: 1.8rem;">Файл</h3>
-            <p style="color:#aaa;">Натисніть кнопку для завантаження.</p>
+            <h3 id="modalTitle" style="color:var(--neon)">Файл</h3>
+            <p style="color:#777">Готовий до передачі.</p>
             <a id="downloadBtn" class="action-btn" href="#" download><i class="fas fa-download"></i> ЗАВАНТАЖИТИ PDF</a>
             <br><br>
             <button onclick="closeModal()" style="background:none; border:none; color:#555; cursor:pointer;">[ ЗАКРИТИ ]</button>
@@ -246,11 +229,9 @@
         function showModal(title, fileName) {
             document.getElementById('modalTitle').innerText = title;
             document.getElementById('fileModal').style.display = 'flex';
-            
-            // ПРАВИЛЬНЕ ФОРМУВАННЯ ПОСИЛАННЯ (враховуючи пробіли)
-            const downloadBtn = document.getElementById('downloadBtn');
-            downloadBtn.href = encodeURI(fileName);
-            downloadBtn.setAttribute('download', fileName);
+            const btn = document.getElementById('downloadBtn');
+            // Пряме посилання на файл у репозиторії
+            btn.href = fileName;
         }
 
         function closeModal() {
