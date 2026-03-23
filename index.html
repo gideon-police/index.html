@@ -142,7 +142,70 @@
             </div>
         </div>
 
-        <div id="dynamic-content"></div>
+        <div id="dynamic-content"><div class="main-content">
+        <div id="home" class="content-section active">
+            <div class="glass-panel">
+                <h1>GIDEON System 🌌</h1>
+                <p>Вітаємо в цифровому просторі <br><strong>Головного управління Національної поліції в Черкаській області</strong>.</p>
+                <p>Ваша інтелектуальна система підтримки.</p>
+            </div>
+        </div>
+
+        <div id="dynamic-content">
+            <div id="kadry" class="content-section">
+                <div class="glass-panel">
+                    <h2 style="color: var(--neon); text-transform: uppercase; margin-bottom: 20px;">📂 Кадрові протоколи</h2>
+                    <div class="cards-grid">
+                        <div class="sub-card" onclick="switchTab('sub-vidpustky')"><i class="fas fa-umbrella-beach"></i><h3>ВІДПУСТКИ</h3></div>
+                        <div class="sub-card" onclick="switchTab('sub-money')"><i class="fas fa-hand-holding-usd"></i><h3>ГРОШОВА ДОПОМОГА</h3></div>
+                        <div class="sub-card" onclick="switchTab('sub-zminy')"><i class="fas fa-sync-alt"></i><h3>СЛУЖБОВІ ЗМІНИ</h3></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sub-vidpustky" class="content-section">
+                <div class="glass-panel">
+                    <button class="action-btn" style="background: #333; margin-bottom: 20px;" onclick="switchTab('kadry')">← НАЗАД</button>
+                    <h2>🚢 Рапорти на відпустки</h2>
+                    <div class="cards-grid">
+                        <div class="sub-card" onclick="showModal('Частина основної', 'chastyna_osnovnoi.pdf')"><h3>📅 Частина основної</h3></div>
+                        <div class="sub-card" onclick="showModal('Невикористана частина', 'nevykoristana_chastyna.pdf')"><h3>⏳ Невикористана</h3></div>
+                        <div class="sub-card" onclick="showModal('Основна + Додаткова', 'osnovna_dodatkova.pdf')"><h3>🧩 Основна + Додаткова</h3></div>
+                        <div class="sub-card" onclick="showModal('Додаткова відпустка', 'dodatkova_vidpustka.pdf')"><h3>➕ Додаткова</h3></div>
+                        <div class="sub-card" onclick="showModal('Відпустка УБД', 'vidpustka_ubd.pdf')"><h3>🎖️ Відпустка УБД</h3></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sub-money" class="content-section">
+                <div class="glass-panel">
+                    <button class="action-btn" style="background: #333; margin-bottom: 20px;" onclick="switchTab('kadry')">← НАЗАД</button>
+                    <h2>💰 Грошова допомога</h2>
+                    <div class="cards-grid">
+                        <div class="sub-card" onclick="showModal('На оздоровлення', 'ozdorovlennya.pdf')"><h3>🏥 На оздоровлення</h3></div>
+                        <div class="sub-card" onclick="showModal('Соціально-побутова', 'soc_pobut.pdf')"><h3>🤝 Соціально-побутова</h3></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sub-zminy" class="content-section">
+                <div class="glass-panel">
+                    <button class="action-btn" style="background: #333; margin-bottom: 20px;" onclick="switchTab('kadry')">← НАЗАД</button>
+                    <h2>🚀 Службові зміни</h2>
+                    <div class="cards-grid">
+                        <div class="sub-card" onclick="showModal('Переведення', 'perevedennya.pdf')"><h3>🔃 Переведення</h3></div>
+                        <div class="sub-card" onclick="showModal('Звільнення 10+', 'zvilnennya_10.pdf')"><h3>🎖️ Звільнення (10+)</h3></div>
+                        <div class="sub-card" onclick="showModal('Звільнення', 'zvilnennya.pdf')"><h3>🌱 Звільнення</h3></div>
+                        <div class="sub-card" onclick="showModal('Вища посада', 'vyshcha_posada.pdf')"><h3>📈 Вища посада</h3></div>
+                    </div>
+                </div>
+            </div>
+
+        </div> </div>
+
+    <script>
+        // Ваш існуючий скрипт...
+    </script></div>
     </div>
 
     <script>
