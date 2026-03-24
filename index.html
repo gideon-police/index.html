@@ -413,29 +413,35 @@
                 <h3>👓 МЦ «Люксоптика»</h3>
                 <p><strong>Безкоштовно:</strong> Перевірка зору, виготовлення окулярів за рецептом, видача лінз.</p>
                 <p>📞 Гаряча лінія: 0 800 30 98 97</p>
-            </div>
-            <div id="bank-details" class="content-section">
-            <div class="glass-panel">
-                <h2>💳 Зміна банківських реквізитів для виплат</h2>
-                <p style="font-size: 1.1rem; line-height: 1.6;">Якщо ви змінили банк або ваш рахунок було заблоковано/перевипущено, необхідно терміново надати нові дані до фінансового підрозділу (бухгалтерії).</p>
-                
-                <div class="info-step">
-                    <h4>👣 Алгоритм дій:</h4>
-                    <ul class="list-style">
-                        <li>1️⃣ <strong>Отримайте реквізити:</strong> У мобільному додатку банку або у відділенні завантажте довідку про реквізити рахунку для зарахування зарплати (формат IBAN, починається на UA...).</li>
-                        <li>2️⃣ <strong>Напишіть рапорт:</strong> Напишіть рапорт на ім'я керівника про зміну рахунку для отримання грошового забезпечення.</li>
-                        <li>3️⃣ <strong>Подайте документи:</strong> Передайте рапорт разом із роздрукованою довідкою банку до сектору фінансового забезпечення (бухгалтерії) вашого підрозділу або до УФЗБО ГУНП.</li>
-                    </ul>
-                </div>
-                <div class="contact-box" style="border: 1px dashed var(--neon); text-align: center;">
-                    <h3>📄 Зразок рапорту</h3>
-                    <p>Підготуйте рапорт згідно зі стандартами діловодства вашого підрозділу.</p>
-                    <button class="action-btn" onclick="showModal('Рапорт на зміну реквізитів', 'raport_bank.pdf')">
-                        <i class="fas fa-file-download"></i> ЗАВАНТАЖИТИ ЗРАЗОК
-                    </button>
-                </div>
-            </div>
+        </div>
     </div>
+</div>       
+            <div id="bank-details" class="content-section">
+                 <div class="glass-panel">
+                    <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('home')">← НА ГОЛОВНУ</button>
+                     <h2>💳 Зміна банківських реквізитів</h2>
+                     <p style="font-size: 1.1rem; line-height: 1.6; color: #e0e0e0;">
+            Якщо ви змінили банк або ваш рахунок було заблоковано/перевипущено, необхідно терміново надати нові дані до фінансового підрозділу.
+        </p>
+
+        <div class="info-step">
+            <h4>👣 Алгоритм дій:</h4>
+            <ul class="list-style">
+                <li><i class="fas fa-check-circle"></i> <strong>Крок 1:</strong> Отримайте довідку про реквізити (IBAN) у додатку банку.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Крок 2:</strong> Напишіть рапорт на ім'я керівника про зміну рахунку.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Крок 3:</strong> Подайте рапорт разом із довідкою банку до бухгалтерії (УФЗБО).</li>
+            </ul>
+        </div>
+
+        <div class="contact-box" style="border: 1px dashed var(--neon); text-align: center; margin-top: 30px;">
+            <h3 style="color: var(--neon);">📄 Зразок документа</h3>
+            <p>Натисніть кнопку нижче, щоб завантажити шаблон рапорту.</p>
+            <button class="action-btn" onclick="showModal('Рапорт на зміну реквізитів', 'raport_bank.pdf')">
+                <i class="fas fa-file-download"></i> ЗАВАНТАЖИТИ РАПОРТ
+            </button>
+        </div>
+    </div>
+</div>
 
     <div id="fileModal" class="modal"><div class="modal-content"><h3 id="modalTitle" style="color:var(--neon)">Файл</h3><p style="color:#777">Готовий до завантаження.</p><a id="downloadBtn" class="action-btn" href="#" download><i class="fas fa-download"></i> ЗАВАНТАЖИТИ PDF</a><br><br><button onclick="closeModal()" style="background:none; border:none; color:#555; cursor:pointer;">[ ЗАКРИТИ ]</button></div></div>
 
