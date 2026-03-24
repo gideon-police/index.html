@@ -39,11 +39,12 @@
         .action-btn { background: linear-gradient(135deg, var(--accent), #8a00ff); border: none; color: #fff; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.2s; text-decoration: none; margin-top: 15px; display: inline-block; }
         .info-step { border-left: 2px solid var(--neon); padding-left: 20px; margin-bottom: 25px; }
         .info-step h4 { color: var(--neon); margin: 0 0 10px 0; }
-        .contact-box { background: rgba(255,255,255,0.03); padding: 20px; border-radius: 15px; margin-bottom: 15px; border: 1px solid var(--border); transition: 0.3s; }
+        .contact-box { background: rgba(255,255,255,0.03); padding: 20px; border-radius: 15px; margin-bottom: 15px; border: 1px solid var(--border); }
         .contact-box h3 { margin-top: 0; color: var(--neon); font-size: 1.1rem; }
         .contact-box p { margin: 5px 0; font-size: 0.95rem; color: #ccc; }
         .list-style { padding-left: 20px; color: #d0d0d0; list-style-type: none; }
-        .list-style li { margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px; }
+        .list-style li { margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px; }
+        .list-style li i { color: var(--neon); margin-top: 4px; }
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center; }
         .modal-content { background: #0a0f1d; padding: 40px; border-radius: 20px; border: 1px solid var(--neon); text-align: center; width: 400px; }
     </style>
@@ -56,7 +57,7 @@
         <div class="nav-item" onclick="switchTab('house')"><i class="fas fa-key"></i> Квартирний облік</div>
         <div class="nav-item" onclick="switchTab('money')"><i class="fas fa-wallet"></i> Компенсація за винайм</div>
         <div class="nav-item" onclick="switchTab('sub-contacts')"><i class="fas fa-address-book"></i> Довідник контактів</div>
-        <div class="nav-item"><i class="fas fa-medal"></i> СТАТУС УБД</div>
+        <div class="nav-item" onclick="switchTab('ubd-main')"><i class="fas fa-medal"></i> СТАТУС УБД</div>
     </div>
 
     <div class="main-content">
@@ -213,6 +214,8 @@
                     <div class="sub-card" onclick="showModal('На оздоровлення', 'ozdorovlennya.pdf')"><h3>🏥 На оздоровлення</h3></div>
                     <div class="sub-card" onclick="showModal('Соц-побут', 'soc_pobut.pdf')"><h3>🤝 Соціально-побутова</h3></div>
                 </div>
+
+                <p style="color: #aaa; font-size: 0.9rem;">⚠️ <strong>Важливо:</strong> Пільга надається на 21 м² на особу + 10,5 м² на сім'ю. Можна оформити за адресою оренди житла. Гроші приходять на рахунок (монетизація).</p>
             </div>
         </div>
 
@@ -299,6 +302,7 @@
             if(target) target.classList.add('active');
             
             let rootId = tabId;
+            if(tabId.startsWith('ubd-')) rootId = 'ubd-main';
             if(tabId.startsWith('cont-')) rootId = 'sub-contacts';
             if(tabId.startsWith('sub-vidpustky') || tabId.startsWith('sub-kadry-money') || tabId.startsWith('sub-zminy')) rootId = 'kadry';
             if(tabId.startsWith('sub-house')) rootId = 'house';
