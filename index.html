@@ -56,6 +56,7 @@
         <div class="nav-item" onclick="switchTab('house')"><i class="fas fa-key"></i> Квартирний облік</div>
         <div class="nav-item" onclick="switchTab('money')"><i class="fas fa-wallet"></i> Компенсація за винайм</div>
         <div class="nav-item" onclick="switchTab('sub-contacts')"><i class="fas fa-address-book"></i> Довідник контактів</div>
+        <div class="nav-item" onclick="switchTab('bank')"><i class="fas fa-credit-card"></i> Банківські реквізити</div>
         <div class="nav-item" onclick="switchTab('ubd-main')"><i class="fas fa-medal"></i> СТАТУС УБД</div>
     </div>
 
@@ -415,6 +416,29 @@
             </div>
         </div>
     </div>
+    <div id="bank" class="content-section">
+            <div class="glass-panel">
+                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('home')">← НА ГОЛОВНУ</button>
+                <h2>💳 Банківські реквізити</h2>
+                <p style="font-size: 1.1rem; line-height: 1.6;">При зміні карткового рахунку (IBAN) необхідно терміново надати дані до бухгалтерії ГУНП.</p>
+                
+                <div class="info-step">
+                    <h4>👣 Що потрібно зробити:</h4>
+                    <ul class="list-style">
+                        <li><i class="fas fa-check-circle"></i> Отримати довідку з реквізитами в додатку банку.</li>
+                        <li><i class="fas fa-check-circle"></i> Написати рапорт на ім'я керівника.</li>
+                        <li><i class="fas fa-check-circle"></i> Передати документи фінансовому підрозділу.</li>
+                    </ul>
+                </div>
+
+                <div class="contact-box" style="border: 1px dashed var(--neon); text-align: center;">
+                    <h3 style="color: var(--neon);">📄 Зразок рапорту</h3>
+                    <button class="action-btn" onclick="showModal('Рапорт на реквізити', 'raport_bank.pdf')">
+                        <i class="fas fa-file-download"></i> ЗАВАНТАЖИТИ ЗРАЗОК
+                    </button>
+                </div>
+            </div>
+        </div>
 </div>
 
     </div>
@@ -433,6 +457,7 @@
             if(tabId.startsWith('ubd-')) rootId = 'ubd-main';
             if(tabId.startsWith('sub-vidpustky') || tabId.startsWith('sub-kadry-money') || tabId.startsWith('sub-zminy')) rootId = 'kadry';
             if(tabId.startsWith('sub-house')) rootId = 'house';
+            if(tabId.startsWith('bank')) rootId = 'bank';
             if(tabId.startsWith('sub-rent')) rootId = 'money';
             
             const nav = document.querySelector(`[onclick="switchTab('${rootId}')"]`);
