@@ -65,7 +65,7 @@
             <div class="glass-panel">
                 <h1>GIDEON System 🌌</h1>
                 <p style="font-size: 1.3rem; line-height: 1.6;">Вітаємо в цифровому просторі <br><strong>Головного управління Національної поліції в Черкаській області</strong>.</p>
-                <p style="color: #d0d0d0; margin-top: 20px; font-size: 1.1rem;">Ваша інтелектуальна система підтримки. Оберіть потрібний розділ у меню зліва для початку роботи з даними.</p>
+                <p style="color: #d0d0d0; margin-top: 20px; font-size: 1.1rem;">Ваша інтерактивна система підтримки. Оберіть потрібний розділ у меню зліва для початку роботи з даними.</p>
             </div>
         </div>
 
@@ -412,14 +412,16 @@
             <div class="contact-box">
                 <h3>👓 МЦ «Люксоптика»</h3>
                 <p><strong>Безкоштовно:</strong> Перевірка зору, виготовлення окулярів за рецептом, видача лінз.</p>
-                <p>📞 Гаряча лінія: 0 800 30 98 97</p>
+            <p>📞 Гаряча лінія: 0 800 30 98 97</p>
                 </div>
             </div>
         </div>
+
         <div id="bank" class="content-section">
             <div class="glass-panel">
                 <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('home')">← НА ГОЛОВНУ</button>
                 <h2>💳 Зміна банківських реквізитів</h2>
+                
                 <p style="font-size: 1.1rem; line-height: 1.6; color: #e0e0e0;">
                     Якщо ви змінили банк або ваш рахунок було заблоковано, необхідно терміново надати нові дані до фінансового підрозділу.
                 </p>
@@ -441,6 +443,7 @@
                 </div>
             </div>
         </div>
+
         <div id="fileModal" class="modal">
             <div class="modal-content">
                 <h3 id="modalTitle" style="color:var(--neon)">Файл</h3>
@@ -450,9 +453,8 @@
                 <button onclick="closeModal()" style="background:none; border:none; color:#555; cursor:pointer;">[ ЗАКРИТИ ]</button>
             </div>
         </div>
-        
-    <div id="fileModal" class="modal"><div class="modal-content"><h3 id="modalTitle" style="color:var(--neon)">Файл</h3><p style="color:#777">Готовий до завантаження.</p><a id="downloadBtn" class="action-btn" href="#" download><i class="fas fa-download"></i> ЗАВАНТАЖИТИ PDF</a><br><br><button onclick="closeModal()" style="background:none; border:none; color:#555; cursor:pointer;">[ ЗАКРИТИ ]</button></div></div>
 
+    <script>
     <script>
         function switchTab(tabId) {
             document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
