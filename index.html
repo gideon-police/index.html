@@ -416,29 +416,32 @@
             </div>
         </div>
     </div>
-    <div id="bank" class="content-section">
-            <div class="glass-panel">
-                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('home')">← НА ГОЛОВНУ</button>
-                <h2>💳 Банківські реквізити</h2>
-                <p style="font-size: 1.1rem; line-height: 1.6;">При зміні карткового рахунку (IBAN) необхідно терміново надати дані до бухгалтерії ГУНП.</p>
-                
-                <div class="info-step">
-                    <h4>👣 Що потрібно зробити:</h4>
-                    <ul class="list-style">
-                        <li><i class="fas fa-check-circle"></i> Отримати довідку з реквізитами в додатку банку.</li>
-                        <li><i class="fas fa-check-circle"></i> Написати рапорт на ім'я керівника.</li>
-                        <li><i class="fas fa-check-circle"></i> Передати документи фінансовому підрозділу.</li>
-                    </ul>
-                </div>
+   <div id="bank" class="content-section">
+    <div class="glass-panel">
+        <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('home')">← НА ГОЛОВНУ</button>
+        
+        <h2>💳 Зміна банківських реквізитів</h2>
+        <p style="font-size: 1.1rem; line-height: 1.6; color: #e0e0e0;">
+            Якщо ви змінили банк або ваш рахунок було заблоковано/перевипущено, необхідно терміново надати нові дані до фінансового підрозділу.
+        </p>
 
-                <div class="contact-box" style="border: 1px dashed var(--neon); text-align: center;">
-                    <h3 style="color: var(--neon);">📄 Зразок рапорту</h3>
-                    <button class="action-btn" onclick="showModal('Рапорт на реквізити', 'raport_bank.pdf')">
-                        <i class="fas fa-file-download"></i> ЗАВАНТАЖИТИ ЗРАЗОК
-                    </button>
-                </div>
-            </div>
+        <div class="info-step">
+            <h4>👣 Алгоритм дій:</h4>
+            <ul class="list-style">
+                <li><i class="fas fa-check-circle"></i> <strong>Крок 1:</strong> Отримайте довідку про реквізити (IBAN) у додатку банку.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Крок 2:</strong> Напишіть рапорт на ім'я керівника про зміну рахунку.</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Крок 3:</strong> Подайте рапорт разом із довідкою банку до бухгалтерії (УФЗБО).</li>
+            </ul>
         </div>
+
+        <div class="contact-box" style="border: 1px dashed var(--neon); text-align: center; margin-top: 30px;">
+            <h3 style="color: var(--neon);">📄 Зразок документа</h3>
+            <p>Натисніть кнопку нижче, щоб завантажити шаблон рапорту.</p>
+            <button class="action-btn" onclick="showModal('Рапорт на зміну реквізитів', 'raport_bank.pdf')">
+                <i class="fas fa-file-download"></i> ЗАВАНТАЖИТИ РАПОРТ
+            </button>
+        </div>
+    </div>
 </div>
 
     </div>
