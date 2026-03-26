@@ -46,6 +46,70 @@
         .list-style li { margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px; }
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center; }
         .modal-content { background: #0a0f1d; padding: 40px; border-radius: 20px; border: 1px solid var(--neon); text-align: center; width: 400px; }
+        @media (max-width: 768px) {
+            body { 
+                flex-direction: column; /* Меню тепер зверху, контент знизу */
+                overflow-y: auto; 
+            }
+
+            .sidebar {
+                width: 100%; /* Меню на всю ширину екрана */
+                height: auto;
+                padding: 10px 15px;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+                flex-direction: row; /* Пункти меню в один рядок */
+                overflow-x: auto; /* Можна свайпати меню вліво-вправо */
+                white-space: nowrap;
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+                background: rgba(1, 4, 9, 0.95); /* Темний фон, щоб не просвічувало */
+            }
+
+            .logo-text {
+                font-size: 1.1rem;
+                margin: 0 15px 0 0;
+                letter-spacing: 2px;
+                text-shadow: 0 0 10px var(--neon);
+            }
+
+            .nav-item {
+                padding: 10px 15px;
+                margin-bottom: 0;
+                margin-right: 8px;
+                font-size: 0.8rem;
+                display: inline-flex; /* Кнопки в лінію */
+                flex-shrink: 0;
+            }
+
+            .main-content {
+                padding: 20px 15px;
+                overflow-y: visible;
+            }
+
+            .glass-panel {
+                padding: 20px 15px;
+                margin-bottom: 15px;
+            }
+
+            h1 { font-size: 1.7rem; text-align: center; }
+            h2 { font-size: 1.3rem; }
+
+            .cards-grid {
+                grid-template-columns: 1fr !important; /* УСІ КАРТКИ В ОДНУ КОЛОНКУ */
+                gap: 15px;
+            }
+
+            .modal-content {
+                width: 95%;
+                padding: 25px;
+            }
+            
+            .sub-card {
+                padding: 15px;
+            }
+        }
     </style>
 </head>
 <body>
