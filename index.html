@@ -57,8 +57,7 @@
         <div class="nav-item" onclick="switchTab('money')"><i class="fas fa-wallet"></i> Компенсація за винайм</div>
         <div class="nav-item" onclick="switchTab('sub-contacts')"><i class="fas fa-address-book"></i> Довідник контактів</div>
         <div class="nav-item" onclick="switchTab('ubd-main')"><i class="fas fa-medal"></i> СТАТУС УБД</div>
-        <div class="nav-item" onclick="switchTab('bank')"><i class="fas fa-credit-card"></i> Банківські реквізити</div>
-
+        <div class="nav-item" onclick="switchTab('bank')"><i class="fas fa-university"></i> Банківські реквізити</div>
     </div>
 
     <div class="main-content">
@@ -413,82 +412,73 @@
             <div class="contact-box">
                 <h3>👓 МЦ «Люксоптика»</h3>
                 <p><strong>Безкоштовно:</strong> Перевірка зору, виготовлення окулярів за рецептом, видача лінз.</p>
-            <p>📞 Гаряча лінія: 0 800 30 98 97</p>
-            </div> 
-        </div> 
-    </div><div id="bank" class="content-section">
+                <p>📞 Гаряча лінія: 0 800 30 98 97</p>
+            </div>
+        </div>
+
+<div id="bank" class="content-section">
             <div class="glass-panel">
+                <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('home')">← НА ГОЛОВНУ</button>
+                
                 <h2>💳 Зміна банківських реквізитів</h2>
-                <p><strong>Якщо ви змінили банк або ваш рахунок було заблоковано,</strong> необхідно надати нові дані до фінансового підрозділу (УФЗБО).</p>
-                <p style="color: #00f2fe; font-size: 0.9rem;"><i class="fas fa-lightbulb">
+                <p style="font-size: 1.1rem; line-height: 1.6; color: #e0e0e0;">
+                    Якщо ви змінили банк або ваш рахунок було заблоковано, необхідно надати нові дані до фінансового підрозділу (УФЗБО).
+                </p>
 
                 <div class="info-step">
                     <h4>👣 Алгоритм дій:</h4>
                     <ul class="list-style">
-                        <li><i class="fas fa-check-circle"></i> <strong>Крок 1:</strong> Отримайте довідку IBAN у додатку банку.</li>
-                        <li><i class="fas fa-check-circle"></i> <strong>Крок 2:</strong> Напишіть рапорт на ім'я керівника.</li>
-                        <li><i class="fas fa-check-circle"></i> <strong>Крок 3:</strong> Подайте рапорт та довідку до бухгалтерії.</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Крок 1:</strong> Отримайте довідку IBAN у додатку банку (можна сформувати в PDF).</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Крок 2:</strong> Напишіть рапорт на ім'я керівника (зразок нижче).</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Крок 3:</strong> Подайте рапорт разом із довідкою до бухгалтерії ГУНП.</li>
                     </ul>
                 </div>
 
                 <div class="contact-box" style="border: 1px dashed var(--neon); text-align: center; margin-top: 30px;">
                     <h3 style="color: var(--neon);">📄 Зразок документа</h3>
-                    <div class="sub-card" onclick="showModal('Рапорт на зміну реквізитів', 'raport_bank.pdf')"></div><h3>🔃 Зміна реквізитів</h3></div>
+                    <p>Натисніть кнопку, щоб завантажити шаблон рапорту</p>
+                    <button class="action-btn" onclick="showModal('Рапорт на зміну реквізитів', 'raport_bank.pdf')">
+                        <i class="fas fa-file-download"></i> ЗАВАНТАЖИТИ РАПОРТ
+                    </button>
                 </div>
-            </div> <!-- Закрили glass-panel -->
-        </div> <!-- Закрили розділ bank -->
-
-    </div> <!-- ОСЬ ЦЕЙ DIV ЗАКРИВАЄ ВЕСЬ MAIN-CONTENT (ВАЖЛИВО!) -->
-
-    <!-- МОДАЛЬНЕ ВІКНО -->
-    <div id="fileModal" class="modal">
-        <div class="modal-content">
-            <h3 id="modalTitle" style="color:var(--neon)">Файл</h3>
-            <p style="color:#777">Готовий до завантаження.</p>
-            <a id="downloadBtn" class="action-btn" href="#" download><i class="fas fa-download"></i> ЗАВАНТАЖИТИ PDF</a>
-            <br><br>
-            <button onclick="closeModal()" style="background:none; border:none; color:#555; cursor:pointer;">[ ЗАКРИТИ ]</button>
+            </div>
         </div>
+
     </div>
+
+    <div id="fileModal" class="modal">
+       <div class="modal-content">
+<h3 id="modalTitle" style="color:var(--neon)">Файл</h3>
+<p style="color:#777">Готовий до завантаження.</p>
+<a id="downloadBtn" class="action-btn" href="#" download><i class="fas fa-download"></i> ЗАВАНТАЖИТИ PDF</a><br><br>
+<button onclick="closeModal()" style="background:none; border:none; color:#555; cursor:pointer;">[ ЗАКРИТИ ]</button>
+</div>
+</div>
 
     <script>
         function switchTab(tabId) {
-            // 1. Ховаємо всі розділи
             document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
-            // 2. Прибираємо підсвітку з усіх кнопок меню
             document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-            
-            // 3. Показуємо той розділ, на який натиснули
             const target = document.getElementById(tabId);
-            if(target) {
-                target.classList.add('active');
-            } else {
-                console.error("Не знайдено блок з id: " + tabId);
-            }
+            if(target) target.classList.add('active');
             
-            // 4. Визначаємо, яку головну кнопку в меню треба підсвітити
             let rootId = tabId;
             if(tabId.startsWith('cont-')) rootId = 'sub-contacts';
             if(tabId.startsWith('ubd-')) rootId = 'ubd-main';
             if(tabId.startsWith('sub-vidpustky') || tabId.startsWith('sub-kadry-money') || tabId.startsWith('sub-zminy')) rootId = 'kadry';
             if(tabId.startsWith('sub-house')) rootId = 'house';
-            if(tabId.startsWith('bank')) rootId = 'bank';
             if(tabId.startsWith('sub-rent')) rootId = 'money';
             
-            // 5. Підсвічуємо кнопку
             const nav = document.querySelector(`[onclick="switchTab('${rootId}')"]`);
             if(nav) nav.classList.add('active');
+            if(nav) nav.classList.add('active');
         }
-
         function showModal(title, fileName) { 
             document.getElementById('modalTitle').innerText = title; 
             document.getElementById('fileModal').style.display = 'flex'; 
             document.getElementById('downloadBtn').href = fileName; 
         }
-
-        function closeModal() { 
-            document.getElementById('fileModal').style.display = 'none'; 
-        }
+        function closeModal() { document.getElementById('fileModal').style.display = 'none'; }
     </script>
 </body>
 </html>
