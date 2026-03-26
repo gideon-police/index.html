@@ -413,11 +413,9 @@
             <div class="contact-box">
                 <h3>👓 МЦ «Люксоптика»</h3>
                 <p><strong>Безкоштовно:</strong> Перевірка зору, виготовлення окулярів за рецептом, видача лінз.</p>
-               <p>📞 Гаряча лінія: 0 800 30 98 97</p>
-            </div>
-        </div>
-    </div>
-
+            <p>📞 Гаряча лінія: 0 800 30 98 97</p>
+            </div> <!-- Закрили внутрішній блок медицини -->
+        </div> <!-- Закрили розділ ubd-medical -->
 
         <!-- ================== РОЗДІЛ БАНКІВСЬКІ РЕКВІЗИТИ ================== -->
         <div id="bank" class="content-section">
@@ -426,7 +424,7 @@
                 
                 <h2>💳 Зміна банківських реквізитів</h2>
                 <p style="font-size: 1.1rem; line-height: 1.6; color: #e0e0e0;">
-                    Якщо ви змінили банк або ваш рахунок було заблоковано, необхідно терміново надати нові дані до фінансового підрозділу.
+                    Якщо ви змінили банк або ваш рахунок було заблоковано, необхідно надати нові дані до фінансового підрозділу (УФЗБО).
                 </p>
 
                 <div class="info-step">
@@ -434,7 +432,7 @@
                     <ul class="list-style">
                         <li><i class="fas fa-check-circle"></i> <strong>Крок 1:</strong> Отримайте довідку IBAN у додатку банку.</li>
                         <li><i class="fas fa-check-circle"></i> <strong>Крок 2:</strong> Напишіть рапорт на ім'я керівника.</li>
-                        <li><i class="fas fa-check-circle"></i> <strong>Крок 3:</strong> Подайте рапорт та довідку до бухгалтерії (УФЗБО).</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Крок 3:</strong> Подайте рапорт та довідку до бухгалтерії.</li>
                     </ul>
                 </div>
 
@@ -444,12 +442,12 @@
                         <i class="fas fa-file-download"></i> ЗАВАНТАЖИТИ РАПОРТ
                     </button>
                 </div>
-            </div> 
-        </div> 
+            </div> <!-- Закрили glass-panel -->
+        </div> <!-- Закрили розділ bank -->
 
-    </div> 
+    </div> <!-- ОСЬ ЦЕЙ DIV ЗАКРИВАЄ ВЕСЬ MAIN-CONTENT (ВАЖЛИВО!) -->
 
- 
+    <!-- МОДАЛЬНЕ ВІКНО -->
     <div id="fileModal" class="modal">
         <div class="modal-content">
             <h3 id="modalTitle" style="color:var(--neon)">Файл</h3>
@@ -462,12 +460,20 @@
 
     <script>
         function switchTab(tabId) {
+            // 1. Ховаємо всі розділи
             document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+            // 2. Прибираємо підсвітку з усіх кнопок меню
             document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
             
+            // 3. Показуємо той розділ, на який натиснули
             const target = document.getElementById(tabId);
-            if(target) target.classList.add('active');
+            if(target) {
+                target.classList.add('active');
+            } else {
+                console.error("Не знайдено блок з id: " + tabId);
+            }
             
+            // 4. Визначаємо, яку головну кнопку в меню треба підсвітити
             let rootId = tabId;
             if(tabId.startsWith('cont-')) rootId = 'sub-contacts';
             if(tabId.startsWith('ubd-')) rootId = 'ubd-main';
@@ -476,6 +482,7 @@
             if(tabId.startsWith('bank')) rootId = 'bank';
             if(tabId.startsWith('sub-rent')) rootId = 'money';
             
+            // 5. Підсвічуємо кнопку
             const nav = document.querySelector(`[onclick="switchTab('${rootId}')"]`);
             if(nav) nav.classList.add('active');
         }
