@@ -58,6 +58,7 @@
         <div class="nav-item" onclick="switchTab('sub-contacts')"><i class="fas fa-address-book"></i> Довідник контактів</div>
         <div class="nav-item" onclick="switchTab('ubd-main')"><i class="fas fa-medal"></i> СТАТУС УБД</div>
         <div class="nav-item" onclick="switchTab('bank')"><i class="fas fa-university"></i> Банківські реквізити</div>
+        <div class="nav-item" onclick="switchTab('union')"><i class="fas fa-users"></i> Профспілка</div>
     </div>
 
     <div class="main-content">
@@ -445,6 +446,102 @@
                 </div>
             </div>
         </div>
+    </div>
+
+<div id="union" class="content-section">
+    <div class="glass-panel">
+        <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('home')">← НА ГОЛОВНУ</button>
+        <h2>🤝 ПРОФСПІЛКА ГУНП (ППО)</h2>
+        <p style="font-size: 1.1rem; line-height: 1.6;">
+            Профспілка — це не лише внески, а й реальна фінансова підтримка у важливі моменти життя та захист ваших прав. <br>
+            <span style="color: var(--neon); font-weight: bold;"><i class="fas fa-thumbtack"></i> Внесок становить 1% від грошового забезпечення щомісячно.</span>
+        </p>
+
+        <div class="cards-grid">
+            <div class="sub-card" onclick="switchTab('union-payments')">
+                <i class="fas fa-hand-holding-usd"></i>
+                <h3>Профспілкові виплати 2026</h3>
+                <p>Допомога при народженні, лікуванні та інше.</p>
+            </div>
+            <div class="sub-card" onclick="switchTab('union-join')">
+                <i class="fas fa-file-signature"></i>
+                <h3>Як вступити до ППО</h3>
+                <p>Алгоритм та перелік документів.</p>
+            </div>
+            <div class="sub-card" onclick="switchTab('union-extra')">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Додаткова підтримка</h3>
+                <p>Юридична допомога та спорядження.</p>
+            </div>
+            <div class="sub-card" onclick="switchTab('union-docs')">
+                <i class="fas fa-download"></i>
+                <h3>Бланки заяв (Скачати)</h3>
+                <p>Усі необхідні PDF шаблони.</p>
+            </div>
+        </div>
+
+        <div class="contact-box" style="margin-top: 30px;">
+            <p><i class="fas fa-user-tie"></i> <strong>Голова ППО ГУНП:</strong> Валерій НЕДОПАС</p>
+            <p><i class="fas fa-university"></i> <strong>Начальник УФЗБО:</strong> Тетяна САНЖАРІВЕЦЬ</p>
+        </div>
+    </div>
+</div>
+
+<div id="union-payments" class="content-section">
+    <div class="glass-panel">
+        <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('union')">← НАЗАД</button>
+        <h2>💰 Профспілкові виплати 2026</h2>
+        <ul class="list-style">
+            <li>👶 <strong>При народженні дитини:</strong> до 4660 грн.</li>
+            <li>🏥 <strong>Лікування члена профспілки:</strong> до 15 000 грн (з урахуванням податків).</li>
+            <li>🕯️ <strong>Допомога на поховання:</strong> до 15 000 грн (члена сім'ї — до 4660 грн).</li>
+            <li>🎁 <strong>Нагороди до свят:</strong> державні та професійні — 2000 грн.</li>
+            <li>🧸 <strong>Дітям:</strong> новорічні подарунки та подарунки до Дня весни.</li>
+            <li>💵 <strong>Інші виплати:</strong> сукупно до 4660 грн протягом року.</li>
+        </ul>
+    </div>
+</div>
+
+<div id="union-join" class="content-section">
+    <div class="glass-panel">
+        <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('union')">← НАЗАД</button>
+        <h2>📝 Як стати членом профспілки</h2>
+        <p>Необхідно подати пакет документів голові ППО:</p>
+        <ul class="list-style">
+            <li>📄 Заява на вступ.</li>
+            <li>💸 Заява на утримання внесків (1% на рахунок ППО).</li>
+            <li>👤 Згода на обробку персональних даних.</li>
+        </ul>
+        <p style="color: #aaa;">Порада: Ви можете завантажити ці бланки в розділі "Бланки заяв".</p>
+    </div>
+</div>
+
+<div id="union-extra" class="content-section">
+    <div class="glass-panel">
+        <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('union')">← НАЗАД</button>
+        <h2>🛠️ Крім грошей, ви маєте право на:</h2>
+        <ul class="list-style">
+            <li>⚖️ Безкоштовні юридичні консультації та захист прав.</li>
+            <li>🛡️ Забезпечення спорядженням (за потреби).</li>
+            <li>📦 Гуманітарну допомогу (при наявності).</li>
+            <li>🏆 Цінні подарунки для відділів (де понад 50% складу є членами ППО).</li>
+        </ul>
+    </div>
+</div>
+
+<div id="union-docs" class="content-section">
+    <div class="glass-panel">
+        <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('union')">← НАЗАД</button>
+        <h2>📥 Бланки для завантаження</h2>
+        <div class="cards-grid">
+            <button class="action-btn" onclick="showModal('Заява на вступ', 'zayava_vstup_ppo.pdf')">ЗАЯВА НА ВСТУП</button>
+            <button class="action-btn" onclick="showModal('Заява на виплату', 'zayava_vyplata_ppo.pdf')">ЗАЯВА НА ВИПЛАТУ</button>
+            <button class="action-btn" onclick="showModal('Заява на утримання', 'zayava_utrymannya_ppo.pdf')">ЗАЯВА НА УТРИМАННЯ</button>
+            <button class="action-btn" onclick="showModal('Згода на дані', 'zgoda_obrobka_ppo.pdf')">ЗГОДА НА ДАНІ</button>
+            <button class="action-btn" style="background: var(--neon); color: #000;" onclick="showModal('Розрахунки 2026', 'rozrahunky_ppo_2026.pdf')">РОЗРАХУНКИ 2026</button>
+        </div>
+    </div>
+</div>
 
     </div>
 
