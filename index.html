@@ -56,8 +56,9 @@
         <div class="nav-item" onclick="switchTab('house')"><i class="fas fa-key"></i> Квартирний облік</div>
         <div class="nav-item" onclick="switchTab('money')"><i class="fas fa-wallet"></i> Компенсація за винайм</div>
         <div class="nav-item" onclick="switchTab('sub-contacts')"><i class="fas fa-address-book"></i> Довідник контактів</div>
-        <div class="nav-item" onclick="switchTab('bank')"><i class="fas fa-credit-card"></i> Банківські реквізити</div>
         <div class="nav-item" onclick="switchTab('ubd-main')"><i class="fas fa-medal"></i> СТАТУС УБД</div>
+        <div class="nav-item" onclick="switchTab('bank')"><i class="fas fa-credit-card"></i> Банківські реквізити</div>
+
     </div>
 
     <div class="main-content">
@@ -443,9 +444,7 @@
             </div>
         </div>
     </div>
-</div>
 
-    </div>
 
     <div id="fileModal" class="modal"><div class="modal-content"><h3 id="modalTitle" style="color:var(--neon)">Файл</h3><p style="color:#777">Готовий до завантаження.</p><a id="downloadBtn" class="action-btn" href="#" download><i class="fas fa-download"></i> ЗАВАНТАЖИТИ PDF</a><br><br><button onclick="closeModal()" style="background:none; border:none; color:#555; cursor:pointer;">[ ЗАКРИТИ ]</button></div></div>
 
@@ -461,8 +460,8 @@
             if(tabId.startsWith('ubd-')) rootId = 'ubd-main';
             if(tabId.startsWith('sub-vidpustky') || tabId.startsWith('sub-kadry-money') || tabId.startsWith('sub-zminy')) rootId = 'kadry';
             if(tabId.startsWith('sub-house')) rootId = 'house';
-            if(tabId.startsWith('bank')) rootId = 'bank';
             if(tabId.startsWith('sub-rent')) rootId = 'money';
+            if(tabId.startsWith('bank')) rootId = 'bank';
             
             const nav = document.querySelector(`[onclick="switchTab('${rootId}')"]`);
             if(nav) nav.classList.add('active');
