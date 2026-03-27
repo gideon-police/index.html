@@ -19,6 +19,7 @@
             background-image: radial-gradient(var(--star) 1px, transparent 1px), linear-gradient(135deg, rgba(0, 242, 254, 0.04) 0%, transparent 50%);
             background-size: 70px 70px, 100% 100%; animation: starsMove 200s linear infinite;
         }
+
         @keyframes starsMove { from {background-position: 0 0;} to {background-position: 1000px 1000px;} }
         .sidebar { width: 320px; background: var(--side-bg); backdrop-filter: blur(30px); border-right: 1px solid var(--border); display: flex; flex-direction: column; padding: 20px; flex-shrink: 0; }
         .logo-text { font-family: 'Montserrat', sans-serif; font-size: 2.2rem; font-weight: 700; text-align: center; margin: 20px 0 40px 0; letter-spacing: 5px; text-shadow: 0 0 20px var(--neon); }
@@ -150,10 +151,66 @@
 @media (min-width: 769px) {
     .mobile-menu-toggle { display: none; }
 }
- 
+@media (max-width: 768px) {
+    /* Робимо так, щоб контент на телефоні можна було гортати вниз */
+    body {
+        height: auto !important;
+        overflow-y: auto !important;
+        display: block !important;
+    }
+
+    /* Налаштування самої кнопки (бургер-меню) */
+    .mobile-menu-toggle {
+        display: block !important;
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        z-index: 10001; /* Кнопка поверх усього */
+        background: var(--neon);
+        border: none;
+        color: #000;
+        padding: 10px 15px;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        box-shadow: 0 0 15px var(--neon);
+        cursor: pointer;
+    }
+
+    /* Ховаємо меню за лівий край екрана */
+    .sidebar {
+        position: fixed !important;
+        top: 0;
+        left: -100% !important; /* Меню за кадром */
+        width: 280px !important;
+        height: 100vh !important;
+        z-index: 10000 !important;
+        transition: 0.4s ease;
+        background: rgba(1, 4, 9, 0.98) !important;
+        display: flex !important;
+        padding-top: 70px !important;
+    }
+
+    /* Коли ми натискаємо кнопку, додається цей клас і меню виїжджає */
+    .sidebar.mobile-active {
+        left: 0 !important;
+    }
+
+    /* Контент розширюється на весь екран телефона */
+    .main-content {
+        margin-left: 0 !important;
+        padding: 80px 15px 20px 15px !important;
+        width: 100% !important;
+    }
+}
+
+/* Приховуємо кнопку на комп'ютері */
+@media (min-width: 769px) {
+    .mobile-menu-toggle { display: none; }
+}
     </style>
 </head>
 <body>
+    <button class="mobile-menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
     <div class="starfall-container">
         <div class="falling-star"></div>
         <div class="falling-star"></div>
