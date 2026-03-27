@@ -283,15 +283,78 @@
 
         <div id="sub-contacts" class="content-section">
             <div class="glass-panel">
-                <h2>🏛️ Довідник територіальних підрозділів</h2>
+                <h2>🏛️ Довідник територіальних підрозділів та керівництва ГУНП в Черкаській області</h2>
                 <div class="cards-grid">
+                    <div class="sub-card" onclick="switchTab('cont-gunp')" style="border: 1px solid var(--neon); background: rgba(0, 242, 254, 0.1);"><i class="fas fa-star"></i><h3>Керівництво Головного управління Національної поліції в Черкаській області</h3></div>
                     <div class="sub-card" onclick="switchTab('cont-chrup')"><i class="fas fa-building"></i><h3>Черкаське РУП ГУНП в Черкаській області</h3></div>
                     <div class="sub-card" onclick="switchTab('cont-urup')"><i class="fas fa-hotel"></i><h3>Уманське РУП ГУНП в Черкаській області</h3></div>
                     <div class="sub-card" onclick="switchTab('cont-zven')"><i class="fas fa-landmark"></i><h3>Звенигородське РВП ГУНП в Черкаській області</h3></div>
-                    <div class="sub-card" onclick="switchTab('cont-zolo')"><i class="fas fa-city"></i><h3>Золотоніське РВП ГУНП в Черкаській області</h3></div>
+                    <div class="sub-card" onclick="switchTab('cont-zolo')"><i class="fas fa-city"></i><h3>Золотоніське РВP ГУНП в Черкаській області</h3></div>
                 </div>
             </div>
         </div>
+
+       <div id="cont-gunp" class="content-section">
+    <div class="glass-panel">
+        <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('sub-contacts')">← НАЗАД ДО ДЕРЕВА</button>
+        
+        <h2>Керівництво ГУНП в Черкаській області</h2>
+        
+        <div class="contact-box" style="border: 2px solid var(--neon); margin-bottom: 25px;">
+            <p><i class="fas fa-map-marker-alt"></i> <strong>Адреса:</strong> м. Черкаси, вул. Смілянська, 57, 18000</p>
+            <p><i class="fas fa-phone"></i> <strong>Чергова частина:</strong> (0472) 393-001</p>
+        </div>
+
+        <div style="overflow-x: auto; background: rgba(255,255,255,0.02); border-radius: 10px; border: 1px solid var(--border);">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+                <thead>
+                    <tr style="border-bottom: 2px solid var(--border); text-align: left; background: rgba(0, 242, 254, 0.05);">
+                        <th style="padding: 12px; color: var(--neon);">Посада</th>
+                        <th style="padding: 12px; color: var(--neon);">Звання та ПІБ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <td style="padding: 12px;"><strong>Начальник Головного управління</strong></td>
+                        <td style="padding: 12px;">Полковник поліції <strong>МЕЖЕННИЙ Ярослав Євгенович</strong></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <td style="padding: 12px;">Перший заступник начальника ГУ – начальник слідчого управління</td>
+                        <td style="padding: 12px;">Тимчасово виконуючий обов’язки полковник поліції <strong>ОВСЯННИКОВ Олександр Валерійович</strong></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <td style="padding: 12px;">Заступник начальника ГУ – начальник кримінальної поліції</td>
+                        <td style="padding: 12px;">Тимчасово виконуючий обов’язки підполковник поліції <strong>КЕССЛЕР Дмитро Сергійович</strong></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <td style="padding: 12px;">Заступник начальника ГУНП</td>
+                        <td style="padding: 12px;">Тимчасово виконуючий обов’язки полковник <strong>НЕБОРАК Олег Володимирович</strong></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <td style="padding: 12px;">Заступник начальника ГУНП</td>
+                        <td style="padding: 12px;">Тимчасово виконуючий обов’язки полковник <strong>ТЮКОВ Андрій Володимирович</strong></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <td style="padding: 12px;">Помічник начальника ГУ</td>
+                        <td style="padding: 12px;">Майор поліції <strong>ЧЕРНИШ Оксана Сергіївна</strong></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <td style="padding: 12px;">Помічник начальника ГУ</td>
+                        <td style="padding: 12px;">Підполковник <strong>БОРИСОВ Євген Миколайович</strong></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <td style="padding: 12px;">Помічник начальника ГУ</td>
+                        <td style="padding: 12px;">Капітан <strong>СКЛЯР Микола Володимирович</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px;">Провідний консультант</td>
+                        <td style="padding: 12px;"><strong>ГОЛОВЧЕНКО Ігор Миколайович</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
         <div id="cont-chrup" class="content-section">
             <div class="glass-panel">
