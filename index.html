@@ -84,6 +84,70 @@
 }    
 
         @media (max-width: 768px) {
+    /* Кнопка виклику меню */
+    .mobile-menu-toggle {
+        display: block;
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        z-index: 10001;
+        background: var(--neon);
+        border: none;
+        color: #000;
+        padding: 10px 15px;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        box-shadow: 0 0 15px var(--neon);
+        cursor: pointer;
+    }
+
+    /* Бокове меню для мобілок */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -100%; /* Ховаємо меню зліва */
+        width: 280px;
+        height: 100vh;
+        z-index: 10000;
+        transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        background: rgba(1, 4, 9, 0.98);
+        backdrop-filter: blur(20px);
+        border-right: 1px solid var(--neon);
+        padding-top: 70px; /* Місце для кнопки зверху */
+    }
+
+    /* Коли меню активне - висуваємо його */
+    .sidebar.mobile-active {
+        left: 0;
+        box-shadow: 20px 0 50px rgba(0,0,0,0.8);
+    }
+
+    /* Елементи меню стають великими для пальців */
+    .nav-item {
+        margin: 10px 15px;
+        padding: 15px;
+        font-size: 1rem;
+        display: flex;
+    }
+
+    /* Контент розтягується на весь екран */
+    .main-content {
+        margin-left: 0;
+        padding: 80px 15px 20px 15px;
+    }
+
+    /* Картки в одну колонку */
+    .cards-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .glitch-text { font-size: 2.2rem !important; }
+}
+
+/* Приховуємо кнопку на комп'ютері */
+@media (min-width: 769px) {
+    .mobile-menu-toggle { display: none; }
+}dia (max-width: 768px) {
             body { 
                 flex-direction: column; /* Меню тепер зверху, контент знизу */
                 overflow-y: auto; 
@@ -160,8 +224,7 @@
         <div class="falling-star"></div>
         <div class="falling-star"></div>
     </div>
-    <div class="particles-container">...</div>
-    ...
+    <div class="particles-container"></div>
     <div class="particles-container">
     <div class="particle p1"></div>
     <div class="particle p2"></div>
@@ -184,7 +247,7 @@
             <div class="glass-panel">
                 <h1>GIDEON System 🌌</h1>
                 <p style="font-size: 1.3rem; line-height: 1.6;">Вітаємо в цифровому просторі <br><strong>Головного управління Національної поліції в Черкаській області</strong>.</p>
-                <p style="color: #d0d0d0; margin-top: 20px; font-size: 1.1rem;">Ваша інтелектуальна система підтримки. Оберіть потрібний розділ у меню зліва для початку роботи з даними.</p>
+                <p style="color: #d0d0d0; margin-top: 20px; font-size: 1.1rem;">GIDEON Ваша інтерактивна система підтримки. Це не просто сайт, а універсальна інформаційна платформа, створена спеціально для особового складу ГУНП в Черкаській області. </p>
             </div>
         </div>
 
@@ -204,8 +267,8 @@
                 <h2>🏠 Квартирний облік</h2>
                 <div class="cards-grid">
                     <div class="sub-card" onclick="switchTab('sub-house-algo')"><i class="fas fa-list-ol"></i><h3>Алгоритм дій</h3></div>
-                    <div class="sub-card" onclick="showModal('Рапорт (Включення)', 'vkluchennya.pdf')"><i class="fas fa-file-signature"></i><h3>Включення</h3></div>
-                    <div class="sub-card" onclick="showModal('Рапорт (Підтвердження)', 'pidtverdzhennya.pdf')"><i class="fas fa-check-double"></i><h3>Підтвердження</h3></div>
+                    <div class="sub-card" onclick="showModal('Рапорт (Включення)', 'vkluchennya.pdf')"><i class="fas fa-file-signature"></i><h3> Зразок рапорту на включення</h3></div>
+                    <div class="sub-card" onclick="showModal('Рапорт (Підтвердження)', 'pidtverdzhennya.pdf')"><i class="fas fa-check-double"></i><h3>Зразок рапорту на підтвердження</h3></div>
                 </div>
             </div>
         </div>
@@ -225,10 +288,10 @@
             <div class="glass-panel">
                 <h2>🏛️ Довідник територіальних підрозділів</h2>
                 <div class="cards-grid">
-                    <div class="sub-card" onclick="switchTab('cont-chrup')"><i class="fas fa-building"></i><h3>Черкаське РУП</h3></div>
-                    <div class="sub-card" onclick="switchTab('cont-urup')"><i class="fas fa-hotel"></i><h3>Уманське РУП</h3></div>
-                    <div class="sub-card" onclick="switchTab('cont-zven')"><i class="fas fa-landmark"></i><h3>Звенигородське РВП</h3></div>
-                    <div class="sub-card" onclick="switchTab('cont-zolo')"><i class="fas fa-city"></i><h3>Золотоніське РВП</h3></div>
+                    <div class="sub-card" onclick="switchTab('cont-chrup')"><i class="fas fa-building"></i><h3>Черкаське РУП ГУНП в Черкаській області</h3></div>
+                    <div class="sub-card" onclick="switchTab('cont-urup')"><i class="fas fa-hotel"></i><h3>Уманське РУП ГУНП в Черкаській області</h3></div>
+                    <div class="sub-card" onclick="switchTab('cont-zven')"><i class="fas fa-landmark"></i><h3>Звенигородське РВП ГУНП в Черкаській області</h3></div>
+                    <div class="sub-card" onclick="switchTab('cont-zolo')"><i class="fas fa-city"></i><h3>Золотоніське РВП ГУНП в Черкаській області</h3></div>
                 </div>
             </div>
         </div>
@@ -244,13 +307,13 @@
                     <p><i class="fas fa-phone"></i> 0472-393-601</p>
                 </div>
                 <div class="cards-grid">
-                    <div class="contact-box"><h3>🏢 ВПД № 1 (м. Черкаси)</h3><p>Начальник: підполковник поліції Кирило Барашковський</p><p><i class="fas fa-map-marker-alt"></i> провулок Медичний, 3, м.Черкаси, 18000</p><p><i class="fas fa-phone"></i> 0472-373-515</p></div>
-                    <div class="contact-box"><h3>🏢 ВПД № 2 (м. Чигирин)</h3><p>Тимчасово виконуючий обов'язки начальника: підполковник поліції Андрій Долінський</p><p><i class="fas fa-map-marker-alt"></i> м. Чигирин, вул. Б. Хмельницького, 55</p><p><i class="fas fa-phone"></i> 0230-600-03</p></div>
-                    <div class="contact-box"><h3>🏢 Відділ поліції № 1 (м. Канів)</h3><p>Тимчасово виконуючий обов'язки начальника: майор поліції В’ячеслав Ступенко</p><p><i class="fas fa-map-marker-alt"></i> м. Канів, вул. Енергетиків, 86</p><p><i class="fas fa-phone"></i> 0236-387-02</p></div>
-                    <div class="contact-box"><h3>🏢 Відділ поліції № 2 (м. Сміла)</h3><p>Начальник: майор поліції Сергій Данилюк</p><p><i class="fas fa-map-marker-alt"></i> м. Сміла, вул. Перемоги, 13</p><p><i class="fas fa-phone"></i> 04733-410-72</p></div>
-                    <div class="contact-box"><h3>🏢 СПД № 1 (м. Кам'янка)</h3><p>Начальник: підполковник поліції Валерій Паливода</p><p><i class="fas fa-map-marker-alt"></i> м. Кам’янка, вул. Пушкіна, 50</p><p><i class="fas fa-phone"></i> 0232-615-07</p></div>
-                    <div class="contact-box"><h3>🏢 Відділення поліції № 1 (м. Корсунь)</h3><p>Начальник: підполковник поліції Ігор Кротов</p><p><i class="fas fa-map-marker-alt"></i> м. Корсунь-Шевченківський, вул. Я. Мудрого, 36</p><p><i class="fas fa-phone"></i> 04735-208-52</p></div>
-                    <div class="contact-box"><h3>🏢 СПД № 1 (м. Городище)</h3><p>Начальник: полковник поліції Андрій Друмов</p><p><i class="fas fa-map-marker-alt"></i> м. Городище, вул. Миру, 77</p></div>
+                    <div class="contact-box"><h3>🏢 ВПД № 1 (м. Черкаси)</h3><p>Начальник: підполковник поліції Кирило БАРАШКОВСЬКИЙ</p><p><i class="fas fa-map-marker-alt"></i> провулок Медичний, 3, м.Черкаси, 18000</p><p><i class="fas fa-phone"></i> 0472-373-515</p></div>
+                    <div class="contact-box"><h3>🏢 ВПД № 2 (м. Чигирин)</h3><p>Тимчасово виконуючий обов'язки начальника: підполковник поліції Андрій ДОЛІНСЬКИЙ</p><p><i class="fas fa-map-marker-alt"></i> м. Чигирин, вул. Б. Хмельницького, 55</p><p><i class="fas fa-phone"></i> 0230-600-03</p></div>
+                    <div class="contact-box"><h3>🏢 Відділ поліції № 1 (м. Канів)</h3><p>Тимчасово виконуючий обов'язки начальника: майор поліції В’ячеслав СТПЕНКО</p><p><i class="fas fa-map-marker-alt"></i> м. Канів, вул. Енергетиків, 86</p><p><i class="fas fa-phone"></i> 0236-387-02</p></div>
+                    <div class="contact-box"><h3>🏢 Відділ поліції № 2 (м. Сміла)</h3><p>Начальник: майор поліції Сергій ДАНИЛЮК</p><p><i class="fas fa-map-marker-alt"></i> м. Сміла, вул. Перемоги, 13</p><p><i class="fas fa-phone"></i> 04733-410-72</p></div>
+                    <div class="contact-box"><h3>🏢 СПД № 1 (м. Кам'янка)</h3><p>Начальник: підполковник поліції Валерій ПАЛИВОДА</p><p><i class="fas fa-map-marker-alt"></i> м. Кам’янка, вул. Пушкіна, 50</p><p><i class="fas fa-phone"></i> 0232-615-07</p></div>
+                    <div class="contact-box"><h3>🏢 Відділення поліції № 1 (м. Корсунь)</h3><p>Начальник: підполковник поліції Ігор КРОТОВ</p><p><i class="fas fa-map-marker-alt"></i> м. Корсунь-Шевченківський, вул. Я. Мудрого, 36</p><p><i class="fas fa-phone"></i> 04735-208-52</p></div>
+                    <div class="contact-box"><h3>🏢 СПД № 1 (м. Городище)</h3><p>Начальник: полковник поліції Андрій ДРУМОВ</p><p><i class="fas fa-map-marker-alt"></i> м. Городище, вул. Миру, 77</p><p><i class="fas fa-phone"></i> 04734-2-22-56</p></div>
                 </div>
             </div>
         </div>
@@ -266,11 +329,11 @@
                     <p><i class="fas fa-phone"></i> 0(4744) 40366</p>
                 </div>
                 <div class="cards-grid">
-                    <div class="contact-box"><h3>🏢 ВПД № 1 (м. Монастирище)</h3><p>Начальник: майор поліції Сергій Журавльов</p><p><i class="fas fa-map-marker-alt"></i> м. Монастирище, вул. Гагаріна, 8</p></div>
-                    <div class="contact-box"><h3>🏢 ВПД № 2 (м. Умань)</h3><p>Начальник: підполковник поліції Ігор Козаченко</p><p><i class="fas fa-map-marker-alt"></i> м. Умань, вул. Європейська, 35</p></div>
-                    <div class="contact-box"><h3>🏢 ВПД № 3 (м. Христинівка)</h3><p>Начальник: майор поліції Павло Сухецький</p><p><i class="fas fa-map-marker-alt"></i> м. Христинівка, вул. Шевченка, 42</p><p><i class="fas fa-phone"></i> 0 (4745) 2-26-61</p></div>
-                    <div class="contact-box"><h3>🏢 Відділ поліції № 1 (м. Жашків)</h3><p>Начальник: підполковник поліції Андрій Чермісов</p><p><i class="fas fa-map-marker-alt"></i> м. Жашків, вул. Соборна, 100</p><p><i class="fas fa-phone"></i> 0 (4747) 6-21-31</p></div>
-                    <div class="contact-box"><h3>🏢 СПД № 1 (сел. Маньківка)</h3><p>Начальник: підполковник поліції Андрій Бенеда</p><p><i class="fas fa-map-marker-alt"></i> селище Маньківка, вул. Соборна, 24</p></div>
+                    <div class="contact-box"><h3>🏢 ВПД № 1 (м. Монастирище)</h3><p>Начальник: майор поліції Сергій ЖУРАВЛЬОВ</p><p><i class="fas fa-map-marker-alt"></i> м. Монастирище, вул. Гагаріна, 8</p><p><i class="fas fa-phone"></i> 04746-2-52-61</p></div>
+                    <div class="contact-box"><h3>🏢 ВПД № 2 (м. Умань)</h3><p>Начальник: підполковник поліції Ігор КОЗАЧЕНКО</p><p><i class="fas fa-map-marker-alt"></i> м. Умань, вул. Європейська, 35</p><p><i class="fas fa-phone"></i> 04744-5-31-03</p></div>
+                    <div class="contact-box"><h3>🏢 ВПД № 3 (м. Христинівка)</h3><p>Начальник: майор поліції Павло СУХЕЦЬКИЙ</p><p><i class="fas fa-map-marker-alt"></i> м. Христинівка, вул. Шевченка, 42</p><p><i class="fas fa-phone"></i> 04745-2-26-61</p></div>
+                    <div class="contact-box"><h3>🏢 Відділ поліції № 1 (м. Жашків)</h3><p>Начальник: підполковник поліції Андрій ЧЕРЕМІСОВ</p><p><i class="fas fa-map-marker-alt"></i> м. Жашків, вул. Соборна, 100</p><p><i class="fas fa-phone"></i> 04747-6-21-31</p></div>
+                    <div class="contact-box"><h3>🏢 СПД № 1 (сел. Маньківка)</h3><p>Начальник: підполковник поліції Андрій БЕНЕДА</p><p><i class="fas fa-map-marker-alt"></i> селище Маньківка, вул. Соборна, 24</p><p><i class="fas fa-phone"></i> 04748-6-15-02</p></div>
                 </div>
             </div>
         </div>
@@ -286,10 +349,10 @@
                     <p><i class="fas fa-phone"></i> 0 (4740) 2-22-78</p>
                 </div>
                 <div class="cards-grid">
-                    <div class="contact-box"><h3>🏢 ВПД № 1 (м. Тальне)</h3><p>Начальник: майор поліції Максим Поліщук</p><p><i class="fas fa-map-marker-alt"></i> м. Тальне вул. Соборна, 11</p><p><i class="fas fa-phone"></i> 0 (4731) 3-02-02</p></div>
-                    <div class="contact-box"><h3>🏢 ВПД № 2 (м. Шпола)</h3><p>Начальник: полковник поліції Віталій Сивенюк</p><p><i class="fas fa-map-marker-alt"></i> м. Шпола, вул. Волонтерська, 24</p><p><i class="fas fa-phone"></i> 0 (4741) 5-25-20</p></div>
-                    <div class="contact-box"><h3>🏢 СПД № 1 (сел. Калинопіль)</h3><p>Начальник: капітан поліції Анатолій Лимаренко</p><p><i class="fas fa-map-marker-alt"></i> селище Калинопіль, вул. Соборна, 44</p><p><i class="fas fa-phone"></i> (04742) 2-26-00</p></div>
-                    <div class="contact-box"><h3>🏢 СПД № 2 (смт Лисянка)</h3><p>Начальник: майор поліції Олександр Антощенко</p><p><i class="fas fa-map-marker-alt"></i> селище Лисянка, провулок Поштовий, 8</p><p><i class="fas fa-phone"></i> 098 285 3507</p></div>
+                    <div class="contact-box"><h3>🏢 ВПД № 1 (м. Тальне)</h3><p>Начальник: майор поліції Максим ПОЛІЩУК</p><p><i class="fas fa-map-marker-alt"></i> м. Тальне вул. Соборна, 11</p><p><i class="fas fa-phone"></i> 04731-3-02-02</p></div>
+                    <div class="contact-box"><h3>🏢 ВПД № 2 (м. Шпола)</h3><p>Начальник: полковник поліції Віталій СИВЕНЮК</p><p><i class="fas fa-map-marker-alt"></i> м. Шпола, вул. Волонтерська, 24</p><p><i class="fas fa-phone"></i> 04741-5-25-20</p></div>
+                    <div class="contact-box"><h3>🏢 СПД № 1 (сел. Калинопіль)</h3><p>Начальник: капітан поліції Анатолій ЛИМАРЕНКО</p><p><i class="fas fa-map-marker-alt"></i> селище Калинопіль, вул. Соборна, 44</p><p><i class="fas fa-phone"></i> 04742-2-26-00</p></div>
+                    <div class="contact-box"><h3>🏢 СПД № 2 (смт Лисянка)</h3><p>Начальник: майор поліції Олександр АНТОЩЕНКО</p><p><i class="fas fa-map-marker-alt"></i> селище Лисянка, провулок Поштовий, 8</p><p><i class="fas fa-phone"></i> 098-285-3507</p></div>
                 </div>
             </div>
         </div>
@@ -305,8 +368,8 @@
                     <p><i class="fas fa-phone"></i> 04737-525-70</p>
                 </div>
                 <div class="cards-grid">
-                    <div class="contact-box"><h3>🏢 ВПД № 1 (сел. Драбів)</h3><p>Начальник: майор поліції Юрій Куліш</p><p><i class="fas fa-map-marker-alt"></i> селище Драбів, вул. Центральна, 81</p></div>
-                    <div class="contact-box"><h3>🏢 ВПД № 2 (сел. Чорнобай)</h3><p>Начальник: підполковник поліції Олег Скачко</p><p><i class="fas fa-map-marker-alt"></i> селище Чорнобай, вул. Центральна, 216</p></div>
+                    <div class="contact-box"><h3>🏢 ВПД № 1 (сел. Драбів)</h3><p>Начальник: майор поліції Юрій КУЛІШ</p><p><i class="fas fa-map-marker-alt"></i> селище Драбів, вул. Центральна, 81</p><p><i class="fas fa-phone"></i>04738-2-26-02</p></div>
+                    <div class="contact-box"><h3>🏢 ВПД № 2 (сел. Чорнобай)</h3><p>Начальник: підполковник поліції Олег СКАЧКО</p><p><i class="fas fa-map-marker-alt"></i> селище Чорнобай, вул. Центральна, 216</p><p><i class="fas fa-phone"></i>04739-2-25-09</p></div>
                 </div>
             </div>
         </div>
@@ -330,8 +393,8 @@
                 <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('kadry')">← НАЗАД</button>
                 <h2>💰 Допомога</h2>
                 <div class="cards-grid">
-                    <div class="sub-card" onclick="showModal('На оздоровлення', 'ozdorovlennya.pdf')"><h3>🏥 Рапорт на оздоровлення</h3></div>
-                    <div class="sub-card" onclick="showModal('Соц-побут', 'soc_pobut.pdf')"><h3>🤝 Рапорт на соціально-побутова</h3></div>
+                    <div class="sub-card" onclick="showModal('На оздоровлення', 'ozdorovlennya.pdf')"><h3>🏥 Зразок рапорту на оздоровлення</h3></div>
+                    <div class="sub-card" onclick="showModal('Соц-побут', 'soc_pobut.pdf')"><h3>🤝 Зразок рапорту на соціально-побутову допомогу</h3></div>
                 </div>
             </div>
         </div>
@@ -341,9 +404,9 @@
                 <button class="action-btn" style="background:#444; margin-bottom:20px;" onclick="switchTab('kadry')">← НАЗАД</button>
                 <h2>🚀 Зміни</h2>
                 <div class="cards-grid">
-                    <div class="sub-card" onclick="showModal('Переведення', 'perevedennya.pdf')"><h3>🔃 Переведення на іншу посаду</h3></div>
-                    <div class="sub-card" onclick="showModal('Звільнення 10+', 'zvilnennya_10.pdf')"><h3>🎖️ Звільнення (стаж більше 10 років)</h3></div>
-                    <div class="sub-card" onclick="showModal('Звільнення', 'zvilnennya.pdf')"><h3>🌱 Звільнення (стаж менше 10 років)</h3></div>
+                    <div class="sub-card" onclick="showModal('Переведення', 'perevedennya.pdf')"><h3>🔃 Зразок рапорту на переведення</h3></div>
+                    <div class="sub-card" onclick="showModal('Звільнення 10+', 'zvilnennya_10.pdf')"><h3>🎖️ Зразок рапорту на звільнення (стаж більше 10 років)</h3></div>
+                    <div class="sub-card" onclick="showModal('Звільнення', 'zvilnennya.pdf')"><h3>🌱 Зразок рапорту на звільнення (стаж менше 10 років)</h3></div>
                 </div>
             </div>
         </div>
@@ -695,6 +758,27 @@
             document.getElementById('downloadBtn').href = fileName; 
         }
         function closeModal() { document.getElementById('fileModal').style.display = 'none'; }
+        function toggleMenu() {
+    const sidebar = document.querySelector('.sidebar');
+    sidebar.classList.toggle('mobile-active');
+    
+    // Міняємо іконку з "бургер" на "хрестик"
+    const icon = document.querySelector('.mobile-menu-toggle i');
+    if (sidebar.classList.contains('mobile-active')) {
+        icon.classList.replace('fa-bars', 'fa-times');
+    } else {
+        icon.classList.replace('fa-times', 'fa-bars');
+    }
+}
+
+// Закриваємо меню автоматично після натискання на пункт (для мобілок)
+document.querySelectorAll('.nav-item').forEach(item => {
+    item.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+            toggleMenu();
+        }
+    });
+});
     </script>
 </body>
 </html>
